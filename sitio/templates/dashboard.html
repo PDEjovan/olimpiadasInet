@@ -1,0 +1,190 @@
+{% extends 'layouts/nav.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{% static '/styles/dashboard_styles.css' %}">
+</head>
+
+<div class="graphics_container">
+
+    <div class="datos_dashboard">
+        <p class="subtit_dato_dashboard">Dato 1</p>
+        <h2 class="dato_numerico_dashboard">10.000</h2>
+    </div>
+    <div class="datos_dashboard">
+        <p class="subtit_dato_dashboard">Dato 2</p>
+        <h2 class="dato_numerico_dashboard">5.000</h2>
+    </div>
+    <div class="datos_dashboard">
+        <p class="subtit_dato_dashboard">Dato 3</p>
+        <h2 class="dato_numerico_dashboard">350</h2>
+    </div>
+    <div class="datos_dashboard">
+        <p class="subtit_dato_dashboard">Dato 4</p>
+        <h2 class="dato_numerico_dashboard">9000</h2>
+    </div>
+
+    <div class="extra_info_dashboard">
+        <div class="item_extra_info">
+            <p class="subtit_dato_dashboard">Dato 4</p>
+            <h2 class="dato_numerico_dashboard">5.000</h2>
+        </div>
+        <div class="item_extra_info">
+            <p class="subtit_dato_dashboard">Dato 5</p>
+            <h2 class="dato_numerico_dashboard">5.000</h2>
+        </div>
+        <div class="item_extra_info">
+            <p class="subtit_dato_dashboard">Dato 6</p>
+            <h2 class="dato_numerico_dashboard">5.000</h2>
+        </div>
+    </div>
+    <div class="grafico grafico_main">
+        <canvas id="grafico1"></canvas>
+    </div>
+    <div class="grafico grafico_2">
+        <div>
+            <canvas id="grafico2"></canvas>
+        </div>
+        <div>
+            hola
+        </div>
+    </div>
+    <div class="grafico grafico_3">
+        <canvas id="grafico3"></canvas>
+    </div>
+    <div class="grafico grafico_4">
+        <canvas id="grafico4"></canvas>
+    </div>
+
+</div>
+  
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+<script>
+    const graf1 = document.getElementById('grafico1');
+    
+    new Chart(graf1, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1,
+        }]
+      },
+      options: {
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+        
+        maintainAspectRatio:false,
+       
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+</script>
+<script>
+    const graf2 = document.getElementById('grafico2');
+    graf2.height = 100;
+    new Chart(graf2, {
+      type: 'doughnut',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1,
+        }]
+      },
+      options: {
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+        
+        maintainAspectRatio:false,
+       
+        scales: {
+          y: {
+            display:false
+          },
+          x:{
+            display:false
+          }
+        }
+      }
+    });
+</script>
+<script>
+    const graf3 = document.getElementById('grafico3');
+  
+    new Chart(graf3, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1,
+        }]
+      },
+      options: {
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+        
+        maintainAspectRatio:false,
+       
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+</script>
+<script>
+    const graf4 = document.getElementById('grafico4');
+  
+    new Chart(graf4, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1,
+        }]
+      },
+      options: {
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+        
+        maintainAspectRatio:false,
+       
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+</script>
+
+{% endblock %}
