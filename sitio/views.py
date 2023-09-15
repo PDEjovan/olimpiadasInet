@@ -17,3 +17,6 @@ def areas (request):
 
 def calls (request):
     return render(request, 'calls.html') 
+
+def pacientes (request):
+    return render(request, 'pacientes.html') 
