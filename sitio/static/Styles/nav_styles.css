@@ -302,3 +302,10 @@ body{
   width: calc(100% - 250px);
 }
 
+.logout_icon{
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
