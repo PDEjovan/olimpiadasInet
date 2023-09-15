@@ -16,3 +16,6 @@ def dashboard (request):
 
 def areas (request):
     return render(request, 'areas.html') 
+
+def calls (request):
+    return render(request, 'calls.html') 
