@@ -13,3 +13,6 @@ def login (request):
 
 def dashboard (request):
     return render(request, 'dashboard.html') 
+
+def calls (request):
+    return render(request, 'calls.html') 
