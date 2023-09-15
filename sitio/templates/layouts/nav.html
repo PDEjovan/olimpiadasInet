@@ -1,16 +1,22 @@
 {% load static %}
 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static '/styles/nav_styles.css' %}">
-    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<body>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/styles/nav_styles.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/41bcea2ae3.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="sidebar">
+<<<<<<< HEAD
         <div class="logo_details">
           <i class="bx bxl-audible icon"></i>
           <div class="logo_name">Code Effect</div>
@@ -89,13 +95,87 @@
             </li>
           </li>
         </ul>
+=======
+      <div class="logo_details">
+        <i class="bx bxl-audible icon"></i>
+        <div class="logo_name">Code Effect</div>
+        <i class="bx bx-menu" id="btn"></i>
+>>>>>>> ad8b05ee93eed7f89d0652f55199327fd3567549
       </div>
-      <section class="home-section">
-        <div class="text">Dashboard</div>
-        {% block content %}
-        {% endblock %}
-      </section>
+      <ul class="nav-list">
+        <li>
+          <a href="/">
+            <i class="fa-solid fa-house"></i>
+            <span class="link_name">Inicio</span>
+          </a>
+          <span class="tooltip">Inicio</span>
+        </li>
+        <li>
+          <a href="/dashboard">
+            <i class="bx bx-grid-alt"></i>
+            <span class="link_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-user"></i>
+            <span class="link_name">User</span>
+          </a>
+          <span class="tooltip">User</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-chat"></i>
+            <span class="link_name">Message</span>
+          </a>
+          <span class="tooltip">Message</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-pie-chart-alt-2"></i>
+            <span class="link_name">Analytics</span>
+          </a>
+          <span class="tooltip">Analytics</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-folder"></i>
+            <span class="link_name">File Manger</span>
+          </a>
+          <span class="tooltip">File Manger</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-cart-alt"></i>
+            <span class="link_name">Order</span>
+          </a>
+          <span class="tooltip">Order</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-cog"></i>
+            <span class="link_name">Settings</span>
+          </a>
+          <span class="tooltip">Settings</span>
+        </li>
+        <li class="profile">
+          <div class="profile_details">
+            <img
+              src="{% static '/images/Portrait_Placeholder.png' %}"
+              alt="profile image"
+            />
+            <div class="profile_content">
+              <div class="name"></div>
+              <div class="designation">Admin</div>
+            </div>
+          </div>
+          <i class="bx bx-log-out" id="log_out"></i>
+        </li>
+      </ul>
+    </div>
+    <section class="home-section">{% block content %} {% endblock %}</section>
 
-<script src="{% static '/Scripts/nav_script.js' %}"></script>
-</body>
+    <script src="{% static '/Scripts/nav_script.js' %}"></script>
+  </body>
 </html>
