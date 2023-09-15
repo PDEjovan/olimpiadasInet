@@ -13,7 +13,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700&family=Source+Code+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <h1 class="tit_login">Código Azul</h1>
     <form action="POST" class="login-box login">
+        {% csrf_token %}
         <div class="titulo_login"><h2>Iniciar Sesión</h2></div>
         <div class="user-box">
             <input type="text" name="" required="">

@@ -1,7 +1,6 @@
 {% extends 'layouts/nav.html' %}
 {% load static %}
 
-
 {% block content %}
 
 <head>
@@ -21,10 +20,6 @@
     <div class="datos_dashboard">
         <p class="subtit_dato_dashboard">Dato 3</p>
         <h2 class="dato_numerico_dashboard">350</h2>
-    </div>
-    <div class="datos_dashboard">
-        <p class="subtit_dato_dashboard">Dato 4</p>
-        <h2 class="dato_numerico_dashboard">9000</h2>
     </div>
 
     <div class="extra_info_dashboard">
@@ -49,7 +44,7 @@
             <canvas id="grafico2"></canvas>
         </div>
         <div>
-            hola
+            
         </div>
     </div>
     <div class="grafico grafico_3">
@@ -67,29 +62,81 @@
     const graf1 = document.getElementById('grafico1');
     
     new Chart(graf1, {
-      type: 'bar',
+      type: 'line',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
         datasets: [{
-          label: '# of Votes',
+          label: 'Emergencia',
           data: [12, 19, 3, 5, 2, 3],
-          borderWidth: 1,
+          borderWidth: 4,
+          backgroundColor: '#EF43CF',
+          borderColor: '#EF43CF'
+          
+        },
+        {
+          label: 'Normales',
+          data: [4, 2, 4, 19, 12, 8],
+          borderWidth: 4,
+          backgroundColor: '#38B6FF',
+          borderColor: '#38B6FF'
+          
         }]
       },
       options: {
+        layout: {
+          padding: {
+            left: 10,
+            right: 10,
+            top: 7,
+            bottom: 10,
+          }
+        },
         plugins: {
+            
+            title: {
+                display:true,
+                text: "Llamadas por año",
+                align: "center",
+                color: "#fff"
+            },
             legend: {
-                display: false
+                display: true,
+                position: 'right',
+                labels:{
+                  color: '#fff',
+                  padding:30
+                  
+                }
             }
         },
         
         maintainAspectRatio:false,
        
-        scales: {
-          y: {
-            beginAtZero: true
+        scales:{
+          x:{
+            color:'white',
+            border:{
+              color: 'white',
+            },
+            ticks:{
+              color:'white', beginAtZero: true,
+            },
+            grid:{
+              display:false,
+            },
+          },
+          y:{
+            ticks:{
+              color:'white', beginAtZero: true,
+            },
+            border:{
+              color: 'white',
+            },
+            grid:{
+              display:false,
+            },
           }
-        }
+        },
       }
     });
 </script>
@@ -99,19 +146,32 @@
     new Chart(graf2, {
       type: 'doughnut',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Emergencias', 'Normales'],
         datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
+          label: 'Llamados',
+          data: [5, 7],
+          backgroundColor: ['#EF43CF', '#38B6FF'],
           borderWidth: 1,
         }]
       },
       options: {
         plugins: {
+            
             legend: {
-                display: false
+                display: true,
+                position: "right",
+                labels:{
+                  color:'white',
+                },
+            },
+            title: {
+              display: true,
+              text: "% LLAMADOS",
+              color: '#fff',
+
             }
         },
+
         
         maintainAspectRatio:false,
        
@@ -123,6 +183,7 @@
             display:false
           }
         }
+
       }
     });
 </script>
@@ -136,29 +197,62 @@
         datasets: [{
           label: '# of Votes',
           data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: 'rgba(56, 182, 255 , 0.99)' ,
           borderWidth: 1,
+          borderColor: 'rgb(56, 182, 255)'
+          
         }]
       },
       options: {
+        scales:{
+          x:{
+            color:'white',
+            border:{
+              color: 'white',
+            },
+            ticks:{
+              color:'white', beginAtZero: true,
+            },
+            grid:{
+              color: '#7E7E7E',
+            },
+          },
+          y:{
+            ticks:{
+              color:'white', beginAtZero: true,
+            },
+            border:{
+              color: 'white',
+            },
+            grid:{
+              color: '#7E7E7E',
+            },
+          }
+        },
+
+        layout: {
+          padding: {
+            left: 10,
+            right: 10,
+            top: 20,
+            bottom: 10,
+          }
+        },
         plugins: {
             legend: {
-                display: false
-            }
+                display: false,
+                
+            },
         },
         
         maintainAspectRatio:false,
        
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
+        
       }
     });
 </script>
 <script>
     const graf4 = document.getElementById('grafico4');
-  
     new Chart(graf4, {
       type: 'bar',
       data: {
@@ -167,22 +261,57 @@
           label: '# of Votes',
           data: [12, 19, 3, 5, 2, 3],
           borderWidth: 1,
+          color:'white',
+          backgroundColor: 'rgba(239, 67, 207, 0.99)' ,
+          borderWidth: 1,
+          borderColor: 'rgb(239, 67, 207)'
         }]
       },
       options: {
+        scales:{
+          x:{
+            color:'white',
+            border:{
+              color: 'white',
+            },
+            ticks:{
+              color:'white', beginAtZero: true,
+            },
+            grid:{
+              color: '#7E7E7E',
+            },
+          },
+          y:{
+            ticks:{
+              color:'white', beginAtZero: true,
+            },
+            border:{
+              color: 'white',
+            },
+            grid:{
+              color: '#7E7E7E',
+            },
+          }
+        },
+
+        layout: {
+          padding: {
+            left: 10,
+            right: 10,
+            top: 20,
+            bottom: 10,
+          }
+        },
         plugins: {
             legend: {
-                display: false
-            }
+                display: false,
+                
+            },
         },
         
         maintainAspectRatio:false,
        
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
+        
       }
     });
 </script>

@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root{
-  --color-default:#004f83;
-  --color-second:#0067ac;
+  --color-default:#151515;
+  --color-second:#292828;
   --color-white:#fff;
-  --color-body:#fff;
+  --color-body:#1F1F1F;
   --color-light:#e0e0e0;
+  --color-text:#fff;
 }
 
 
@@ -290,7 +291,7 @@ body{
 
 .home-section .text{
   display: inline-block;
-  color:var(--color-default);
+  color:var(--color-text);
   font-size: 25px;
   font-weight: 500;
   margin: 18px;

@@ -139,3 +139,9 @@ body{
   .btn_login:active {
     transform: translateY(-1px);
   }
+
+  .tit_login{
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 2.4em;
+  }
