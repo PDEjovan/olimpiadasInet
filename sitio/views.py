@@ -13,3 +13,6 @@ def login (request):
 
 def dashboard (request):
     return render(request, 'dashboard.html') 
+
+def areas (request):
+    return render(request, 'areas.html') 

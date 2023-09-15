@@ -1,0 +1,82 @@
+{% extends 'layouts/nav.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'styles/areas_styles.css' %}">
+</head>
+<div class="text">Salas</div>
+<div class="container_salas">
+    <a href="/agregar_sala" class="crear_sala_card">
+        <div class="icon_agregar_sala"><i class="fa-solid fa-plus"></i></div>
+        <div class="txt_agregar_sala">
+            <p>Agregar Sala</p>
+        </div>
+    </a>
+    <div class="sala">
+        <div class="editar_y_eliminar">
+            <a href="/editar_sala">Editar</a>
+            <div class="borrar_sala">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        <div class="container_sala">
+            <div class="desc_sala">
+                <div class="nombre_sala">
+                    <p>Sala 1</p>
+                </div>
+                <p class="tipo_sala">
+                    Quirofano
+                </p>
+            </div>
+            <div class="icon_sala">
+                <i class="fa-solid fa-house"></i>
+            </div>
+        </div>
+        
+    </div>
+    <div class="sala">
+        <div class="editar_y_eliminar">
+            <a href="/editar_sala">Editar</a>
+            <div class="borrar_sala">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        <div class="container_sala">
+            <div class="desc_sala">
+                <div class="nombre_sala">
+                    <p>Sala 1</p>
+                </div>
+                <p class="tipo_sala">
+                    Quirofano
+                </p>
+            </div>
+            <div class="icon_sala">
+                <i class="fa-solid fa-house"></i>
+            </div>
+        </div>
+        
+    </div>
+    <div class="sala">
+        <div class="editar_y_eliminar">
+            <a href="/editar_sala">Editar</a>
+            <div class="borrar_sala">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        <div class="container_sala">
+            <div class="desc_sala">
+                <div class="nombre_sala">
+                    <p>Sala 1</p>
+                </div>
+                <p class="tipo_sala">
+                    Quirofano
+                </p>
+            </div>
+            <div class="icon_sala">
+                <i class="fa-solid fa-house"></i>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
