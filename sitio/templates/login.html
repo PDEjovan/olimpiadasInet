@@ -14,15 +14,15 @@
 </head>
 <body>
     <h1 class="tit_login">Código Azul</h1>
-    <form action="POST" class="login-box login">
+    <form action="" method="POST" class="login-box login">
         {% csrf_token %}
         <div class="titulo_login"><h2>Iniciar Sesión</h2></div>
         <div class="user-box">
-            <input type="text" name="" required="">
+            <input type="text" name="username" required="">
             <label>Username</label>
         </div>
         <div class="user-box">
-            <input type="password" name="" required="">
+            <input type="password" name="password" required="">
             <label>Password</label>
         </div><center>
         <button class="btn_login" type="submit">Confirmar</button>
