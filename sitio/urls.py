@@ -10,4 +10,5 @@ urlpatterns = [
     path('logout/',logout_then_login,name='logout'),
     path('calls/', views.calls),
     path('pacientes/', views.pacientes),
+    path('areas/', views.areas),
 ]
