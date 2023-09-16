@@ -1,83 +1,86 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 
-* {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  text-decoration: none;
-  text-transform: capitalize;
-  transition: 0.2s linear;
-}
 
-.container {
-  background-color: #1f1f1f;
-  padding: 15px 9%;
-  padding-bottom: 100px;
-}
 
-.container .heading {
-  text-align: center;
-  padding-bottom: 15px;
-  color: #fff;
-  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  font-size: 50px;
-}
-
-.container .box-container {
+.container_llamadas{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 2em;
+  column-gap: 4em;
+  padding: 2em;
 }
 
-.container .box-container .box {
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  background: #353a50;
-  text-align: center;
-  padding: 30px 20px;
-  border-radius: 20px;
+
+
+.container_llamadas img{
+  width: 100%;
 }
 
-.container .box-container .box img {
-  height: 80px;
+.container_llamadas a{
+  display: block;
 }
 
-.container .box-container .box h3 {
-  color: #ffffff;
-  font-size: 22px;
-  padding: 10px 0;
+.card_llamadas{
+  padding: 1em 2em .5em;
+  border: 2px solid #2F2F2F;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  color: #686868;
+  text-decoration: none;
 }
 
-.container .box-container .box p {
-  color: #ffffff;
-  font-size: 15px;
-  line-height: 1.8;
+
+
+.card_top_info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  color: white;
 }
 
-.container .box-container .box .btn {
-  margin-top: 10px;
-  display: inline-block;
-  background: #fdfdfd;
-  color: #000000;
-  font-size: 17px;
-  border-radius: 5px;
-  padding: 8px 25px;
+.txt_tipo_llamada{
+    background-color: #7A69E9;
+    padding: .35em;
+    border-radius: .5em;
+    color: white;
+    text-align: center;
+    flex: 1 1 0;
 }
 
-.container .box-container .box .btn:hover {
-  letter-spacing: 1px;
+.img_tipo_llamada img{
+  width: 30px;
 }
 
-.container .box-container .box:hover {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-  transform: scale(1.03);
+.img_tipo_llamada{
+  border-radius: 100%;
+  padding: .5em;
+  border: 2px solid #7A69E9;
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 20px;
-  }
+.card_bottom_info{
+  color: #686868;
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
 }
+
+.paciente_y_sala{
+  display: flex;
+  flex-direction: column;
+  padding-left: 1em;
+
+}
+
+.btn_atender{
+  display: flex;
+  color: white;
+  justify-self: right;
+  margin-right: -0.5em;
+}
+
+
+
+
