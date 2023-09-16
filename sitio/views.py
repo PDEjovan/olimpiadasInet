@@ -20,3 +20,6 @@ def calls (request):
 
 def pacientes (request):
     return render(request, 'pacientes.html') 
+
+def agregar_sala (request):
+    return render(request, 'agregar_sala.html') 

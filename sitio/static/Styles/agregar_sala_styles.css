@@ -1,0 +1,269 @@
+.form_agregar_sala {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(24, 20, 20, 0.987);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+  
+.tit_form_agregar_sala{
+    color: #fff;
+    padding-bottom: 1.5em;
+}
+
+  .form_agregar_sala .user-box {
+    position: relative;
+  }
+  
+  .form_agregar_sala .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+  .form_agregar_sala .user-box .label_input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .form_agregar_sala .user-box input:focus ~ .label_input,
+  .form_agregar_sala .user-box input:valid ~ .label_input {
+    top: -20px;
+    left: 0;
+    color: #bdb8b8;
+    font-size: 12px;
+  }
+  
+  .select {
+    position: relative;
+    top: 1em;
+    border: 1px solid #ccc;
+    width: 120px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+    
+  .select:before {
+      content: '';
+      position: absolute;
+      right: 5px;
+      top: 7px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 7px 5px 0 5px;
+      border-color: #000000 transparent transparent transparent;
+      z-index: 5;
+      pointer-events: none;
+  }
+
+  .label_select{
+    color: #fff;
+    padding-bottom: 1em;
+  }
+    
+  .select select {
+      padding: 5px 8px;
+      width: 130%;
+      border: none;
+      box-shadow: none;
+      background-color: transparent;
+      background-image: none;
+      appearance: none;
+  }
+
+  .agregar_sala_btn{
+    margin: 4em auto 0;
+  }
+
+
+  .button_agregar_sala {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 4em;
+
+  }
+  
+  .button_agregar_sala button {
+    width: 150px;
+    height: 50px;
+    background-color: white;
+    margin: 20px;
+    color: #000;
+    position: relative;
+    overflow: hidden;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+  }
+  
+  .button_agregar_sala button:before, .button_agregar_sala button:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: #00a326;
+    transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+  }
+  
+  .button_agregar_sala button:before {
+    right: 0;
+    top: 0;
+    transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+  }
+  
+  .button_agregar_sala button:after {
+    left: 0;
+    bottom: 0;
+  }
+  
+  .button_agregar_sala button span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+  }
+  
+  .button_agregar_sala button span:before, .button_agregar_sala button span:after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 0;
+    background-color: #00a326;
+    transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+  }
+  
+  .button_agregar_sala button span:before {
+    right: 0;
+    top: 0;
+    transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+  }
+  
+  .button_agregar_sala button span:after {
+    left: 0;
+    bottom: 0;
+  }
+  
+  .button_agregar_sala button p {
+    padding: 0;
+    margin: 0;
+    transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .button_agregar_sala button p:before, .button_agregar_sala button p:after {
+    position: absolute;
+    width: 100%;
+    transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+    z-index: 1;
+    left: 0;
+  }
+  
+  .button_agregar_sala button p:before {
+    content: attr(data-title);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .button_agregar_sala button p:after {
+    content: attr(data-text);
+    top: 150%;
+    color: #00a326;
+  }
+  
+  .button_agregar_sala button:hover:before, .button_agregar_sala button:hover:after {
+    width: 100%;
+  }
+  
+  .button_agregar_sala button:hover span {
+    z-index: 1;
+  }
+  
+  .button_agregar_sala button:hover span:before, .button_agregar_sala button:hover span:after {
+    height: 100%;
+  }
+  
+  .button_agregar_sala button:hover p:before {
+    top: -50%;
+    transform: rotate(5deg);
+  }
+  
+  .button_agregar_sala button:hover p:after {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .button_agregar_sala button.start {
+    background-color: #00a326;
+    box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+  }
+  
+  .button_agregar_sala button.start p:before {
+    top: -50%;
+    transform: rotate(5deg);
+  }
+  
+  .button_agregar_sala button.start p:after {
+    color: white;
+    transition: all 0s ease;
+    content: attr(data-start);
+    top: 50%;
+    transform: translateY(-50%);
+    animation: start 0.3s ease;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes start {
+    from {
+      top: -50%;
+    }
+  }
+  
+  .button_agregar_sala button.start:hover:before, .button_agregar_sala button.start:hover:after {
+    display: none;
+  }
+  
+  .button_agregar_sala button.start:hover span {
+    display: none;
+  }
+  
+  .button_agregar_sala button:active {
+    outline: none;
+    border: none;
+  }
+  
+  .button_agregar_sala button:focus {
+    outline: 0;
+  }

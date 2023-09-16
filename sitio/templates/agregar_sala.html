@@ -1,0 +1,38 @@
+{% extends 'layouts/nav.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{% static '/styles/agregar_sala_styles.css' %}">
+</head>
+
+<body>
+    <div class="text">Agregar Sala</div>
+    <form class="form_agregar_sala" action="" method="post">
+        <h2 class="tit_form_agregar_sala">Crear Sala</h2>
+        <div class="user-box">
+            <input type="text" name="" required="">
+            <label class="label_input">Nombre</label>
+        </div>
+        <div class="user-box">  
+            <label class="label_select">Tipo de Sala</label>
+            <div class="select">
+                <select name="">
+                    <option value="javascript">Sala comun</option>
+                    <option value="php">Quirófano</option>
+                    <option value="java">Java</option>
+                    <option value="golang">Golang</option>
+                    <option value="python">Python</option>
+                    <option value="c#">C#</option>
+                    <option value="C++">C++</option>
+                    <option value="erlang">Erlang</option>
+                </select>
+            </div>
+        </div>
+        <div class="button_agregar_sala">
+            <button><span></span><p data-start="good luck!" data-text="SALA!" data-title="CREAR"></p></button>
+         </div>
+    </form>
+</body>
+
+{% endblock %}
