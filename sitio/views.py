@@ -23,3 +23,6 @@ def pacientes (request):
 
 def agregar_sala (request):
     return render(request, 'agregar_sala.html') 
+
+def editar_sala (request):
+    return render(request, 'editar_sala.html') 
