@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 5em;
+    row-gap: 1.5em;
     margin: 2em auto 0;
     padding: 3em;
     background: rgba(24, 20, 20, 0.987);
@@ -11,17 +12,6 @@
     width: 70%;
   }
 
-.form_izquierda{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-.form_derecha{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
 
 .select_container{
     display: flex;
@@ -120,7 +110,6 @@
   .button_agregar_paciente {
     display: flex;
     justify-content: space-around;
-    padding-top: 4em;
     grid-column: 1/3;
 
   }
@@ -291,3 +280,94 @@
   .button_agregar_paciente button:focus {
     outline: 0;
   }
+
+.checkbox_dropdowns{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: left;
+}
+
+.checkbox_dropdown_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+ }
+ 
+ .checkbox_dropdown_container {
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+  width: 0%;
+ }
+ 
+ .chk_dropdown {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  background: #606062;
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.30), 0px 1px 1px rgba(0,5);
+ }
+ 
+ .checkbox_dropdown_container input:checked ~ .chk_dropdown {
+  background-image: linear-gradient(#00a326,#00a326)
+ }
+ 
+ .chk_dropdown:after {
+  content: "";
+  position: absolute;
+  display: none;
+ }
+ 
+ .checkbox_dropdown_container input:checked ~ .chk_dropdown:after {
+  display: block;
+ }
+ 
+ .checkbox_dropdown_container .chk_dropdown:after {
+  left: 0.45em;
+  top: 0.25em;
+  width: 0.25em;
+  height: 0.5em;
+  border: solid white;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+ }
+
+ .label_fijo{
+  font-size: 16px;
+  color: #fff;
+  padding: 10px 0 ;
+ }
+ 
+ .txt_chk_dropdown{
+  display: flex;
+  gap: 2em;
+  align-items: center;
+ }
+
+ #if_checked_alergia {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+#if_checked_enfermedad {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#if_checked_enf_o_cir {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#if_checked_tratamiento{
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+}
