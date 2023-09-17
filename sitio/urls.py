@@ -14,4 +14,5 @@ urlpatterns = [
     path('agregar_sala/', views.agregar_sala),
     path('editar_sala/', views.editar_sala),
     path('agregar_paciente/',login_required(views.agregar_paciente),name='agregar_paciente'),
+    path('editar_paciente/',login_required(views.editar_paciente),name='editar_paciente'),
 ]
