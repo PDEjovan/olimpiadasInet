@@ -43,3 +43,7 @@ class User(models.Model):
     email=models.EmailField()
     contraseña=models.CharField(max_length=50 )
     tipo_user=models.BooleanField(default=False)
+
+class Salas(models.Model):
+    nombre=models.CharField(max_length=50)
+    tipo_sala=models.CharField(max_length=50)

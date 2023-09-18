@@ -12,71 +12,30 @@
             <p>Agregar Sala</p>
         </div>
     </a>
+    {% for sala in salas %}
     <div class="sala">
         <div class="editar_y_eliminar">
-            <a href="/editar_sala">Editar</a>
+            <a href="{% url 'editar_sala' sala.id %}">Editar</a>
             <div class="borrar_sala">
                 <i class="fa-solid fa-xmark"></i>
             </div>
         </div>
+        
         <div class="container_sala">
             <div class="desc_sala">
                 <div class="nombre_sala">
-                    <p>Sala 1</p>
+                    <p>{{  sala.nombre }}</p>
                 </div>
                 <p class="tipo_sala">
-                    Quirofano
+                    {{  sala.tipo_sala }}
                 </p>
             </div>
             <div class="icon_sala">
                 <i class="fa-solid fa-house"></i>
             </div>
         </div>
-        
     </div>
-    <div class="sala">
-        <div class="editar_y_eliminar">
-            <a href="/editar_sala">Editar</a>
-            <div class="borrar_sala">
-                <i class="fa-solid fa-xmark"></i>
-            </div>
-        </div>
-        <div class="container_sala">
-            <div class="desc_sala">
-                <div class="nombre_sala">
-                    <p>Sala 1</p>
-                </div>
-                <p class="tipo_sala">
-                    Quirofano
-                </p>
-            </div>
-            <div class="icon_sala">
-                <i class="fa-solid fa-house"></i>
-            </div>
-        </div>
-        
-    </div>
-    <div class="sala">
-        <div class="editar_y_eliminar">
-            <a href="/editar_sala">Editar</a>
-            <div class="borrar_sala">
-                <i class="fa-solid fa-xmark"></i>
-            </div>
-        </div>
-        <div class="container_sala">
-            <div class="desc_sala">
-                <div class="nombre_sala">
-                    <p>Sala 1</p>
-                </div>
-                <p class="tipo_sala">
-                    Quirofano
-                </p>
-            </div>
-            <div class="icon_sala">
-                <i class="fa-solid fa-house"></i>
-            </div>
-        </div>
-        
-    </div>
+    {% endfor %}
+    
 </div>
 {% endblock %}

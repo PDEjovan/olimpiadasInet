@@ -8,16 +8,17 @@
 
 <body>
     <div class="text">Agregar Sala</div>
-    <form class="form_agregar_sala" action="" method="post">
+    <form class="form_agregar_sala" action="{% url 'procesar_formulario' %}" method="post">
+        {% csrf_token %}
         <h2 class="tit_form_agregar_sala">Crear Sala</h2>
         <div class="user-box">
-            <input type="text" name="" required="">
+            <input type="text" name="nombre" required="">
             <label class="label_input">Nombre</label>
         </div>
         <div class="user-box">  
             <label class="label_select">Tipo de Sala</label>
             <div class="select">
-                <select name="">
+                <select name="select_salas">
                     <option value="box">Box</option>
                     <option value="traumatismos">Traumatismos</option>
                     <option value="camas frias">Camas Frias</option>

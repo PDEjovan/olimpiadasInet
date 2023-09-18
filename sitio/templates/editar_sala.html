@@ -9,20 +9,21 @@
 <body>
     <div class="text">Editar Sala</div>
     <form class="form_agregar_sala" action="" method="post">
+        {% csrf_token %}
         <h2 class="tit_form_agregar_sala">Editar Sala</h2>
         <div class="user-box">
-            <input type="text" name="" value="Nombre Sala" required="">
+            <input type="text" name="nombre" value="{{ sala.nombre }}" required="">
             <label class="label_input">Nombre</label>
         </div>
         <div class="user-box">  
             <label class="label_select">Tipo de Sala</label>
             <div class="select">
-                <select name="">
-                    <option value="box">Box</option>
-                    <option selected="true" value="traumatismos">Traumatismos</option>
-                    <option value="camas frias">Camas Frias</option>
-                    <option value="shockroom">Shockroom</option>
-                    <option value="quirófano">Quirófano</option>
+                <select name="select_salas">
+                    <option value="box" {% if sala.tipo_sala == 'box' %}selected{% endif %}>Box</option>
+                    <option value="traumatismos" {% if sala.tipo_sala == 'traumatismos' %}selected{% endif %}>Traumatismos</option>
+                    <option value="camas frias" {% if sala.tipo_sala == 'camas frias' %}selected{% endif %}>Camas Frias</option>
+                    <option value="shockroom" {% if sala.tipo_sala == 'shockroom' %}selected{% endif %}>Shockroom</option>
+                    <option value="quirófano" {% if sala.tipo_sala == 'quirófano' %}selected{% endif %}>Quirófano</option>
                 </select>
             </div>
         </div>
