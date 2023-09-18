@@ -1,0 +1,63 @@
+{% extends 'layouts/nav.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{% static '/styles/agregar_editar_pacientes_styles.css' %}">
+</head>
+
+    <div class="text">Editar Paciente</div>
+    <div class="container_agregar_paciente">
+        <form class="form_agregar_paciente" action="" method="post">
+            <h2 class="tit_form_agregar_paciente">Modificar Paciente</h2>
+            <div class="form_izquierda">
+                <div class="user-box">
+                    <input type="text"  maxlength="8" name="" required="">
+                    <label class="label_input">DNI</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" name="" required="">
+                    <label class="label_input">Nombre</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" name="" required="">
+                    <label class="label_input">Apellido</label>
+                </div>
+                <div class="user-box">
+                    <input type="textarea" name="" required="">
+                    <label class="label_input">Dirección</label>
+                </div>
+            </div>
+            <div class="form_derecha">
+                <div class="user-box">
+                    <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  name="" required="">
+                    <label class="label_input">Teléfono</label>
+                </div>
+                <div class="user-box">
+                    <input type="email" name="" required="">
+                    <label class="label_input">Email</label>
+                </div>
+                <div class="user-box select_container">  
+                    <label class="label_select">Obra Social</label>
+                    <div class="select">
+                        <select name="">
+                            <option value="osecac">Osecac</option>
+                            <option value="osde">Osde</option>
+                            <option value="Apross">Apross</option>
+                            <option value="pami">Pami</option>
+                            <option value="quirófano">Swiss Medical</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="button_agregar_paciente">
+                <button><span></span><p data-start="good luck!" data-text="PACIENTE!" data-title="MODIFICAR"></p></button>
+            </div>
+
+        </form>
+    </div>
+
+
+{% endblock %}
