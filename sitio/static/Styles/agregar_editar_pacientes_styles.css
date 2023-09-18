@@ -347,6 +347,7 @@
  .txt_chk_dropdown{
   display: flex;
   gap: 2em;
+  justify-content: space-between;
   align-items: center;
  }
 
@@ -370,4 +371,51 @@
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 
+}
+
+.fec_nac{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  grid-column: 1/2;
+}
+
+.container_fec_nac{
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  gap: 1em;
+}
+
+.mes_fec_nac{
+  color: white;
+}
+
+.dia_fec_nac{
+  color: white;
+}
+
+.label_fec{
+  color: #fff;
+}
+
+.input_año_fec{
+  
+  height: calc(1.5em + 10px);
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.email, .telefono{
+  margin-bottom: 3em;
+}
+
+.obra_social{
+  margin-bottom: 3em;
 }
