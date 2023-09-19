@@ -23,8 +23,39 @@ def calls (request):
 def pacientes (request):
     return render(request, 'pacientes.html') 
 
+def agregar_paciente (request):
+    return render(request, 'agregar_pacientes.html') 
+
+
+def editar_paciente (request):
+    return render(request, 'editar_paciente.html') 
+
 def agregar_sala (request):
     return render(request, 'agregar_sala.html') 
 
-def editar_sala (request):
-    return render(request, 'editar_sala.html') 
+def editar_sala (request, sala_id):
+    sala = get_object_or_404(Salas, id=sala_id)
+    if request.method == 'POST':
+        # Obtén los datos del formulario
+        nombre = request.POST.get('nombre')
+        tipo = request.POST.get('select_salas')
+
+        # Actualiza los datos de la sala
+        sala.nombre = nombre
+        sala.tipo_sala = tipo
+        sala.save()
+
+        return redirect('areas')  # Reemplaza 'lista_salas' con la URL correcta
+
+    return render(request, 'editar_sala.html', {'sala': sala})
+
+def procesar_formulario(request):
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        tipo = request.POST.get('select_salas')
+
+        Salas.objects.create(nombre=nombre, tipo_sala=tipo)
+
+        return redirect('areas')  # Reemplaza 'lista_salas' con la URL correcta
+
+    return render(request, 'agregar_sala.html')
