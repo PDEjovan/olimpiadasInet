@@ -11,20 +11,18 @@ class Paciente(models.Model):
     direccion = models.TextField()
     email = models.EmailField()
     obra_social=models.ForeignKey(Obra_Social, on_delete=models.CASCADE)
-    
+    fecha_nacimiento=models.DateField(null=True)
+
+    genero=models.CharField(max_length=12, default='masculino')
     
     telefono = models.CharField(max_length=12)  # Puedes ajustar el patrón de validación según tu necesidad
 
-    tiene_alergia = models.BooleanField(default=False)
     alergia = models.CharField(max_length=255, blank=True, null=True)
     
-    tiene_enfermedad_cronica = models.BooleanField(default=False)
     enfermedad_cronica = models.CharField(max_length=255, blank=True, null=True)
     
-    bajo_tratamiento_medico = models.BooleanField(default=False)
     tratamiento_medico = models.CharField(max_length=255, blank=True, null=True)
     
-    ha_tenido_enfermedades_o_cirugias = models.BooleanField(default=False)
     enfermedades_o_cirugias = models.TextField(blank=True, null=True)
     
 class Zonas(models.Model):
