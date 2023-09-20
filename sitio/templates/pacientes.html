@@ -37,9 +37,9 @@
     <div class="icon_agregar_paciente"><i class="fa-solid fa-plus"></i></div>
     <div class="title_paciente">Agregar Paciente</div>
   </a>
-
-  <a href="/editar_paciente" class="paciente">
-      <div class="title_paciente">Jovan Martinovic</div>
+  {% for paciente in pacientes %}
+  <a href="{% url 'editar_paciente' paciente.id %}" class="paciente">
+      <div class="title_paciente">{{ paciente.nombre }}</div>
       <div class="extra_info_paciente">
         <div class="flex_info">
           <p>Sala: </p>
@@ -47,65 +47,15 @@
         </div>
         <div class="flex_info">
           <p>DNI: </p>
-          <p>94651007</p>
+          <p>{{ paciente.DNI }}</p>
         </div>
         <div class="flex_info">
           <p>Género: </p>
-          <p>M</p>
+          <p>{{ paciente.genero }}</p>
         </div>
       </div>
   </a>
-  <a href="/editar_paciente" class="paciente">
-    <div class="title_paciente">Jovan Martinovic</div>
-    <div class="extra_info_paciente">
-      <div class="flex_info">
-        <p>Sala: </p>
-        <p>Sala 56</p>
-      </div>
-      <div class="flex_info">
-        <p>DNI: </p>
-        <p>94651007</p>
-      </div>
-      <div class="flex_info">
-        <p>Género: </p>
-        <p>M</p>
-      </div>
-    </div>
-  </a>
-  <a href="/editar_paciente" class="paciente">
-    <div class="title_paciente">Jovan Martinovic</div>
-    <div class="extra_info_paciente">
-      <div class="flex_info">
-        <p>Sala: </p>
-        <p>Sala 56</p>
-      </div>
-      <div class="flex_info">
-        <p>DNI: </p>
-        <p>94651007</p>
-      </div>
-      <div class="flex_info">
-        <p>Género: </p>
-        <p>M</p>
-      </div>
-    </div>
-  </a>
-  <a href="/editar_paciente" class="paciente">
-    <div class="title_paciente">Jovan Martinovic</div>
-    <div class="extra_info_paciente">
-      <div class="flex_info">
-        <p>Sala: </p>
-        <p>Sala 56</p>
-      </div>
-      <div class="flex_info">
-        <p>DNI: </p>
-        <p>94651007</p>
-      </div>
-      <div class="flex_info">
-        <p>Género: </p>
-        <p>M</p>
-      </div>
-    </div>
-  </a>
+  {% endfor %}
 </div>
 <script>
   let selection = document.querySelector(".selection");

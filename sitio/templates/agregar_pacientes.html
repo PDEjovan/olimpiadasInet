@@ -8,11 +8,12 @@
 
     <div class="text">Agregar Paciente</div>
     <div class="container_agregar_paciente">
-        <form class="form_agregar_paciente" action="" method="post">
+        <form class="form_agregar_paciente" action="{% url 'agregar_paciente' %}" method="post">
+            {% csrf_token %}
             <h2 class="tit_form_agregar_paciente">Añadir Paciente</h2>
             
             <div class="user-box">
-                <input type="text"  maxlength="8" name="" required="">
+                <input type="text"  maxlength="8" name="DNI" required="">
                 <label class="label_input">DNI</label>
             </div>
 
@@ -20,19 +21,19 @@
                 <div class="txt_chk_dropdown">
                     <label class="label_fijo">¿Contiene alguna alergía?</label>
                     <label class="checkbox_dropdown_container">
-                        <input type="checkbox" id="chk_input_alergias">
+                        <input type="checkbox" id="chk_input_alergias" name="">
                         <div class="chk_dropdown"></div>
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_alergia">
-                    <input type="text" name="" required="">
+                    <input type="text" name="alergia" required="">
                     <label class="label_input">Alergía</label>
                 </div>
                 
             </div>
 
             <div class="user-box">
-                <input type="text" name="" required="">
+                <input type="text" name="nombre" required="">
                 <label class="label_input">Nombre</label>
             </div>
 
@@ -45,14 +46,14 @@
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_enfermedad">
-                    <input type="text" name="" required="">
+                    <input type="text" name="enf_cro" required="">
                     <label class="label_input">Enfermedad</label>
                 </div>
                 
             </div>
 
             <div class="user-box">
-                <input type="text" name="" required="">
+                <input type="text" name="apellido" required="">
                 <label class="label_input">Apellido</label>
             </div>
 
@@ -65,7 +66,7 @@
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_tratamiento">
-                    <input type="text" name="" required="">
+                    <input type="text" name="tratamiento" required="">
                     <label class="label_input">Tratamiento</label>
                 </div>
                 
@@ -73,7 +74,7 @@
 
 
             <div class="user-box">
-                <input type="textarea" name="" required="">
+                <input type="textarea" name="direccion" required="">
                 <label class="label_input">Dirección</label>
             </div>
 
@@ -87,21 +88,21 @@
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_enf_o_cir">
-                    <input type="textarea" name="" required="">
+                    <input type="textarea" name="enf_cir" required="">
                     <label class="label_input">Enfermedades o cirugias</label>
                 </div>
                 
             </div>
 
             <div class="user-box email">
-                <input type="email" name="" required="">
+                <input type="email" name="email" required="">
                 <label class="label_input">Email</label>
             </div>
 
             <div class="user-box select_container obra_social">  
                 <label class="label_select">Obra Social</label>
                 <div class="select">
-                    <select name="obra social">
+                    <select name="obra_social">
                         <option value="osecac">Osecac</option>
                         <option value="osde">Osde</option>
                         <option value="Apross">Apross</option>
@@ -112,7 +113,7 @@
             </div>
 
             <div class="user-box telefono">
-                <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  name="" required="">
+                <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  name="telf" required="">
                 <label class="label_input">Teléfono</label>
             </div>
 
@@ -123,18 +124,18 @@
                         <label class="label_fec">Mes</label>
                         <div class="select">
                             <select name="mes">
-                                <option value="enero">Enero</option>
-                                <option value="febrero">Febrero</option>
-                                <option value="marzo">Marzo</option>
-                                <option value="abril">Abril</option>
-                                <option value="mayo">Mayo</option>
-                                <option value="junio">Junio</option>
-                                <option value="julio">Julio</option>
-                                <option value="agosto">Agosto</option>
-                                <option value="septiembre">Septiembre</option>
-                                <option value="octubre">Octubre</option>
-                                <option value="noviembre">Noviembre</option>
-                                <option value="diciembre">Diciembre</option>
+                                <option value="1">Enero</option>
+                                <option value="2">Febrero</option>
+                                <option value="3">Marzo</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Mayo</option>
+                                <option value="6">Junio</option>
+                                <option value="7">Julio</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
                             </select>
                         </div>
                     </div>
@@ -180,7 +181,7 @@
                 
                     <div class="">
                         <label class="label_fec">Año</label>
-                        <!--Opcion 1--><input type="text" maxlength="4" minlength="4" class="input_año_fec" name="" id="">
+                        <!--Opcion 1--><input type="text" maxlength="4" minlength="4" class="input_año_fec" name="año" id="">
                         <!--Opcion 2: Consiste en poner un ciclo for que traiga de la base de datos los años desde el 1930 PE hasta el año actual, para que se haga en un select-->
                         <!--<div class="select">
                             <select name="dia">
@@ -199,13 +200,13 @@
                 </div>
                 <div class="radios">
                     <label class="radio-button">
-                        <input type="radio" name="example-radio" value="option1">
+                        <input type="radio" name="example-radio" value="Masculino">
                         <span class="radio"></span>
                         Masculino
                     </label>
                   
                     <label class="radio-button">
-                        <input type="radio" name="example-radio" value="option2">
+                        <input type="radio" name="example-radio" value="Femenino">
                         <span class="radio"></span>
                         Femenino
                     </label>

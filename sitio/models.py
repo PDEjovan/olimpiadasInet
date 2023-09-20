@@ -59,3 +59,4 @@ class User(models.Model):
 class Salas(models.Model):
     nombre=models.CharField(max_length=50)
     tipo_sala=models.CharField(max_length=50)
+
