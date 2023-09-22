@@ -18,11 +18,15 @@
 
             <div class="checkbox_dropdowns">
                 <div class="txt_chk_dropdown">
-                    <label class="label_fijo">¿Contiene alguna alergía?</label>
-                    <label class="checkbox_dropdown_container">
-                        <input type="checkbox" id="chk_input_alergias">
-                        <div class="chk_dropdown"></div>
-                    </label>
+                    <div>
+                        <label class="label_fijo">¿Contiene alguna alergía?</label>
+                    </div>
+                    <div>
+                        <label class="checkbox_dropdown_container">
+                            <input type="checkbox" id="chk_input_alergias">
+                            <div class="chk_dropdown"></div>
+                        </label>
+                    </div>
                 </div>
                 <div class="user-box" id="if_checked_alergia">
                     <input type="text" name="" required="">
@@ -102,6 +106,7 @@
                 <label class="label_select">Obra Social</label>
                 <div class="select">
                     <select name="obra social">
+                        <option selected value="ninguna">Ninguna</option>
                         <option value="osecac">Osecac</option>
                         <option value="osde">Osde</option>
                         <option value="Apross">Apross</option>
@@ -211,6 +216,32 @@
                     </label>
                 </div>
                   
+            </div>
+            <div class="user-box select_container enfermero">  
+                <label class="label_select">Enfermero</label>
+                <div class="select">
+                    <select name="enfermero asignado">
+                        <option value=""></option>
+                        <option value="Patricia Bullrich">Patricia Bullrich</option>
+                        <option value="macri">Macri</option>
+                        <option value="alberto">Alberto</option>
+                        <option value="milei">Milei</option>
+                        <option value="scioli">Scioli</option>
+                    </select>
+                </div>
+            </div>
+            <div class="user-box select_container zona">  
+                <label class="label_select">Zona</label>
+                <div class="select">
+                    <select name="zona paciente">
+                        <option value=""></option>
+                        <option value="sala 1">Sala 1</option>
+                        <option value="sala 2">Sala 2</option>
+                        <option value="sala 3">Sala 3</option>
+                        <option value="sala 4">Sala 4</option>
+                        <option value="sala 56">Sala 56</option>
+                    </select>
+                </div>
             </div>
 
             <div class="button_agregar_paciente">

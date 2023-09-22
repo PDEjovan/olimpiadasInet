@@ -1,0 +1,73 @@
+.perfil_paciente{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 5em;
+        row-gap: 1.5em;
+        margin: 0 auto 0;
+        padding: 3em;
+        background: rgba(24, 20, 20, 0.987);
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px rgba(0,0,0,.6);
+        border-radius: 10px;
+        width: 70%;
+        color: white;
+        position: relative;
+}
+
+.editar_perfil{
+        position: absolute;
+        top: 50px;
+        right: 50px;
+}
+
+.editar_perfil a{
+        color: white;
+}
+
+.container_perfil_paciente{
+        padding: 3em 0 5em;
+}
+
+.nombre_apellido{
+        grid-column: 1/3;
+        text-align: center;
+        padding-bottom: 2em;
+
+}
+
+.izquierda_perfil{
+        grid-column: 1/2;
+}
+
+
+.derecha_perfil{
+        grid-column: 2/3;
+}
+
+.derecha1{
+        grid-row: 2/3;
+}
+
+.derecha2{
+        grid-row: 3/4;
+}
+
+.derecha3{
+        grid-row: 4/5;
+}
+
+.derecha4{
+        grid-row: 5/6;
+}
+
+
+.zona_enfermero{
+        grid-column: 2/3;
+        grid-row: 6/8;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+        padding: 1em;
+        border: 2px solid rgb(141, 175, 191);
+        border-radius: .5em;
+}

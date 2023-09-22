@@ -3,11 +3,55 @@
 <head>
     <link rel="stylesheet" href="{% static '/Styles/perfil_paciente.css' %}">
 </head>
+<div class="text">Perfíl Paciente</div>
 <div class="container_perfil_paciente">
-    <div class="nombre_apellido">
-        Nombre Apellido
+    <div class="perfil_paciente">
+        <div class="editar_perfil">
+            <a href="/editar_paciente">Editar</a>
+        </div>
+        <div class="nombre_apellido">
+            <h2>Jovan Martinovic</h2>
+        </div>
+        <div class="item_perfil izquierda_perfil">
+            <p>DNI:</p> <p>94651007</p>
+        </div>
+        <div class="item_perfil izquierda_perfil">
+            <p>Género:</p> <p>Másculino</p>
+        </div>
+        <div class="item_perfil izquierda_perfil">
+            <p>Fecha Nacimiento: </p><p>19/02/2005</p>
+        </div>
+        <div class="item_perfil izquierda_perfil">
+            <p>Dirección: </p> <p>Argentina, Córdoba, La Cumbre, Pellegrini 11</p>
+        </div>
+        <div class="item_perfil izquierda_perfil telefono">
+            <p>Teléfono: </p> <p>3548 40-0949</p>
+        </div>
+        <div class="item_perfil izquierda_perfil email">
+            <p>Email: </p> <p>jovan4182@gmail.com</p>
+        </div>
+        <div class="item_perfil derecha_perfil derecha1">
+            <p>Alergias: </p><p>Ninguna</p>
+        </div>
+        <div class="item_perfil derecha_perfil derecha2">
+            <p>Enfermedades crónicas: </p><p>Ninguna</p>
+        </div>
+        <div class="item_perfil derecha_perfil derecha3">
+            <p>Bajo algún tratamiento médico: </p><p>Ninguna</p>
+        </div>
+        <div class="item_perfil derecha_perfil derecha4">
+            <p>Enfermedades o cirugias importantes: </p><p>Ninguna</p>
+        </div>
+        <div class="zona_enfermero">
+            <div class="item_perfil derecha_perfil derecha5">
+                <p>Zona: </p> <p>Sala 54</p>
+            </div>
+            <div class="item_perfil derecha_perfil derecha6">
+                <p>Enfermero/a asignado: </p> <p>Patricia Bullrich</p>
+            </div>
+        </div>
+
     </div>
-    
 </div>
 
 {% endblock %}

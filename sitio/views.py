@@ -27,6 +27,13 @@ def agregar_paciente (request):
     return render(request, 'agregar_pacientes.html') 
 
 
+def perfil_paciente (request):
+    return render(request, 'perfil_paciente.html') 
+
+def tabla_pacientes (request):
+    return render(request, 'tabla_pacientes.html') 
+
+
 def editar_paciente (request):
     return render(request, 'editar_paciente.html') 
 

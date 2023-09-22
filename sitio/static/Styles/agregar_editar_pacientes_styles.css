@@ -9,14 +9,16 @@
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
-    width: 70%;
+    width: 90%;
   }
 
+  
 
 .select_container{
     display: flex;
+    flex-direction: column;
     gap: 1em;
-    align-items: center;
+
 }
 
 .container_agregar_paciente{
@@ -65,13 +67,17 @@
     font-size: 12px;
   }
   
+
+
   .select {
     position: relative;
     top: 0em;
-    border: 1px solid #ccc;
-    overflow: hidden;
-    background-color: #fff;
     flex: 1 1 0;
+  }
+
+  .fec_nac .select{
+    background-color: #fff;
+    overflow: hidden;
   }
     
   .select:before {
@@ -94,10 +100,9 @@
     
   .select select {
       padding: 5px 8px;
-      width: 130%;
       border: none;
       box-shadow: none;
-      background-color: transparent;
+      background-color: white;
       background-image: none;
       appearance: none;
   }
@@ -289,7 +294,6 @@
 }
 
 .checkbox_dropdown_container input {
-  position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
@@ -306,7 +310,7 @@
  .chk_dropdown {
   position: relative;
   top: 0;
-  left: 0;
+  left: -1em;
   height: 1.3em;
   width: 1.3em;
   background: #606062;
@@ -378,7 +382,9 @@
   flex-direction: column;
   gap: 1em;
   grid-column: 1/2;
+  padding-top: 3em;
 }
+
 
 .container_fec_nac{
   display: grid;
@@ -417,8 +423,35 @@
 }
 
 .obra_social{
-  margin-bottom: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
+
+.zona{
+
+  grid-row: 7/8;
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+}
+
+.enfermero{
+  grid-row: 8/9;
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+
+.fec_nac{
+  grid-row: 9/10;
+}
+
+
 
 .radio-button {
   display: flex;
@@ -474,6 +507,7 @@
   flex-direction: column;
   gap: 1em;
   grid-column: 1/2;
+
 }
 
 .radios{

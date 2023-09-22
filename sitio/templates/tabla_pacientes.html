@@ -1,0 +1,58 @@
+{% extends 'layouts/nav.html' %} {% load static %} {% block content %}
+<head>
+    <link rel="stylesheet" href="{% static '/styles/tabla_paciente_styles.css' %}">
+</head>
+    <div class="text">Tabla Paciente</div>
+    <div class="table">
+        <section class="table__header">
+            <h1>Pacientes</h1>
+            <div class="input-group">
+                <input type="search" placeholder="Buscar paciente...">
+                <img src="../static/images/search.png" alt="">
+            </div>
+            <div class="export__file">
+                <label for="export-file" class="export__file-btn" title="Export File"></label>
+                <input type="checkbox" id="export-file">
+                <div class="export__file-options">
+                    <label><strong>Exportar</strong>&nbsp; &#10140;</label>
+                    <label for="export-file" id="toPDF"><strong>PDF</strong><img src="../static/images/pdf.png" alt=""></label>
+                    <label for="export-file" id="toCSV"><strong>CSV</strong><img src="../static/images/csv.png" alt=""></label>
+                    <label for="export-file" id="toXLS"><strong>XLS</strong><img src="../static/images/excel.png" alt=""></label>
+                </div>
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> DNI</th>
+                        <th> Nombre</th>
+                        <th> Apellido</th>
+                        <th> Fecha</th>
+                        <th> Hora atención</th>
+                        <th> Diagnóstico</th>
+                        <th> Patologías</th>
+                        <th> Medicación</th>
+                        <th> Doctor</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <img src="" alt="">
+                    <tr>
+                        <td> 1 </td>
+                        <td> Lucas</td>
+                        <td> Antun</td>
+                        <td> 28/09/04 </td>
+                        <td>16:00</td>
+                        <td> Hipertensión</td>
+                        <td> Esclerosis</td>
+                        <td> Paracetamol</td>
+                        <td> Díaz</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script src="{% static '/Scripts/pacientes_tabla_script.js' %}"></script>
+{% endblock %}
