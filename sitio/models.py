@@ -12,15 +12,17 @@ class Paciente(models.Model):
     email = models.EmailField()
     obra_social=models.ForeignKey(Obra_Social, on_delete=models.CASCADE)
     fecha_nacimiento=models.DateField(null=True)
+
+    genero=models.CharField(max_length=12, default='masculino')
     
     telefono = models.CharField(max_length=12)  # Puedes ajustar el patrón de validación según tu necesidad
 
     alergia = models.CharField(max_length=255, blank=True, null=True)
-
+    
     enfermedad_cronica = models.CharField(max_length=255, blank=True, null=True)
-
+    
     tratamiento_medico = models.CharField(max_length=255, blank=True, null=True)
-
+    
     enfermedades_o_cirugias = models.TextField(blank=True, null=True)
     
 class Zonas(models.Model):
@@ -57,3 +59,4 @@ class User(models.Model):
 class Salas(models.Model):
     nombre=models.CharField(max_length=50)
     tipo_sala=models.CharField(max_length=50)
+
