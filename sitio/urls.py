@@ -18,4 +18,5 @@ urlpatterns = [
     path('editar_paciente/',login_required(views.editar_paciente),name='editar_paciente'),
     path('perfil_paciente/',login_required(views.perfil_paciente),name='perfil_paciente'),
     path('tabla_pacientes/',login_required(views.tabla_pacientes),name='tabla_pacientes'),
+    path('medicos/',login_required(views.medicos),name='medicos'),
 ]
