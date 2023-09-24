@@ -9,11 +9,13 @@
     <div class="text">Agregar Paciente</div>
     <div class="container_agregar_paciente">
         <form class="form_agregar_paciente" action="" method="post">
+            {% csrf_token %}
             <h2 class="tit_form_agregar_paciente">Añadir Paciente</h2>
             
             <div class="user-box">
-                <input type="text"  maxlength="8" name="" required="">
+                <input type="text"  maxlength="8" name="dni" required id="dni">
                 <label class="label_input">DNI</label>
+                <p id="dni-error" class="error-message"></p>
             </div>
 
             <div class="checkbox_dropdowns">
@@ -25,15 +27,16 @@
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_alergia">
-                    <input type="text" name="" required="">
+                    <input type="text" id="alergiaInput" maxlength="200" name="alergia" required disabled>
                     <label class="label_input">Alergía</label>
                 </div>
                 
             </div>
 
             <div class="user-box">
-                <input type="text" name="" required="">
+                <input type="text" name="nombre" id="nombreInput" maxlength="50" required>
                 <label class="label_input">Nombre</label>
+                <p id="nombre-error" class="error-message"></p>
             </div>
 
             <div class="checkbox_dropdowns">
@@ -45,15 +48,16 @@
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_enfermedad">
-                    <input type="text" name="" required="">
+                    <input type="text" id="enfermedadInput" maxlength="200" name="enfermedad" disabled required>
                     <label class="label_input">Enfermedad</label>
                 </div>
                 
             </div>
 
             <div class="user-box">
-                <input type="text" name="" required="">
+                <input type="text" name="apellido" id="apellidoInput" maxlength="50" required>
                 <label class="label_input">Apellido</label>
+                <p id="apellido-error" class="error-message"></p>
             </div>
 
             <div class="checkbox_dropdowns">
@@ -65,7 +69,7 @@
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_tratamiento">
-                    <input type="text" name="" required="">
+                    <input type="text" id="tratamientoInput" maxlength="200" name="tratamiento" disabled required="">
                     <label class="label_input">Tratamiento</label>
                 </div>
                 
@@ -73,8 +77,9 @@
 
 
             <div class="user-box">
-                <input type="textarea" name="" required="">
-                <label class="label_input">Dirección</label>
+                <input type="textarea" id="direccionInput" name="direccion" maxlength="200" required>
+                <label class="label_input" >Dirección</label>
+                <p id="direccion-error" class="error-message"></p>
             </div>
 
 
@@ -87,14 +92,14 @@
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_enf_o_cir">
-                    <input type="textarea" name="" required="">
+                    <input type="textarea" id="enfCirInput" maxlength="200" name="enfermedades_cirugias" disabled required>
                     <label class="label_input">Enfermedades o cirugias</label>
                 </div>
                 
             </div>
 
             <div class="user-box email">
-                <input type="email" name="" required="">
+                <input type="email" name="" required>
                 <label class="label_input">Email</label>
             </div>
 
@@ -112,7 +117,7 @@
             </div>
 
             <div class="user-box telefono">
-                <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  name="" required="">
+                <input type="tel" id="telefonoInput" name="telefono" required>
                 <label class="label_input">Teléfono</label>
             </div>
 
@@ -199,6 +204,7 @@
 
         </form>
     </div>
+    <script src="{% static '/Scripts/agregar_paciente.js' %}"></script>
     <script>
         var chk_input_alergia = document.getElementById('chk_input_alergias');
         var label_desaparecer_alergia = document.getElementById('if_checked_alergia');
