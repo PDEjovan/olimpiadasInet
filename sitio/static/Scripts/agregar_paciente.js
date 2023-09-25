@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.querySelector(".form_agregar_paciente");
     const dniInput = document.getElementById("dni");

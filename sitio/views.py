@@ -41,7 +41,22 @@ def agregar_sala (request):
     return render(request, 'agregar_sala.html') 
 
 def medicos (request):
-    return render(request, 'medicos.html') 
+    return render(request, 'medicos.html')
+
+def enfermeros (request):
+    return render(request, 'enfermeros.html') 
+
+def perfil_enfermero (request):
+    return render(request, 'perfil_enfermero.html')
+
+def perfil_medico (request):
+    return render(request, 'perfil_medico.html')
+
+def agregar_enfermero (request):
+    return render(request, 'agregar_enfermero.html') 
+
+def agregar_medico (request):
+    return render(request, 'agregar_medico.html') 
 
 def editar_sala (request, sala_id):
     sala = get_object_or_404(Salas, id=sala_id)

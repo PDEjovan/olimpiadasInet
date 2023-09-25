@@ -19,4 +19,9 @@ urlpatterns = [
     path('perfil_paciente/',login_required(views.perfil_paciente),name='perfil_paciente'),
     path('tabla_pacientes/',login_required(views.tabla_pacientes),name='tabla_pacientes'),
     path('medicos/',login_required(views.medicos),name='medicos'),
+    path('enfermeros/',login_required(views.enfermeros),name='enfermeros'),
+    path('perfil_enfermero/',login_required(views.perfil_enfermero),name='perfil_enfermero'),
+    path('perfil_medico/',login_required(views.perfil_medico),name='perfil_medico'),
+    path('agregar_medico/',login_required(views.agregar_medico),name='agregar_medico'),
+    path('agregar_enfermero/',login_required(views.agregar_enfermero),name='agregar_enfermero'),
 ]

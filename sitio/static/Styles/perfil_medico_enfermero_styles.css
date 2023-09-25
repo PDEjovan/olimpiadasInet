@@ -1,0 +1,83 @@
+.perfil_medico_enfermero{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5em;
+    row-gap: 1.5em;
+    margin: 0 auto 0;
+    padding: 3em;
+    background: rgba(24, 20, 20, 0.987);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+    width: 70%;
+    color: white;
+    position: relative;
+}
+
+
+.item_perfil{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.editar_perfil{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.editar_perfil a{
+    color: white;
+}
+
+.container_perfil_medico_enfermero{
+    padding: 3em 0 5em;
+}
+
+.nombre_apellido{
+    grid-column: 1/3;
+    text-align: center;
+    padding-bottom: 2em;
+
+}
+
+.izquierda_perfil{
+    grid-column: 1/2;
+}
+
+
+.derecha_perfil{
+    grid-column: 2/3;
+}
+
+.horario{
+    grid-column: 2/3;
+    grid-row: 2/9;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.dia_semana{
+    display: flex;
+    flex-direction: column;
+    gap: .6em;
+}
+
+.manana_tarde{
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.item_manana_tarde{
+    display: flex;
+    gap: .5em;
+}
+
+.especialidad{
+    border: 2px solid rgb(141, 175, 191);
+    padding: 1em;
+    border-radius: .5em;
+}

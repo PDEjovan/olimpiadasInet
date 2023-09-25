@@ -3,8 +3,21 @@ from django.db import models
 class Obra_Social(models.Model):
     nombre=models.CharField(max_length=30)
 
+class Enfermeros(models.Model):
+    DNI = models.CharField(max_length=8)
+    nombre = models.CharField(max_length=255)
+    apellido = models.CharField(max_length=255)
+    direccion = models.TextField()
+    email = models.EmailField()
+    fecha_nacimiento=models.DateField()
+    genero=models.CharField(max_length=12, default='masculino')
+    telefono = models.CharField(max_length=12) 
+
+    
+
 # Create your models here.
 class Paciente(models.Model):
+    matricula=models.CharField(max_length=10)
     DNI = models.CharField(max_length=8)
     nombre = models.CharField(max_length=255)
     apellido = models.CharField(max_length=255)
@@ -24,7 +37,10 @@ class Paciente(models.Model):
     tratamiento_medico = models.CharField(max_length=255, blank=True, null=True)
     
     enfermedades_o_cirugias = models.TextField(blank=True, null=True)
-    
+
+    enfermero=models.ForeignKey(Enfermeros,on_delete=models.CASCADE)
+
+
 class Zonas(models.Model):
     nombre=models.CharField(max_length=50)
     tipo=models.CharField(max_length=50)
@@ -37,6 +53,9 @@ class Medico(models.Model):
     nombre=models.CharField(max_length=50)
     apellido=models.CharField(max_length=100)
     matricula=models.CharField(max_length=10)
+    direccion = models.TextField()
+    email = models.EmailField()
+    telefono = models.CharField(max_length=12) 
     estado=models.BooleanField(default=False)
     especialidad=models.ForeignKey(Especialidad,on_delete=models.CASCADE)
 

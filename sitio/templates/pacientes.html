@@ -1,7 +1,7 @@
 {% extends 'layouts/nav.html' %} {% load static %} {% block content %}
 <head>
   <!-- custom css file link  -->
-  <link rel="stylesheet" href="{% static '/styles/pacientes_styles.css' %}" />
+  <link rel="stylesheet" href="{% static '/styles/pacientes_medicos_enfermeros_styles.css' %}" />
   <link
     rel="stylesheet"
     href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -27,16 +27,16 @@
       </form>
   </div>
 </div>
-<div class="container_pacientes">
+<div class="container_pacientes_medicos_enfermeros">
 
-  <a href="/agregar_paciente" class="agregar_paciente">
-    <div class="icon_agregar_paciente"><i class="fa-solid fa-plus"></i></div>
-    <div class="title_paciente">Agregar Paciente</div>
+  <a href="/agregar_paciente" class="agregar_paciente_medico_enfermero">
+    <div class="icon_agregar_paciente_medico_enfermero"><i class="fa-solid fa-plus"></i></div>
+    <div class="title_paciente_medico_enfermero">Agregar Paciente</div>
   </a>
 
-  <a href="/perfil_paciente" class="paciente">
-      <div class="title_paciente">Jovan Martinovic</div>
-      <div class="extra_info_paciente">
+  <a href="/perfil_paciente" class="paciente_medico_enfermero">
+      <div class="title_paciente_medico_enfermero">Jovan Martinovic</div>
+      <div class="extra_info_paciente_medico_enfermero">
         <div class="flex_info">
           <p>Sala: </p>
           <p>Sala 56</p>
@@ -51,9 +51,9 @@
         </div>
       </div>
   </a>
-  <a href="/editar_paciente" class="paciente">
-    <div class="title_paciente">Jovan Martinovic</div>
-    <div class="extra_info_paciente">
+  <a href="/perfil_paciente" class="paciente_medico_enfermero">
+    <div class="title_paciente_medico_enfermero">Jovan Martinovic</div>
+    <div class="extra_info_paciente_medico_enfermero">
       <div class="flex_info">
         <p>Sala: </p>
         <p>Sala 56</p>
@@ -68,9 +68,9 @@
       </div>
     </div>
   </a>
-  <a href="/editar_paciente" class="paciente">
-    <div class="title_paciente">Jovan Martinovic</div>
-    <div class="extra_info_paciente">
+  <a href="/perfil_paciente" class="paciente_medico_enfermero">
+    <div class="title_paciente_medico_enfermero">Jovan Martinovic</div>
+    <div class="extra_info_paciente_medico_enfermero">
       <div class="flex_info">
         <p>Sala: </p>
         <p>Sala 56</p>
@@ -85,23 +85,7 @@
       </div>
     </div>
   </a>
-  <a href="/editar_paciente" class="paciente">
-    <div class="title_paciente">Jovan Martinovic</div>
-    <div class="extra_info_paciente">
-      <div class="flex_info">
-        <p>Sala: </p>
-        <p>Sala 56</p>
-      </div>
-      <div class="flex_info">
-        <p>DNI: </p>
-        <p>94651007</p>
-      </div>
-      <div class="flex_info">
-        <p>Género: </p>
-        <p>M</p>
-      </div>
-    </div>
-  </a>
+  
 </div>
 <script>
   let selection = document.querySelector(".selection");

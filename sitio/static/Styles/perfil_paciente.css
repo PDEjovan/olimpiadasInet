@@ -71,3 +71,9 @@
         border: 2px solid rgb(141, 175, 191);
         border-radius: .5em;
 }
+
+.item_perfil{
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+}

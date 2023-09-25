@@ -85,24 +85,25 @@
   pointer-events: fill;
 }
 
-.container_pacientes{
+.container_pacientes_medicos_enfermeros{
   display: grid;
   grid-template-columns: 28% 28% 28%;
   gap: 5em;
   padding: 4em 5em;
 }
 
-.icon_agregar_paciente{
+.icon_agregar_paciente_medico_enfermero{
   padding: .8em;
   border: 2px solid white;
   border-radius: 100%;
   font-size: 1.5em;
 }
 
-.agregar_paciente{
+.agregar_paciente_medico_enfermero{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2em;
   padding: 2em;
   color: white;
@@ -112,7 +113,7 @@
   text-align: center;
 }
 
-.paciente{
+.paciente_medico_enfermero{
   display: flex;
   flex-direction: column;
   gap: 2em;
@@ -123,18 +124,19 @@
   text-decoration: none;
 }
 
-.title_paciente{
+.title_paciente_medico_enfermero{
   font-size: 2em;
 }
 
-.extra_info_paciente{
+.extra_info_paciente_medico_enfermero{
   display: flex;
   flex-direction: column;
-  gap: .5em;
+  gap: 1.3em;
   
 }
 
 .flex_info{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
