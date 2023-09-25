@@ -58,6 +58,12 @@ def agregar_enfermero (request):
 def agregar_medico (request):
     return render(request, 'agregar_medico.html') 
 
+def editar_enfermero (request):
+    return render(request, 'editar_enfermero.html') 
+
+def editar_medico (request):
+    return render(request, 'editar_medico.html') 
+
 def editar_sala (request, sala_id):
     sala = get_object_or_404(Salas, id=sala_id)
     if request.method == 'POST':

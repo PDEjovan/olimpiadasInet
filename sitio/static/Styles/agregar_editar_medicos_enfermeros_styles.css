@@ -355,27 +355,44 @@
   align-items: center;
  }
 
- #if_checked_alergia {
+ #if_checked_lunes {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
 
 
-#if_checked_enfermedad {
+#if_checked_martes {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
 
-#if_checked_enf_o_cir {
+#if_checked_miercoles {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
 
-#if_checked_tratamiento{
+#if_checked_jueves{
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 
 }
+
+#if_checked_viernes{
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  
+  }
+
+#if_checked_sabado{
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+
+}
+#if_checked_domingo{
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  
+  }
 
 .fec_nac{
   display: flex;
@@ -490,4 +507,39 @@
 
 .especialidad select{
     width: 100%;
+}
+
+.manana_tarde{
+    display: grid;
+    grid-template-columns: 1fr 4fr 4fr;
+    gap: 1em;
+}
+
+.label_hora{
+    color: white;
+}
+
+.select_horas{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.dias_semana{
+    padding-bottom: 3em;
+}
+
+.horario{
+    grid-column: 1/3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5em;
+    margin-top: 5em;
+}
+
+.tit_horario{
+    grid-column: 1/3;
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
 }
