@@ -8,39 +8,44 @@
 
     <div class="text">Agregar Médico</div>
     <div class="container_agregar_medico_enfermero">
-        <form class="form_agregar_medico_enfermero" action="" method="post">
+        <form class="form_agregar_medico_enfermero" action="{% url 'agregar_medico' %}"  method="post">
+            {% csrf_token %}
             <h2 class="tit_form_agregar_medico_enfermero">Añadir Médico</h2>
             
             <div class="user-box">
-                <input type="text"  maxlength="8" name="" required="">
+                <input type="text"  maxlength="8" name="dni" required id="dni">
                 <label class="label_input">DNI</label>
+                <p id="dni-error" class="error-message"></p>
             </div>
 
             <div class="user-box">
-                <input type="text" name="" required="">
+                <input type="text" name="nombre" id="nombreInput" maxlength="50" required>
                 <label class="label_input">Nombre</label>
+                <p id="nombre-error" class="error-message"></p>
             </div>
 
 
             <div class="user-box">
-                <input type="text" name="" required="">
+                <input type="text" name="apellido" id="apellidoInput" maxlength="50" required>
                 <label class="label_input">Apellido</label>
+                <p id="apellido-error" class="error-message"></p>
             </div>
 
 
             <div class="user-box">
-                <input type="textarea" name="" required="">
-                <label class="label_input">Dirección</label>
+                <input type="textarea" id="direccionInput" name="direccion" maxlength="200" required>
+                <label class="label_input" >Dirección</label>
+                <p id="direccion-error" class="error-message"></p>
             </div>
 
 
             <div class="user-box email">
-                <input type="email" name="" required="">
+                <input type="email" name="email" required="">
                 <label class="label_input">Email</label>
             </div>
 
             <div class="user-box telefono">
-                <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  name="" required="">
+                <input type="tel" id="telefonoInput" name="telefono" required>
                 <label class="label_input">Teléfono</label>
             </div>
 
@@ -182,47 +187,6 @@
 
         </form>
     </div>
-    <script>
-        var chk_input_alergia = document.getElementById('chk_input_alergias');
-        var label_desaparecer_alergia = document.getElementById('if_checked_alergia');
-        var chk_input_enfermedad = document.getElementById('chk_input_enfermedad');
-        var label_desaparecer_enfermedad = document.getElementById('if_checked_enfermedad');
-        var chk_input_enf_o_cir = document.getElementById('chk_input_enf_o_cir');
-        var label_desaparecer_enf_o_cir = document.getElementById('if_checked_enf_o_cir');
-        var chk_input_tratamiento = document.getElementById('chk_input_tratamiento');
-        var label_desaparecer_tratamiento = document.getElementById('if_checked_tratamiento');
-
-        chk_input_alergia.addEventListener('change', function() {
-        if (chk_input_alergia.checked) {
-            label_desaparecer_alergia.style.opacity = '1';
-        } else {
-            label_desaparecer_alergia.style.opacity = '0';
-        }
-        });
-
-        chk_input_enfermedad.addEventListener('change', function() {
-            if (chk_input_enfermedad.checked) {
-                label_desaparecer_enfermedad.style.opacity = '1';
-            } else {
-                label_desaparecer_enfermedad.style.opacity = '0';
-            }
-            });
-        chk_input_enf_o_cir.addEventListener('change', function() {
-            if (chk_input_enf_o_cir.checked) {
-                label_desaparecer_enf_o_cir.style.opacity = '1';
-            } else {
-                label_desaparecer_enf_o_cir.style.opacity = '0';
-            }
-            });
-        chk_input_tratamiento.addEventListener('change', function() {
-            if (chk_input_tratamiento.checked) {
-                label_desaparecer_tratamiento.style.opacity = '1';
-            } else {
-                label_desaparecer_tratamiento.style.opacity = '0';
-            }
-            });
-
-    </script>
-
+    <script src="{% static '/Scripts/agregar_medico.js' %}"></script>
 
 {% endblock %}
