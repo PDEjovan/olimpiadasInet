@@ -24,4 +24,6 @@ urlpatterns = [
     path('perfil_medico/',login_required(views.perfil_medico),name='perfil_medico'),
     path('agregar_medico/',login_required(views.agregar_medico),name='agregar_medico'),
     path('agregar_enfermero/',login_required(views.agregar_enfermero),name='agregar_enfermero'),
+    path('editar_medico/',login_required(views.editar_medico),name='editar_medico'),
+    path('editar_enfermero/',login_required(views.editar_enfermero),name='editar_enfermero'),
 ]
