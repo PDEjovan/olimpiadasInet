@@ -1775,5 +1775,72 @@
         </form>
     </div>
     <script src="{% static '/Scripts/agregar_medico.js' %}"></script>
+    <script>
+        var chk_input_lunes = document.getElementById('chk_input_lunes');
+        var select_desaparecer_lunes = document.getElementById('if_checked_lunes');
+        var chk_input_martes = document.getElementById('chk_input_martes');
+        var select_desaparecer_martes = document.getElementById('if_checked_martes');
+        var chk_input_miercoles = document.getElementById('chk_input_miercoles');
+        var select_desaparecer_miercoles = document.getElementById('if_checked_miercoles');
+        var chk_input_jueves = document.getElementById('chk_input_jueves');
+        var select_desaparecer_jueves = document.getElementById('if_checked_jueves');
+        var chk_input_viernes = document.getElementById('chk_input_viernes');
+        var select_desaparecer_viernes = document.getElementById('if_checked_viernes');
+        var chk_input_sabado = document.getElementById('chk_input_sabado');
+        var select_desaparecer_sabado = document.getElementById('if_checked_sabado');
+        var chk_input_domingo = document.getElementById('chk_input_domingo');
+        var select_desaparecer_domingo = document.getElementById('if_checked_domingo');
 
+        chk_input_lunes.addEventListener('change', function() {
+        if (chk_input_lunes.checked) {
+            select_desaparecer_lunes.style.opacity = '1';
+        } else {
+            select_desaparecer_lunes.style.opacity = '0';
+        }
+        });
+
+        chk_input_martes.addEventListener('change', function() {
+            if (chk_input_martes.checked) {
+                select_desaparecer_martes.style.opacity = '1';
+            } else {
+                select_desaparecer_martes.style.opacity = '0';
+            }
+            });
+        chk_input_miercoles.addEventListener('change', function() {
+            if (chk_input_miercoles.checked) {
+                select_desaparecer_miercoles.style.opacity = '1';
+            } else {
+                select_desaparecer_miercoles.style.opacity = '0';
+            }
+            });
+        chk_input_jueves.addEventListener('change', function() {
+            if (chk_input_jueves.checked) {
+                select_desaparecer_jueves.style.opacity = '1';
+            } else {
+                select_desaparecer_jueves.style.opacity = '0';
+            }
+            });
+        chk_input_viernes.addEventListener('change', function() {
+            if (chk_input_viernes.checked) {
+                select_desaparecer_viernes.style.opacity = '1';
+            } else {
+                select_desaparecer_viernes.style.opacity = '0';
+            }
+            });
+        chk_input_sabado.addEventListener('change', function() {
+            if (chk_input_sabado.checked) {
+                select_desaparecer_sabado.style.opacity = '1';
+            } else {
+                select_desaparecer_sabado.style.opacity = '0';
+            }
+            });
+        chk_input_domingo.addEventListener('change', function() {
+            if (chk_input_domingo.checked) {
+                select_desaparecer_domingo.style.opacity = '1';
+            } else {
+                select_desaparecer_domingo.style.opacity = '0';
+            }
+            });
+
+    </script>
 {% endblock %}

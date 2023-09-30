@@ -76,6 +76,11 @@
     flex: 1 1 0;
   }
 
+  
+  .select select{
+    width: 100%;
+  }
+
   .fec_nac .select{
     background-color: #fff;
     overflow: hidden;
