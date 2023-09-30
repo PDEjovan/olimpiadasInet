@@ -10,6 +10,7 @@
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
     width: 90%;
+    position: relative;
   }
 
   
@@ -543,3 +544,14 @@
     font-size: 1.2em;
     text-align: center;
 }
+
+.borrar_usuario{
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.borrar_usuario a{
+  color: white;
+}
+

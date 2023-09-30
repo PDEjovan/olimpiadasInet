@@ -1,0 +1,54 @@
+{% extends 'layouts/nav.html' %} {% load static %} {% block content %}
+<head>
+    <link rel="stylesheet" href="{% static '/styles/tabla_paciente_styles.css' %}">
+</head>
+    <div class="text">Usuarios</div>
+    <div class="agregar_users">
+        <a href="/agregar_users">Agregar Usuario</a>
+    </div>
+    <div class="table">
+        
+        <section class="table__header">
+            <h1>Users</h1>
+            <div class="input-group">
+                <input type="search" placeholder="Buscar paciente...">
+                <img src="../static/images/search.png" alt="">
+            </div>
+            <div>
+                
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Editar</th>
+                        <th> ID</th>
+                        <th> Nombre</th>
+                        <th> Apellido</th>
+                        <th> Teléfono</th>
+                        <th> Email</th>
+                        <th> Tipo Usuario</th>
+                        
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <img src="" alt="">
+                    <tr>
+                        <td> <a href="/editar_users"> editar</a></td>
+                        <td> 1 </td>
+                        <td> Lucas</td>
+                        <td> Antun</td>
+                        <td> 3548 400949 </td>
+                        <td> jovan4182@gmail.com</td>
+                        <td> Administrador</td>
+                        
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script src="{% static '/Scripts/pacientes_tabla_script.js' %}"></script>
+{% endblock %}

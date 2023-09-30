@@ -1,5 +1,11 @@
+body{
+    position: relative;
+}
+
 .table{
-    margin: 3em auto;
+    margin: 3em auto 0;
+    padding-bottom: 3em;
+   
 }
 
 main.table {
@@ -20,6 +26,10 @@ main.table {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.table__header h1{
+    color: #fff;
 }
 
 .table__header .input-group {
@@ -261,3 +271,17 @@ thead th.active,tbody td.active {
     width: 2rem;
     height: auto;
 }
+
+.agregar_users a{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .agregar_users{
+    padding: .8em;
+    border-radius: .7em;
+    background-color: white;
+    position: absolute;
+    bottom: 28px;
+    right: 50px;
+  }

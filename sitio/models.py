@@ -70,7 +70,6 @@ class User(models.Model):
     nombre=models.CharField(max_length=50)
     apellido=models.CharField(max_length=100)
     telefono=models.CharField(max_length=15)
-    direccion=models.TextField()
     email=models.EmailField()
     contraseña=models.CharField(max_length=50 )
     tipo_user=models.BooleanField(default=False)

@@ -62,7 +62,17 @@ def editar_enfermero (request):
     return render(request, 'editar_enfermero.html') 
 
 def editar_medico (request):
-    return render(request, 'editar_medico.html') 
+    return render(request, 'editar_medico.html')
+
+def users (request):
+    return render(request, 'users.html') 
+
+def editar_users (request):
+    return render(request, 'editar_users.html')  
+
+def agregar_users (request):
+    return render(request, 'agregar_users.html')  
+
 
 def editar_sala (request, sala_id):
     sala = get_object_or_404(Salas, id=sala_id)
