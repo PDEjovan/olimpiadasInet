@@ -9,38 +9,43 @@
     <div class="text">Agregar Enfermero</div>
     <div class="container_agregar_medico_enfermero">
         <form class="form_agregar_medico_enfermero" action="" method="post">
+            {% csrf_token %}
             <h2 class="tit_form_agregar_medico_enfermero">Añadir Enfermero</h2>
             
             <div class="user-box">
-                <input type="text"  maxlength="8" name="" required="">
+                <input type="text"  maxlength="8" name="dni" required id="dni">
                 <label class="label_input">DNI</label>
+                <p id="dni-error" class="error-message"></p>
             </div>
 
             <div class="user-box">
-                <input type="text" name="" required="">
+                <input type="text" name="nombre" id="nombreInput" maxlength="50" required>
                 <label class="label_input">Nombre</label>
+                <p id="nombre-error" class="error-message"></p>
             </div>
 
 
             <div class="user-box">
-                <input type="text" name="" required="">
+                <input type="text" name="apellido" id="apellidoInput" maxlength="50" required>
                 <label class="label_input">Apellido</label>
+                <p id="apellido-error" class="error-message"></p>
             </div>
 
 
             <div class="user-box">
-                <input type="textarea" name="" required="">
-                <label class="label_input">Dirección</label>
+                <input type="textarea" id="direccionInput" name="direccion" maxlength="200" required>
+                <label class="label_input" >Dirección</label>
+                <p id="direccion-error" class="error-message"></p>
             </div>
 
 
             <div class="user-box email">
-                <input type="email" name="" required="">
+                <input type="email" name="email" required="">
                 <label class="label_input">Email</label>
             </div>
 
             <div class="user-box telefono">
-                <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  name="" required="">
+                <input type="tel" id="telefonoInput" name="telefono" required>
                 <label class="label_input">Teléfono</label>
             </div>
 
@@ -1804,4 +1809,5 @@
     </script>
 
 
+    <script src="{% static '/Scripts/agregar_medico.js' %}"></script>
 {% endblock %}
