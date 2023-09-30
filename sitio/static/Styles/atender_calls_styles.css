@@ -61,3 +61,20 @@ body{
     gap: 1em;
     
 }
+
+
+.llamado_atendido{
+    text-decoration: none;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    padding: .8em;
+    border-radius: .5em;
+    
+}
+
+.llamado_atendido_container{
+    display: flex;
+    justify-content: center;
+    grid-column: 1/3;
+    margin-top: 2em;
+}
