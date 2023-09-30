@@ -1,0 +1,47 @@
+{% extends 'layouts/nav.html' %} {% load static %} {% block content %}
+<head>
+    <link rel="stylesheet" href="{% static '/styles/tabla_paciente_styles.css' %}">
+</head>
+    <div class="text">Historial Llamadas</div>
+    <div class="table">
+        
+        <section class="table__header">
+            <h1>Historial</h1>
+            <div class="input-group">
+                <input type="search" placeholder="Buscar Llamados...">
+                <img src="../static/images/search.png" alt="">
+            </div>
+            <div>
+                
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> ID</th>
+                        <th> DNI</th>
+                        <th> Nombre</th>
+                        <th> Apellido</th>
+                        <th> Diagnóstico</th>
+                        <th> Fecha de turno</th>
+                        <th> Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <img src="" alt="">
+                    <tr>
+                        <td> 1 </td>
+                        <td> 94651007</td>
+                        <td> Jovan</td>
+                        <td> Martinovic</td>
+                        <td> Hepatitis</td>
+                        <td> 2022-02-19</td>
+                        <td> Roja</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script src="{% static '/Scripts/pacientes_tabla_script.js' %}"></script>
+{% endblock %}

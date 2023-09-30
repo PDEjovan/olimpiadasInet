@@ -60,7 +60,7 @@ class Medico(models.Model):
     especialidad=models.ForeignKey(Especialidad,on_delete=models.CASCADE)
 
 class Llamados(models.Model):
-    tipo_llamado=models.BooleanField(default=False)
+    tipo_llamado=models.CharField(max_length=20)
     fecha_hora=models.DateTimeField()
     id_paciente=models.ForeignKey(Paciente,on_delete=models.CASCADE)
     id_zona=models.ForeignKey(Zonas,on_delete=models.CASCADE)

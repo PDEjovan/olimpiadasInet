@@ -73,6 +73,12 @@ def editar_users (request):
 def agregar_users (request):
     return render(request, 'agregar_users.html')  
 
+def historial_clinico (request):
+    return render(request, 'historial_clinico.html')  
+
+def historial_llamadas (request):
+    return render(request, 'historial_llamadas.html')  
+
 
 def editar_sala (request, sala_id):
     sala = get_object_or_404(Salas, id=sala_id)

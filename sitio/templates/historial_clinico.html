@@ -2,16 +2,13 @@
 <head>
     <link rel="stylesheet" href="{% static '/styles/tabla_paciente_styles.css' %}">
 </head>
-    <div class="text">Usuarios</div>
-    <div class="agregar_users">
-        <a href="/agregar_users">Agregar Usuario</a>
-    </div>
+    <div class="text">Historial Clínico Jovan Martinovic</div>
     <div class="table">
         
         <section class="table__header">
-            <h1>Users</h1>
+            <h1>Historial</h1>
             <div class="input-group">
-                <input type="search" placeholder="Buscar paciente...">
+                <input type="search" placeholder="Buscar...">
                 <img src="../static/images/search.png" alt="">
             </div>
             <div>
@@ -22,30 +19,24 @@
             <table>
                 <thead>
                     <tr>
-                        <th> Editar</th>
                         <th> ID</th>
+                        <th> DNI</th>
                         <th> Nombre</th>
                         <th> Apellido</th>
-                        <th> Teléfono</th>
-                        <th> Email</th>
-                        <th> Tipo Usuario</th>
-                        
-
+                        <th> Diagnóstico</th>
+                        <th> Fecha de turno</th>
                     </tr>
                 </thead>
                 <tbody>
                     <img src="" alt="">
                     <tr>
-                        <td> <a href="/editar_users"> editar</a></td>
                         <td> 1 </td>
-                        <td> Lucas</td>
-                        <td> Antun</td>
-                        <td> 3548 400949 </td>
-                        <td> jovan4182@gmail.com</td>
-                        <td> Administrador</td>
-                        
+                        <td> 94651007</td>
+                        <td> Jovan</td>
+                        <td> Martinovic</td>
+                        <td> Hepatitis</td>
+                        <td> 2022-02-19</td>
                     </tr>
-                    
                 </tbody>
             </table>
         </section>
