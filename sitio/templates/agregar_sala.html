@@ -8,6 +8,9 @@
 
 <body>
     <div class="text">Agregar Sala</div>
+    <div class="btn_volver">
+        <a href="javascript:history.back(-1)"><i class="fa-solid fa-arrow-left"></i></a>
+    </div>
     <form class="form_agregar_sala" action="{% url 'procesar_formulario' %}" method="post">
         {% csrf_token %}
         <h2 class="tit_form_agregar_sala">Crear Sala</h2>
