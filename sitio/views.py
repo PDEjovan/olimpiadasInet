@@ -79,6 +79,9 @@ def historial_clinico (request):
 def historial_llamadas (request):
     return render(request, 'historial_llamadas.html')  
 
+def atender_calls (request):
+    return render(request, 'atender_calls.html')  
+
 
 def editar_sala (request, sala_id):
     sala = get_object_or_404(Salas, id=sala_id)

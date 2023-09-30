@@ -1,0 +1,68 @@
+{% extends 'layouts/nav.html' %} {% load static %} {% block content %}
+
+<head>
+    <link rel="stylesheet" href="{% static '/Styles/atender_calls_styles.css' %}">
+</head>
+<div class="text">Atender Llamada</div>
+<div class="container_atender_llamadas">
+    <div class="atender_llamadas">
+
+        <div class="nombre_apellido">
+            <h2>Jovan Martinovic</h2>
+        </div>
+        <div class="datos_paciente">
+            <h2>Datos Paciente:</h2>
+            
+            <div class="item_perfil">
+                <p>DNI:</p> <p>94651007</p>
+            </div>
+            <div class="item_perfil ">
+                <p>Género:</p> <p>Másculino</p>
+            </div>
+            <div class="item_perfil ">
+                <p>Fecha Nacimiento: </p><p>19/02/2005</p>
+            </div>
+            <div class="item_perfil ">
+                <p>Dirección: </p> <p>Argentina, Córdoba, La Cumbre, Pellegrini 11</p>
+            </div>
+            <div class="item_perfil  telefono">
+                <p>Teléfono: </p> <p>3548 40-0949</p>
+            </div>
+            <div class="item_perfil  email">
+                <p>Email: </p> <p>jovan4182@gmail.com</p>
+            </div>
+            <div class="item_perfil">
+                <p>Alergias: </p><p>Ninguna</p>
+            </div>
+            <div class="item_perfil">
+                <p>Enfermedades crónicas: </p><p>Ninguna</p>
+            </div>
+            <div class="item_perfil">
+                <p>Bajo algún tratamiento médico: </p><p>Ninguna</p>
+            </div>
+            <div class="item_perfil">
+                <p>Enfermedades o cirugias importantes: </p><p>Ninguna</p>
+            </div>
+            
+        </div>
+        <div class="info_llamada">
+            <h2>Info Llamada</h2>
+            <div class="tipo_llamada">
+                Clasificación Triage: Roja
+            </div>
+            <div class="diagnostico">
+                Diagnóstico: Hepatitis
+            </div>
+            <div class="fec_y_hora">
+
+                Fecha y Hora del Llamado: 2023/09/30 16:08hs
+            </div>
+            <div class="tiempo_transcurrido">
+                <p>Tiempo Transcurrido del llamado: 18s</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

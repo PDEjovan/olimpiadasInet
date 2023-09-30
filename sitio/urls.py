@@ -31,4 +31,5 @@ urlpatterns = [
     path('agregar_users/',login_required(views.agregar_users),name='agregar_users'),
     path('historial_clinico/',login_required(views.historial_clinico),name='historial_clinico'),
     path('historial_llamadas/',login_required(views.historial_llamadas),name='historial_llamadas'),
+    path('atender_calls/',login_required(views.atender_calls),name='atender_calls'),
 ]
