@@ -55,7 +55,7 @@
                     <div class="mes_fec_nac">
                         <label class="label_fec">Mes</label>
                         <div class="select">
-                            <select name="mes">
+                            <select id="mes" name="mes">
                                 <option value="enero">Enero</option>
                                 <option value="febrero">Febrero</option>
                                 <option value="marzo">Marzo</option>
@@ -74,7 +74,7 @@
                     <div class="dia_fec_nac">
                         <label class="label_fec">Día</label>
                         <div class="select">
-                            <select name="dia">
+                            <select id="diaSelect" name="dia">
                                 <!--Verificar que meses que no tengan 31 dias no aparezca esa opcion-->
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -111,16 +111,13 @@
                         </div>
                     </div>
                 
-                    <div class="">
+                    <div class="ano_fec_nac">
                         <label class="label_fec">Año</label>
-                        <!--Opcion 1--><input type="text" maxlength="4" minlength="4" class="input_año_fec" name="" id="">
-                        <!--Opcion 2: Consiste en poner un ciclo for que traiga de la base de datos los años desde el 1930 PE hasta el año actual, para que se haga en un select-->
-                        <!--<div class="select">
-                            <select name="dia">
-                                <option value="1"></option>
+                        <div class="select">
+                            <select id="ano" name="ano">
+                                <!-- Opciones de años -->
                             </select>
                         </div>
-                        -->
                     </div>
                 </div>
 
@@ -194,7 +191,7 @@
                     <div class="user-box select_horas" id="if_checked_lunes">
                         <div class="manana_tarde">
                             <label class="label_hora">M</label>
-                            <select name="" id="">
+                            <select name="" required disabled id="lunes_manana1" class="lunes_manana" onchange="ocultarHorasAnteriores('lunes_manana1', 'lunes_manana2')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -246,7 +243,7 @@
                                 <option value="11:45">11:45</option>
                                 <option value="12:00">12:00</option>
                             </select>
-                            <select name="" id="">
+                            <select name="" required disabled id="lunes_manana2" class="lunes_manana" onchange="ocultarHorasPosteriores('lunes_manana2', 'lunes_manana1')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -301,7 +298,7 @@
                         </div>
                         <div class="manana_tarde">
                             <label class="label_hora">T</label>
-                            <select name="" id="">
+                            <select name="" required disabled id="lunes_tarde1" class="lunes_tarde" onchange="ocultarHorasAnteriores('lunes_tarde1', 'lunes_tarde2')">
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -352,7 +349,7 @@
                                 <option value="23:45">23:45</option>
                                 <option value="24:00">24:00</option>
                             </select>
-                            <select name="" id="">
+                            <select name="" required disabled id="lunes_tarde2" class="lunes_tarde" onchange="ocultarHorasPosteriores('lunes_tarde2', 'lunes_tarde1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -420,7 +417,7 @@
                     <div class="user-box select_horas" id="if_checked_martes">
                         <div class="manana_tarde">
                             <label class="label_hora">M</label>
-                            <select name="" id="">
+                            <select name="" required disabled id="martes_manana1" class="martes_manana" onchange="ocultarHorasAnteriores('martes_manana1', 'martes_manana2')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -472,7 +469,7 @@
                                 <option value="11:45">11:45</option>
                                 <option value="12:00">12:00</option>
                             </select>
-                            <select name="" id="">
+                            <select name="" required disabled id="martes_manana2" class="martes_manana" onchange="ocultarHorasPosteriores('martes_manana2', 'martes_manana1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -527,7 +524,7 @@
                         </div>
                         <div class="manana_tarde">
                             <label class="label_hora">T</label>
-                            <select name="" id="">
+                            <select name="" required disabled id="martes_tarde1" class="martes_tarde" onchange="ocultarHorasAnteriores('martes_tarde1', 'martes_tarde2')">
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -578,7 +575,7 @@
                                 <option value="23:45">23:45</option>
                                 <option value="24:00">24:00</option>
                             </select>
-                            <select name="" id="">
+                            <select name="" required disabled id="martes_tarde2" class="martes_tarde" onchange="ocultarHorasPosteriores('martes_tarde2', 'martes_tarde1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -646,7 +643,7 @@
                     <div class="user-box select_horas" id="if_checked_miercoles">
                         <div class="manana_tarde">
                             <label class="label_hora">M</label>
-                            <select name="" id="">
+                            <select name="" required disabled id="miercoles_manana1" class="miercoles_manana" onchange="ocultarHorasAnteriores('miercoles_manana1', 'miercoles_manana2')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -698,7 +695,7 @@
                                 <option value="11:45">11:45</option>
                                 <option value="12:00">12:00</option>
                             </select>
-                            <select name="" id="">
+                            <select name="" required disabled id="miercoles_manana2" class="miercoles_manana" onchange="ocultarHorasPosteriores('miercoles_manana2', 'miercoles_manana1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -753,7 +750,7 @@
                         </div>
                         <div class="manana_tarde">
                             <label class="label_hora">T</label>
-                            <select name="" id="">
+                            <select name="" required disabled id="miercoles_tarde1" class="miercoles_tarde" onchange="ocultarHorasAnteriores('miercoles_tarde1', 'miercoles_tarde2')">
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -804,7 +801,7 @@
                                 <option value="23:45">23:45</option>
                                 <option value="24:00">24:00</option>
                             </select>
-                            <select name="" id="">
+                            <select name="" required disabled id="miercoles_tarde2" class="miercoles_tarde" onchange="ocultarHorasPosteriores('miercoles_tarde2', 'miercoles_tarde1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -872,7 +869,7 @@
                     <div class="user-box select_horas" id="if_checked_jueves">
                         <div class="manana_tarde">
                             <label class="label_hora">M</label>
-                            <select name="" id="">
+                            <select name="" required disabled id="jueves_manana1" class="jueves_manana" onchange="ocultarHorasAnteriores('jueves_manana1', 'jueves_manana2')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -924,7 +921,7 @@
                                 <option value="11:45">11:45</option>
                                 <option value="12:00">12:00</option>
                             </select>
-                            <select name="" id="">
+                            <select name="" required disabled id="jueves_manana2" class="jueves_manana" onchange="ocultarHorasPosteriores('jueves_manana2', 'jueves_manana1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -979,7 +976,7 @@
                         </div>
                         <div class="manana_tarde">
                             <label class="label_hora">T</label>
-                            <select name="" id="">
+                            <select name="" required disabled id="jueves_tarde1" class="jueves_tarde" onchange="ocultarHorasAnteriores('jueves_tarde1', 'jueves_tarde2')">
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -1030,7 +1027,7 @@
                                 <option value="23:45">23:45</option>
                                 <option value="24:00">24:00</option>
                             </select>
-                            <select name="" id="">
+                            <select name="" required disabled id="jueves_tarde2" class="jueves_tarde" onchange="ocultarHorasPosteriores('jueves_tarde2', 'jueves_tarde1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -1098,7 +1095,7 @@
                     <div class="user-box select_horas" id="if_checked_viernes">
                         <div class="manana_tarde">
                             <label class="label_hora">M</label>
-                            <select name="" id="">
+                            <select name="" required disabled id="viernes_manana1" class="viernes_manana" onchange="ocultarHorasAnteriores('viernes_manana1', 'viernes_manana2')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -1150,7 +1147,7 @@
                                 <option value="11:45">11:45</option>
                                 <option value="12:00">12:00</option>
                             </select>
-                            <select name="" id="">
+                            <select name="" required disabled id="viernes_manana2" class="viernes_manana" onchange="ocultarHorasPosteriores('viernes_manana2', 'viernes_manana1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -1205,7 +1202,7 @@
                         </div>
                         <div class="manana_tarde">
                             <label class="label_hora">T</label>
-                            <select name="" id="">
+                            <select name="" required disabled id="viernes_tarde1" class="viernes_tarde" onchange="ocultarHorasAnteriores('viernes_tarde1', 'viernes_tarde2')">
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -1256,7 +1253,7 @@
                                 <option value="23:45">23:45</option>
                                 <option value="24:00">24:00</option>
                             </select>
-                            <select name="" id="">
+                            <select name="" required disabled id="viernes_tarde2" class="viernes_tarde" onchange="ocultarHorasPosteriores('viernes_tarde2', 'viernes_tarde1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -1324,7 +1321,7 @@
                     <div class="user-box select_horas" id="if_checked_sabado">
                         <div class="manana_tarde">
                             <label class="label_hora">M</label>
-                            <select name="" id="">
+                            <select name="" required disabled id="sabado_manana1" class="sabado_manana" onchange="ocultarHorasAnteriores('sabado_manana1', 'sabado_manana2')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -1376,7 +1373,7 @@
                                 <option value="11:45">11:45</option>
                                 <option value="12:00">12:00</option>
                             </select>
-                            <select name="" id="">
+                            <select name="" required disabled id="sabado_manana2" class="sabado_manana" onchange="ocultarHorasPosteriores('sabado_manana2', 'sabado_manana1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -1431,7 +1428,7 @@
                         </div>
                         <div class="manana_tarde">
                             <label class="label_hora">T</label>
-                            <select name="" id="">
+                            <select name="" required disabled id="sabado_tarde1" class="sabado_tarde" onchange="ocultarHorasAnteriores('sabado_tarde1', 'sabado_tarde2')">
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -1482,7 +1479,7 @@
                                 <option value="23:45">23:45</option>
                                 <option value="24:00">24:00</option>
                             </select>
-                            <select name="" id="">
+                            <select name="" required disabled id="sabado_tarde2" class="sabado_tarde" onchange="ocultarHorasPosteriores('sabado_tarde2', 'sabado_tarde1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -1551,7 +1548,7 @@
                     <div class="user-box select_horas" id="if_checked_domingo">
                         <div class="manana_tarde">
                             <label class="label_hora">M</label>
-                            <select name="" id="">
+                            <select name="" required disabled id="domingo_manana1" class="domingo_manana" onchange="ocultarHorasAnteriores('domingo_manana1', 'domingo_manana2')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -1603,7 +1600,7 @@
                                 <option value="11:45">11:45</option>
                                 <option value="12:00">12:00</option>
                             </select>
-                            <select name="" id="">
+                            <select name="" required disabled id="domingo_manana2" class="domingo_manana" onchange="ocultarHorasPosteriores('domingo_manana2', 'domingo_manana1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -1658,7 +1655,7 @@
                         </div>
                         <div class="manana_tarde">
                             <label class="label_hora">T</label>
-                            <select name="" id="">
+                            <select name="" required disabled id="domingo_tarde1" class="domingo_tarde" onchange="ocultarHorasAnteriores('domingo_tarde1', 'domingo_tarde2')">
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -1709,7 +1706,7 @@
                                 <option value="23:45">23:45</option>
                                 <option value="24:00">24:00</option>
                             </select>
-                            <select name="" id="">
+                            <select name="" required disabled id="domingo_tarde2" class="domingo_tarde" onchange="ocultarHorasPosteriores('domingo_tarde2', 'domingo_tarde1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -1776,69 +1773,176 @@
     </div>
     <script src="{% static '/Scripts/agregar_medico.js' %}"></script>
     <script>
+        const anoSelect = document.getElementById("ano");
+        // Llena el campo de selección de años desde 1900 hasta el año actual
+        const fechaActual = new Date();
+        const anoActual = fechaActual.getFullYear();
+        const anoInicial = 1900;
+
+        for (let ano = anoActual; ano >= anoInicial; ano--) {
+            const option = document.createElement("option");
+            option.value = ano;
+            option.textContent = ano;
+            anoSelect.appendChild(option);
+        }
+    </script>
+    <script>
         var chk_input_lunes = document.getElementById('chk_input_lunes');
         var select_desaparecer_lunes = document.getElementById('if_checked_lunes');
+        var selects_lunesm1=document.getElementsByClassName('lunes_manana')[0];
+        var selects_lunesm2=document.getElementsByClassName('lunes_manana')[1];
+        var selects_lunest1=document.getElementsByClassName('lunes_tarde')[0];
+        var selects_lunest2=document.getElementsByClassName('lunes_tarde')[1];
+
         var chk_input_martes = document.getElementById('chk_input_martes');
         var select_desaparecer_martes = document.getElementById('if_checked_martes');
+        var selects_martesm1=document.getElementsByClassName('martes_manana')[0];
+        var selects_martesm2=document.getElementsByClassName('martes_manana')[1];
+        var selects_martest1=document.getElementsByClassName('martes_tarde')[0];
+        var selects_martest2=document.getElementsByClassName('martes_tarde')[1];
+
+
         var chk_input_miercoles = document.getElementById('chk_input_miercoles');
         var select_desaparecer_miercoles = document.getElementById('if_checked_miercoles');
+        var selects_miercolesm1=document.getElementsByClassName('miercoles_manana')[0];
+        var selects_miercolesm2=document.getElementsByClassName('miercoles_manana')[1];
+        var selects_miercolest1=document.getElementsByClassName('miercoles_tarde')[0];
+        var selects_miercolest2=document.getElementsByClassName('miercoles_tarde')[1];
+
         var chk_input_jueves = document.getElementById('chk_input_jueves');
         var select_desaparecer_jueves = document.getElementById('if_checked_jueves');
+        var selects_juevesm1=document.getElementsByClassName('jueves_manana')[0];
+        var selects_juevesm2=document.getElementsByClassName('jueves_manana')[1];
+        var selects_juevest1=document.getElementsByClassName('jueves_tarde')[0];
+        var selects_juevest2=document.getElementsByClassName('jueves_tarde')[1];
+
         var chk_input_viernes = document.getElementById('chk_input_viernes');
         var select_desaparecer_viernes = document.getElementById('if_checked_viernes');
+        var selects_viernesm1=document.getElementsByClassName('viernes_manana')[0];
+        var selects_viernesm2=document.getElementsByClassName('viernes_manana')[1];
+        var selects_viernest1=document.getElementsByClassName('viernes_tarde')[0];
+        var selects_viernest2=document.getElementsByClassName('viernes_tarde')[1];
+
         var chk_input_sabado = document.getElementById('chk_input_sabado');
         var select_desaparecer_sabado = document.getElementById('if_checked_sabado');
+        var selects_sabadom1=document.getElementsByClassName('sabado_manana')[0];
+        var selects_sabadom2=document.getElementsByClassName('sabado_manana')[1];
+        var selects_sabadot1=document.getElementsByClassName('sabado_tarde')[0];
+        var selects_sabadot2=document.getElementsByClassName('sabado_tarde')[1];
+
         var chk_input_domingo = document.getElementById('chk_input_domingo');
         var select_desaparecer_domingo = document.getElementById('if_checked_domingo');
+        var selects_domingom1=document.getElementsByClassName('domingo_manana')[0];
+        var selects_domingom2=document.getElementsByClassName('domingo_manana')[1];
+        var selects_domingot1=document.getElementsByClassName('domingo_tarde')[0];
+        var selects_domingot2=document.getElementsByClassName('domingo_tarde')[1];
+
 
         chk_input_lunes.addEventListener('change', function() {
-        if (chk_input_lunes.checked) {
-            select_desaparecer_lunes.style.opacity = '1';
-        } else {
-            select_desaparecer_lunes.style.opacity = '0';
-        }
-        });
+            if (chk_input_lunes.checked) {
+                select_desaparecer_lunes.style.opacity = '1';
+                selects_lunesm1.disabled = false;
+                selects_lunesm2.disabled = false;
+                selects_lunest1.disabled = false;
+                selects_lunest2.disabled = false;
+
+            } else {
+                select_desaparecer_lunes.style.opacity = '0';
+                selects_lunesm1.disabled = true;
+                selects_lunesm2.disabled = true;
+                selects_lunest1.disabled = true;
+                selects_lunest2.disabled = true;
+            }
+            });
 
         chk_input_martes.addEventListener('change', function() {
             if (chk_input_martes.checked) {
                 select_desaparecer_martes.style.opacity = '1';
+                selects_martesm1.disabled = false;
+                selects_martesm2.disabled = false;
+                selects_martest1.disabled = false;
+                selects_martest2.disabled = false;
             } else {
                 select_desaparecer_martes.style.opacity = '0';
+                selects_martesm1.disabled = true;
+                selects_martesm2.disabled = true;
+                selects_martest1.disabled = true;
+                selects_martest2.disabled = true;
             }
             });
         chk_input_miercoles.addEventListener('change', function() {
             if (chk_input_miercoles.checked) {
                 select_desaparecer_miercoles.style.opacity = '1';
+                selects_miercolesm1.disabled = false;
+                selects_miercolesm2.disabled = false;
+                selects_miercolest1.disabled = false;
+                selects_miercolest2.disabled = false;
             } else {
                 select_desaparecer_miercoles.style.opacity = '0';
+                selects_miercolesm1.disabled = true;
+                selects_miercolesm2.disabled = true;
+                selects_miercolest1.disabled = true;
+                selects_miercolest2.disabled = true;
             }
             });
         chk_input_jueves.addEventListener('change', function() {
             if (chk_input_jueves.checked) {
                 select_desaparecer_jueves.style.opacity = '1';
+                selects_juevesm1.disabled = false;
+                selects_juevesm2.disabled = false;
+                selects_juevest1.disabled = false;
+                selects_juevest2.disabled = false;
             } else {
                 select_desaparecer_jueves.style.opacity = '0';
+                selects_juevesm1.disabled = true;
+                selects_juevesm2.disabled = true;
+                selects_juevest1.disabled = true;
+                selects_juevest2.disabled = true;
             }
             });
         chk_input_viernes.addEventListener('change', function() {
             if (chk_input_viernes.checked) {
                 select_desaparecer_viernes.style.opacity = '1';
+                selects_viernesm1.disabled = false;
+                selects_viernesm2.disabled = false;
+                selects_viernest1.disabled = false;
+                selects_viernest2.disabled = false;
             } else {
                 select_desaparecer_viernes.style.opacity = '0';
+                selects_viernesm1.disabled = true;
+                selects_viernesm2.disabled = true;
+                selects_viernest1.disabled = true;
+                selects_viernest2.disabled = true;
             }
             });
         chk_input_sabado.addEventListener('change', function() {
             if (chk_input_sabado.checked) {
                 select_desaparecer_sabado.style.opacity = '1';
+                selects_sabadom1.disabled = false;
+                selects_sabadom2.disabled = false;
+                selects_sabadot1.disabled = false;
+                selects_sabadot2.disabled = false;
             } else {
                 select_desaparecer_sabado.style.opacity = '0';
+                selects_sabadom1.disabled = true;
+                selects_sabadom2.disabled = true;
+                selects_sabadot1.disabled = true;
+                selects_sabadot2.disabled = true;     
             }
             });
         chk_input_domingo.addEventListener('change', function() {
             if (chk_input_domingo.checked) {
                 select_desaparecer_domingo.style.opacity = '1';
+                selects_domingom1.disabled = false;
+                selects_domingom2.disabled = false;
+                selects_domingot1.disabled = false;
+                selects_domingot2.disabled = false;
             } else {
                 select_desaparecer_domingo.style.opacity = '0';
+                selects_domingom1.disabled = true;
+                selects_domingom2.disabled = true;
+                selects_domingot1.disabled = true;
+                selects_domingot2.disabled = true;
             }
             });
 
