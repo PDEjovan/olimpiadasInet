@@ -44,4 +44,5 @@ urlpatterns = [
     path('historial_llamadas/',login_required(views.historial_llamadas),name='historial_llamadas'),
 
     path('atender_calls/',login_required(views.atender_calls),name='atender_calls'),
+    path('agregar_llamadas/',login_required(views.agregar_llamadas),name='agregar_llamadas'),
 ]

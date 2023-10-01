@@ -1,0 +1,99 @@
+{% extends 'layouts/nav.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{% static '/styles/agregar_llamadas_styles.css' %}">
+</head>
+
+    <div class="text">Agregar Llamada</div>
+    <div class="btn_volver">
+        <a href="javascript:history.back(-1)"><i class="fa-solid fa-arrow-left"></i></a>
+    </div>
+    <div class="container_agregar_llamada">
+        <form class="form_agregar_llamada" action="{% url 'agregar_llamadas' %}" method="post">
+
+            {% csrf_token %}
+            <div class="tit_form_agregar_llamada">
+                <div></div>
+                <h2 >Añadir Llamada</h2>
+                <a href="/agregar_paciente">Registrar Paciente</a>
+            </div>
+            <div class="user-box">
+                <input type="text"  maxlength="8" name="dni" required id="dni">
+                <label class="label_input">DNI</label>
+                <p id="dni-error" class="error-message"></p>
+            </div>
+            <div class="user-box">
+                <input type="text"  maxlength="8" name="dni" required id="dni">
+                <label class="label_input">Patología</label>
+                <p id="dni-error" class="error-message"></p>
+            </div>
+            <div class="user-box select_container calificacion_triage">  
+                <label class="label_select">Calificación Triage</label>
+                <div class="select">
+                    <select name="calificacion_triage">
+                        <option value="blanco">Blanco</option>
+                        <option value="azul">Azul</option>
+                        <option value="verde">Verde</option>
+                        <option value="amarillo">Amarillo</option>
+                        <option value="naranja">Naranja</option>
+                        <option value="rojo">Rojo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="user-box select_container zona">  
+                <label class="label_select">Zona</label>
+                <div class="select">
+                    <select name="zona">
+                        <option value="sala 1">Sala 1</option>
+                        <option value="sala 2">Sala 2</option>
+                        <option value="sala 3">Sala 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="user-box select_container especialidad">
+                <label class="label_select">Especialidad Requerida</label>
+                <div class="select">
+                    <select name="especialidad">
+                        <option value="sala 1">Urologo</option>
+                        <option value="sala 2">Ginecologo</option>
+                        <option value="sala 3">Otorrinolaringologo</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="user-box select_container ubicacion">
+                <label class="label_select">Ubicación</label>
+                <div class="select">
+                    <select name="ubicacion">
+                        <option value="cama">Cama</option>
+                        <option value="baño">Baño</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="button_agregar_llamada">
+                <button><span></span><p data-start="good luck!" data-text="Llamada!" data-title="AÑADIR"></p></button>
+            </div>
+
+        </form>
+    </div>
+    <script src="{% static '/Scripts/agregar_paciente.js' %}"></script>
+    <script>
+        const anoSelect = document.getElementById("ano");
+        // Llena el campo de selección de años desde 1900 hasta el año actual
+        const fechaActual = new Date();
+        const anoActual = fechaActual.getFullYear();
+        const anoInicial = 1900;
+
+        for (let ano = anoActual; ano >= anoInicial; ano--) {
+            const option = document.createElement("option");
+            option.value = ano;
+            option.textContent = ano;
+            anoSelect.appendChild(option);
+        }
+    </script>
+
+
+{% endblock %}
