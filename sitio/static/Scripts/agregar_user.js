@@ -1,33 +1,15 @@
 
 document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector(".form_agregar_paciente");
-    const dniInput = document.getElementById("dni");
-    const dniError = document.getElementById("dni-error");
+    const form = document.querySelector(".form_agregar_medico_enfermero");
 
-    // Agregar un evento de escucha para el evento "input" en el campo del DNI
-    dniInput.addEventListener("input", function() {
-        // Obtener el valor actual del campo del DNI
-        const dniValue = dniInput.value.trim();
-        
-        // Utilizar una expresión regular para eliminar todos los caracteres que no sean números
-        const numericValue = dniValue.replace(/[^0-9]/g, "");
-
-        // Asignar el valor numérico al campo del DNI
-        dniInput.value = numericValue;
-
-        // Validar la longitud del DNI
-        if (numericValue.length < 8) {
-            dniError.textContent = "El DNI debe tener al menos 8 caracteres.";
-            dniError.style.color = "#EE5162";
-            dniError.style.display = "block";
-        } else {
-            dniError.textContent = "";
-            dniError.style.display = "none";
-        }
-    });
+    const password = document.getElementById("password");
+    const confirm_password = document.getElementById("confirm_password");
+    const error_password = document.getElementById("contraseña-error");
+    const error_conf_password = document.getElementById("contraseña-conf-error");
 
     const nombreInput = document.getElementById("nombreInput"); // Agregar ID al campo de nombre
     const nombreError = document.getElementById("nombre-error"); // Agregar un elemento para mostrar el error
+    
 
     nombreInput.addEventListener("input", function() {
         const nombreValue = nombreInput.value.trim();
@@ -66,60 +48,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    const chkAlergia = document.getElementById("chk_input_alergias");
-    const chkEnfermedad = document.getElementById("chk_input_enfermedad");
-    const chkTratamiento = document.getElementById("chk_input_tratamiento");
-    const chkEnfCir = document.getElementById("chk_input_enf_o_cir");
-
-    const alergiaInput = document.getElementById("alergiaInput");
-    const enfermedadInput = document.getElementById("enfermedadInput");
-    const tratamientoInput = document.getElementById("tratamientoInput");
-    const enfCirInput = document.getElementById("enfCirInput");
-
-    chkAlergia.addEventListener("change", function() {
-        alergiaInput.disabled = !chkAlergia.checked;
-        if (!chkAlergia.checked) {
-            alergiaInput.value = ""; // Borra el texto si se desactiva la checkbox
-        }
-    });
-
-    chkEnfermedad.addEventListener("change", function() {
-        enfermedadInput.disabled = !chkEnfermedad.checked;
-        if (!chkEnfermedad.checked) {
-            enfermedadInput.value = ""; // Borra el texto si se desactiva la checkbox
-        }
-    });
-
-    chkTratamiento.addEventListener("change", function() {
-        tratamientoInput.disabled = !chkTratamiento.checked;
-        if (!chkTratamiento.checked) {
-            tratamientoInput.value = ""; // Borra el texto si se desactiva la checkbox
-        }
-    });
-
-    chkEnfCir.addEventListener("change", function() {
-        enfCirInput.disabled = !chkEnfCir.checked;
-        if (!chkEnfCir.checked) {
-            enfCirInput.value = ""; // Borra el texto si se desactiva la checkbox
-        }
-    });
-
-    const direccionInput = document.getElementById("direccionInput"); // Agregar ID al campo de dirección
-    const direccionError = document.getElementById("direccion-error"); // Agregar un elemento para mostrar el error
-
-    direccionInput.addEventListener("input", function() {
-        const direccionValue = direccionInput.value.trim();
-        
-        if (!/^[a-zA-Z0-9\s]+$/.test(direccionValue)) {
-            direccionError.textContent = "La dirección debe contener solo letras, números y espacios.";
-            direccionError.style.color = "#EE5162";
-            direccionError.style.display = "block";
-        } else {
-            direccionError.textContent = "";
-            direccionError.style.display = "none";
-        }
-    });
-
     const telefonoInput = document.getElementById("telefonoInput");
 
     telefonoInput.addEventListener("input", function() {
@@ -133,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const mesSelect = document.getElementById("mes");
     const diaSelect = document.getElementById("diaSelect"); // Usamos getElementsByName ya que hay varios elementos con el mismo nombre
     const anoSelect = document.getElementById("ano");
+
 
     function actualizarDias() {
         const mesSeleccionado = mesSelect.value;
@@ -176,22 +105,10 @@ document.addEventListener("DOMContentLoaded", function() {
     actualizarDias();
 
     form.addEventListener("submit", function(event) {
-        const dniValue = dniInput.value.trim(); // Elimina espacios en blanco al principio y al final
         const nombreValue = nombreInput.value.trim(); 
         const apellidoValue = apellidoInput.value.trim();
-        const direccionValue = direccionInput.value.trim();
-
-        if (dniValue.length < 8) {
-            event.preventDefault(); // Evita que el formulario se envíe
-            dniError.textContent = "* El DNI debe tener al menos 8 caracteres.";
-            dniError.style.color = "#EE5162"; // Cambia el color del texto a rojo
-            dniError.style.display = "block"; // Muestra el mensaje de error
-            dniInput.scrollIntoView();
-        } else {
-            dniError.textContent = ""; // Borra el mensaje de error
-            dniError.style.display = "none"; // Oculta el mensaje de error
-        }
-
+        const passwordValue = password.value.trim();
+        const confirm_password_Value = confirm_password.value.trim();
 
         if (nombreValue.length < 3) {
             event.preventDefault(); // Evita que el formulario se envíe
@@ -228,14 +145,26 @@ document.addEventListener("DOMContentLoaded", function() {
             apellidoError.style.display = "none";
         }
 
-        
-        if (!/^[a-zA-Z0-9\s]+$/.test(direccionValue)) {
+        if (passwordValue.length < 8) {
             event.preventDefault(); // Evita que el formulario se envíe
-            direccionError.textContent = "La dirección debe contener solo letras, números y espacios.";
-            direccionError.style.color = "#EE5162";
-            direccionError.style.display = "block";
-            apellidoInput.scrollIntoView();
+            error_password.textContent = "La contraseña debe tener al menos 8 caracteres.";
+            error_password.style.color = "#EE5162";
+            error_password.style.display = "block";
+            passwordValue.scrollIntoView();
+        } else {
+            error_password.textContent = "";
+            error_password.style.display = "none";
         }
 
+        if (passwordValue !== confirm_password_Value) {
+            event.preventDefault(); // Evita que el formulario se envíe
+            error_conf_password.textContent = "Las contraseñas no coinciden";
+            error_conf_password.style.color = "#EE5162";
+            error_conf_password.style.display = "block";
+            confirm_password_Value.scrollIntoView();
+        } else {
+            error_conf_password.textContent = "";
+            error_conf_password.style.display = "none";
+        }
     });
 });
