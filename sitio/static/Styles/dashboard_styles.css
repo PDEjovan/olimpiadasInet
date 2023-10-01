@@ -19,7 +19,7 @@
 }
 
 .datos_dashboard{
-    background-color: #353A50;
+    background-color: rgba(24, 20, 20, 0.987);;
     border-radius: .8em;
     text-align: center;
     display: flex;
@@ -38,7 +38,7 @@
 
 .extra_info_dashboard{
     color: white;
-    background-color: #353A50;
+    background-color: rgba(24, 20, 20, 0.987);
     padding: 2em 0 2em 2.5em;
     text-align: left;
     border-radius: 1em;
@@ -62,22 +62,22 @@
     grid-template-columns: 1fr 1fr;
     border-radius: 1em;
     padding: .5em 0 1em;
-    background-color: #353A50;
+    background-color: rgba(24, 20, 20, 0.987);
 }
 
 
 .grafico_3{
-    background-color: #353A50;
+    background-color: rgba(24, 20, 20, 0.987);
     border-radius: 1em;
 }
 
 .grafico_4{
-    background-color: #353A50;
+    background-color: rgba(24, 20, 20, 0.987);
     border-radius: 1em;
 }
 
 .grafico_main{
-    background-color: #353A50;
+    background-color: rgba(24, 20, 20, 0.987);
     border-radius: 1em;
 }
 
