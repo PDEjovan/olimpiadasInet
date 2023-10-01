@@ -12,115 +12,57 @@
     </div>
     <div class="container_agregar_medico_enfermero">
         <form class="form_agregar_medico_enfermero" action="" method="post">
+            {% csrf_token %}
             <div class="borrar_usuario">
                 <a href="/users">Borrar</a>
             </div>
             <h2 class="tit_form_agregar_medico_enfermero">Editar Usuario</h2>
             
             <div class="user-box">
-                <input type="text" name="" required="">
+                <input type="text" value="{{ users.nombre }}" name="nombre" id="nombreInput" maxlength="50" required>
                 <label class="label_input">Nombre</label>
+                <p id="nombre-error" class="error-message"></p>
             </div>
 
 
             <div class="user-box">
-                <input type="text" name="" required="">
+                <input type="text" value="{{ users.apellido }}" name="apellido" id="apellidoInput" maxlength="50" required>
                 <label class="label_input">Apellido</label>
+                <p id="apellido-error" class="error-message"></p>
             </div>
 
             <div class="user-box email">
-                <input type="email" name="" required="">
+                <input type="email" value="{{ users.email }}" name="email" required="">
                 <label class="label_input">Email</label>
             </div>
 
             <div class="user-box telefono">
-                <input type="tel"  name="" required="">
+                <input type="tel"  value="{{ users.telefono }}" id="telefonoInput" name="telefono" required>
                 <label class="label_input">Teléfono</label>
             </div>
 
+            <h2 class="tit_form_agregar_medico_enfermero">Cambiar Contraseña</h2>
+
             <div class="user-box email">
-                <input type="password" value="12345678" name="" required="">
-                <label class="label_input">Contraseña</label>
+                <input type="password" name="password-act" required id="password-act">
+                <label class="label_input">Contraseña Actual</label>
+                <p id="contraseña-act-error" class="error-message"></p>
             </div>
 
-            <div class="fec_nac">
-                <label class="label_fec">Fecha Nacimiento</label>
-                <div class="container_fec_nac">
-                    <div class="mes_fec_nac">
-                        <label class="label_fec">Mes</label>
-                        <div class="select">
-                            <select name="mes">
-                                <option value="enero">Enero</option>
-                                <option value="febrero">Febrero</option>
-                                <option value="marzo">Marzo</option>
-                                <option value="abril">Abril</option>
-                                <option value="mayo">Mayo</option>
-                                <option value="junio">Junio</option>
-                                <option value="julio">Julio</option>
-                                <option value="agosto">Agosto</option>
-                                <option value="septiembre">Septiembre</option>
-                                <option value="octubre">Octubre</option>
-                                <option value="noviembre">Noviembre</option>
-                                <option value="diciembre">Diciembre</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="dia_fec_nac">
-                        <label class="label_fec">Día</label>
-                        <div class="select">
-                            <select name="dia">
-                                <!--Verificar que meses que no tengan 31 dias no aparezca esa opcion-->
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                            </select>
-                        </div>
-                    </div>
-                
-                    <div class="">
-                        <label class="label_fec">Año</label>
-                        <!--Opcion 1--><input type="text" maxlength="4" minlength="4" class="input_año_fec" name="" id="">
-                        <!--Opcion 2: Consiste en poner un ciclo for que traiga de la base de datos los años desde el 1930 PE hasta el año actual, para que se haga en un select-->
-                        <!--<div class="select">
-                            <select name="dia">
-                                <option value="1"></option>
-                            </select>
-                        </div>
-                        -->
-                    </div>
-                </div>
-
+            <div class="nada">
             </div>
 
-        
+            <div class="user-box email">
+                <input type="password" name="password" required id="password">
+                <label class="label_input">Nueva Contraseña</label>
+                <p id="contraseña-error" class="error-message"></p>
+            </div>
+
+            <div class="user-box email">
+                <input type="password" name="" required  id="confirm_password">
+                <label class="label_input">Verifique la Nueva Contraseña</label>
+                <p id="contraseña-conf-error" class="error-message"></p>
+            </div>
 
             <div class="button_agregar_medico_enfermero">
                 <button><span></span><p data-start="good luck!" data-text="USUARIO!" data-title="MODIFICAR"></p></button>
@@ -128,6 +70,6 @@
 
         </form>
     </div>
-
+    <script src="{% static '/Scripts/agregar_user.js' %}"></script>
 
 {% endblock %}

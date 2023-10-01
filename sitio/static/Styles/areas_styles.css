@@ -8,13 +8,14 @@
 
 .crear_sala_card{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1.5em;
-    padding: 3em 1em;
+    padding: 2em 1em;
     border: 2px solid #2F2F2F;
     border-radius: 1em;
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
@@ -23,9 +24,8 @@
 
 
 .txt_agregar_sala{
-    padding: .35em;
-    border-radius: .5em;
-    background-color: #7A69E9;
+    font-size: 1.5em;
+    color: white;
 }
 
 .icon_agregar_sala{
@@ -34,16 +34,16 @@
     padding: .9em;
     justify-content: center;
     align-items: center;
-    background-color: #7A69E9;
+    border: 2px solid white;
     color: white;
 }
 
 .sala{
     display: flex;
     flex-direction: column;
-    gap: .5em;
+    justify-content: space-around;
     border-radius: 1em;
-    padding: .5em 1em 2.2em .6em;
+    padding: 0em 1.5em 1.4em 1.2em;
     border: 2px solid #2F2F2F;
 }
 
@@ -71,23 +71,25 @@
     display: flex;
     align-items: center;
     padding: 0 1em;
-    gap: 1em;
+    gap: 1.5em;
 }
 
 .nombre_sala{
-    background-color: #7A69E9;
+    background-color: white;
+    
     padding: .35em;
     border-radius: .5em;
-    color: white;
+    color: black;
     text-align: center;
 }
 .icon_sala{
-    background-color: white;
+    border: 2px solid white;
     border-radius: 100%;
     padding: .9em;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
 }
 
 .desc_sala{

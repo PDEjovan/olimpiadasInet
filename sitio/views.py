@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Salas
+from .models import Salas,User
 # Create your views here.
 @login_required
 def index (request):
@@ -65,10 +65,30 @@ def editar_medico (request):
     return render(request, 'editar_medico.html')
 
 def users (request):
-    return render(request, 'users.html') 
+    users = User.objects.all()
+    return render(request, 'users.html',{'users': users})
 
-def editar_users (request):
-    return render(request, 'editar_users.html')  
+def editar_users (request, user_id):
+    users = get_object_or_404(User, id=user_id)
+    if request.method == 'POST':
+        # Obtén los datos del formulario
+        nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
+        telefono = request.POST.get('telefono')
+        email = request.POST.get('email')
+        contraseña = request.POST.get('password')
+
+        # Actualiza los datos del usuario
+        users.nombre = nombre
+        users.apellido = apellido
+        users.telefono = telefono
+        users.telefono = email
+        users.contraseña = contraseña
+        users.save()
+
+        return redirect('users')
+
+    return render(request, 'editar_users.html', {'users':users})  
 
 def agregar_users (request):
     return render(request, 'agregar_users.html')  
@@ -109,3 +129,17 @@ def procesar_formulario(request):
         return redirect('areas')  # Reemplaza 'lista_salas' con la URL correcta
 
     return render(request, 'agregar_sala.html')
+
+def procesar_formulario_users(request):
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
+        telefono = request.POST.get('telefono')
+        email = request.POST.get('email')
+        contraseña = request.POST.get('password')
+
+        User.objects.create(nombre=nombre, apellido=apellido, telefono=telefono, email=email, contraseña=contraseña, )
+
+        return redirect('users') 
+
+    return render(request, 'agregar_users.html')

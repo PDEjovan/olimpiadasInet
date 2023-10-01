@@ -33,20 +33,25 @@
 
                     </tr>
                 </thead>
+                {% for user in users %}
                 <tbody>
                     <img src="" alt="">
                     <tr>
-                        <td> <a href="/editar_users"> editar</a></td>
-                        <td> 1 </td>
-                        <td> Lucas</td>
-                        <td> Antun</td>
-                        <td> 3548 400949 </td>
-                        <td> jovan4182@gmail.com</td>
-                        <td> Administrador</td>
-                        
+                        <td> <a href="{% url 'editar_users' user.id %}""> editar</a></td>
+                        <td> {{  user.id  }} </td>
+                        <td> {{  user.nombre }}</td>
+                        <td> {{  user.apellido }}</td>
+                        <td> {{  user.telefono }} </td>
+                        <td> {{  user.email }}</td>
+                        {% if tipo_user %}
+                        <td> Admin </td>
+                        {% else %}
+                        <td> Normal </td>
+                        {% endif %}
                     </tr>
                     
                 </tbody>
+                {% endfor %}
             </table>
         </section>
     </div>

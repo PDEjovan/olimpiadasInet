@@ -58,52 +58,6 @@ document.addEventListener("DOMContentLoaded", function() {
         telefonoInput.value = telnumericValue;
     });
 
-    const mesSelect = document.getElementById("mes");
-    const diaSelect = document.getElementById("diaSelect"); // Usamos getElementsByName ya que hay varios elementos con el mismo nombre
-    const anoSelect = document.getElementById("ano");
-
-
-    function actualizarDias() {
-        const mesSeleccionado = mesSelect.value;
-        const anoSeleccionado = parseInt(anoSelect.value);
-
-        // Limpia las opciones actuales de día
-        diaSelect.innerHTML = '';
-
-        // Obtiene el número máximo de días para el mes seleccionado
-        const diasEnMes = obtenerDiasEnMes(mesSeleccionado, anoSeleccionado);
-
-        // Agrega las opciones de día actualizadas
-        for (let dia = 1; dia <= diasEnMes; dia++) {
-            const option = document.createElement("option");
-            option.value = dia;
-            option.textContent = dia;
-            diaSelect.appendChild(option);
-        }
-    }
-
-    // Función para obtener el número de días en un mes, teniendo en cuenta si el año es bisiesto o no
-    function obtenerDiasEnMes(nombreMes, ano) {
-        const mesesCon31Dias = ["enero", "marzo", "mayo", "julio", "agosto", "octubre", "diciembre"];
-        const mesEsFeb = nombreMes.toLowerCase() === "febrero";
-        const esBisiesto = (ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0);
-
-        if (mesesCon31Dias.includes(nombreMes)) {
-            return 31;
-        } else if (mesEsFeb) {
-            return esBisiesto ? 29 : 28;
-        } else {
-            return 30;
-        }
-    }
-
-    // Agrega un event listener al campo de selección de mes
-    mesSelect.addEventListener("change", actualizarDias);
-    anoSelect.addEventListener("change", actualizarDias);
-
-    // Llama a la función inicialmente para configurar los días según el mes inicial
-    actualizarDias();
-
     form.addEventListener("submit", function(event) {
         const nombreValue = nombreInput.value.trim(); 
         const apellidoValue = apellidoInput.value.trim();

@@ -11,7 +11,7 @@
         <a href="javascript:history.back(-1)"><i class="fa-solid fa-arrow-left"></i></a>
     </div>
     <div class="container_agregar_medico_enfermero">
-        <form class="form_agregar_medico_enfermero" action="" method="post">
+        <form class="form_agregar_medico_enfermero" action="{% url 'procesar_formulario_users' %}" method="post">
             {% csrf_token %}
             <h2 class="tit_form_agregar_medico_enfermero">Añadir Usuario</h2>
             
@@ -39,89 +39,15 @@
             </div>
 
             <div class="user-box email">
-                <input type="password" name="" required id="password">
+                <input type="password" name="password" required id="password">
                 <label class="label_input">Contraseña</label>
                 <p id="contraseña-error" class="error-message"></p>
             </div>
 
             <div class="user-box email">
-                <input type="password" name="" required  id="confirm_password">
+                <input type="password" required  id="confirm_password">
                 <label class="label_input">Verifique la contraseña</label>
                 <p id="contraseña-conf-error" class="error-message"></p>
-            </div>
-
-            <div class="fec_nac">
-                <label class="label_fec">Fecha Nacimiento</label>
-                <div class="container_fec_nac">
-                    <div class="mes_fec_nac">
-                        <label class="label_fec">Mes</label>
-                        <div class="select">
-                            <select id="mes" name="mes" onchange="ocultarHorasAnteriores('lunes_manana1', 'lunes_manana2')">
-                                <option value="enero">Enero</option>
-                                <option value="febrero">Febrero</option>
-                                <option value="marzo">Marzo</option>
-                                <option value="abril">Abril</option>
-                                <option value="mayo">Mayo</option>
-                                <option value="junio">Junio</option>
-                                <option value="julio">Julio</option>
-                                <option value="agosto">Agosto</option>
-                                <option value="septiembre">Septiembre</option>
-                                <option value="octubre">Octubre</option>
-                                <option value="noviembre">Noviembre</option>
-                                <option value="diciembre">Diciembre</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="dia_fec_nac">
-                        <label class="label_fec">Día</label>
-                        <div class="select">
-                            <select id="diaSelect" name="dia" onchange="ocultarHorasPoseriores('lunes_manana2', 'lunes_manana1')">
-                                <!--Verificar que meses que no tengan 31 dias no aparezca esa opcion-->
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                            </select>
-                        </div>
-                    </div>
-                
-                    <div class="ano_fec_nac">
-                        <label class="label_fec">Año</label>
-                        <div class="select">
-                            <select id="ano" name="ano">
-                                <!-- Opciones de años -->
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
             </div>
