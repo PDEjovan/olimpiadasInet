@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     const mesSelect = document.getElementById("mes");
-    const diaSelect = document.getElementById("diaSelect"); // Usamos getElementsByName ya que hay varios elementos con el mismo nombre
+    const diaSelect = document.getElementById("diaSelect");
     const anoSelect = document.getElementById("ano");
 
     function actualizarDias() {

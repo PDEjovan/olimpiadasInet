@@ -15,7 +15,7 @@
         <div class="nombre_apellido">
             <h2>{{enfermeros.nombre}} {{ enfermeros.apellido }}</h2>
         </div>
-        <a href="" id="eliminar_enfermero" class="borrar" onclick="eliminar_sala('{{ enfermeros.id }}')" >Borrar</a>
+        <a id="eliminar_enfermero" class="borrar" onclick="eliminar_sala('{{ enfermeros.id }}')" >Borrar</a>
         <div class="item_perfil izquierda_perfil">
             <p>Matrícula:</p> <p>12345678</p>
         </div>
@@ -127,12 +127,12 @@
 </div>
 
 <script>
-    function eliminar_sala(salaId) {
+    function eliminar_sala(Id) {
         const confirmacion = confirm('¿Estás seguro de que deseas borrar este enfermero?');
         
         if (confirmacion) {
             // El usuario hizo clic en "Aceptar", redirige al usuario
-            window.location.href = `/eliminar_objeto/Enfermeros/${salaId}/`;
+            window.location.href = `/eliminar_objeto/Enfermeros/${Id}/`;
         } else {
             // El usuario hizo clic en "Cancelar" o cerró el cuadro de diálogo
             // Puedes realizar alguna acción adicional o simplemente no hacer nada

@@ -102,7 +102,7 @@
             </div>
 
             <div class="user-box email">
-                <input type="email" name="email" required="">
+                <input type="email" name="email" required>
                 <label class="label_input">Email</label>
             </div>
 
@@ -130,7 +130,7 @@
                     <div class="mes_fec_nac">
                         <label class="label_fec">Mes</label>
                         <div class="select">
-                            <select id="mes" name="mes" onchange="ocultarHorasAnteriores('lunes_manana1', 'lunes_manana2')">
+                            <select id="mes" name="mes">
                                 <option value="1">Enero</option>
                                 <option value="2">Febrero</option>
                                 <option value="3">Marzo</option>
@@ -149,7 +149,7 @@
                     <div class="dia_fec_nac">
                         <label class="label_fec">Día</label>
                         <div class="select">
-                            <select id="diaSelect" name="dia" onchange="ocultarHorasPoseriores('lunes_manana2', 'lunes_manana1')">
+                            <select id="diaSelect" name="dia">
                                 <!--Verificar que meses que no tengan 31 dias no aparezca esa opcion-->
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -247,13 +247,14 @@
                   
             </div>
             <div class="user-box select_container zona" id="desaparecer_with_radio2">  
-                <label class="label_select">Zona</label>
+                <label class="label_select">Box</label>
                 <div class="select">
                     <select name="zona paciente">
                         <option value="">Seleccione una Opción</option>
                         {% for sala in sala %}
-                        
-                        <option value="{{ sala.id }}">{{ sala.nombre }}</option>
+                            {% if sala.tipo_sala == 'box' %}
+                                <option value="{{ sala.id }}">{{ sala.nombre }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>

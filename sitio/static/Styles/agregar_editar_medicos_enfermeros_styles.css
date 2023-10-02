@@ -560,3 +560,6 @@
   color: white;
 }
 
+#eliminar_enfermero{
+  cursor: pointer;
+}

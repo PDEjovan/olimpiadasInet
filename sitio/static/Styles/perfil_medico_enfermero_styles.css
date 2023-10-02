@@ -26,6 +26,8 @@
     top: 50px;
     left: 50px;
     color: white;
+    cursor: pointer;
+    text-decoration:underline
 }
 
 .editar_perfil{

@@ -16,7 +16,7 @@
             <h2 class="tit_form_agregar_paciente">Editar Paciente</h2>
             
             <div class="user-box">
-                <input type="text" value="{{ paciente.DNI }}" maxlength="8" name="dni" required="">
+                <input type="text" value="{{ paciente.DNI }}" maxlength="8" name="dni" required id="dni">
                 <label class="label_input">DNI</label>
                 <p id="dni-error" class="error-message"></p>
             </div>
@@ -30,14 +30,14 @@
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_alergia">
-                    <input type="text" value="{{ paciente.alergia }}" name="alergia" required="">
+                    <input type="text" value="{{ paciente.alergia }}" name="alergia" maxlength="200" required disabled id="alergiaInput" maxlength="200">
                     <label class="label_input">Alergía</label>
                 </div>
                 
             </div>
 
             <div class="user-box">
-                <input type="text" value="{{ paciente.nombre }}" name="nombre" required="">
+                <input type="text" value="{{ paciente.nombre }}" name="nombre" maxlength="50" required id="nombreInput">
                 <label class="label_input">Nombre</label>
                 <p id="nombre-error" class="error-message"></p>
             </div>
@@ -51,14 +51,14 @@
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_enfermedad">
-                    <input type="text" value="{{ paciente.enfermedad_cronica }}" name="enfermedad" required="">
+                    <input type="text" value="{{ paciente.enfermedad_cronica }}" name="enfermedad" required disabled id="enfermedadInput" maxlength="200" >
                     <label class="label_input">Enfermedad</label>
                 </div>
                 
             </div>
 
             <div class="user-box">
-                <input type="text" value="{{ paciente.apellido }}" name="apellido" required="">
+                <input type="text" value="{{ paciente.apellido }}" name="apellido" required id="apellidoInput" maxlength="50">
                 <label class="label_input">Apellido</label>
                 <p id="apellido-error" class="error-message"></p>
             </div>
@@ -72,7 +72,7 @@
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_tratamiento">
-                    <input type="text" value="{{ paciente.tratamiento_medico }}" name="tratamiento" required="">
+                    <input type="text" value="{{ paciente.tratamiento_medico }}" name="tratamiento" required disabled id="tratamientoInput" maxlength="200" >
                     <label class="label_input">Tratamiento</label>
                 </div>
                 
@@ -80,7 +80,7 @@
 
 
             <div class="user-box">
-                <input type="textarea" name="direccion" value="{{ paciente.direccion }}" required="">
+                <input type="textarea" name="direccion" value="{{ paciente.direccion }}" required id="direccionInput" maxlength="200">
                 <label class="label_input">Dirección</label>
                 <p id="direccion-error" class="error-message"></p>
             </div>
@@ -95,14 +95,14 @@
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_enf_o_cir">
-                    <input type="textarea" value="{{ paciente.enfermedades_o_cirugias }}" name="enfermedades_cirugias" required="">
+                    <input type="textarea" value="{{ paciente.enfermedades_o_cirugias }}"  name="enfermedades_cirugias" required id="enfCirInput" maxlength="200" disabled>
                     <label class="label_input">Enfermedades o cirugias</label>
                 </div>
                 
             </div>
 
             <div class="user-box email">
-                <input type="email" value="{{ paciente.email }}" name="email" required="">
+                <input type="email" value="{{ paciente.email }}" name="email" required>
                 <label class="label_input">Email</label>
             </div>
 
@@ -120,7 +120,7 @@
             </div>
 
             <div class="user-box telefono">
-                <input type="tel" value="{{ paciente.telefono }}" name="telefono" required="">
+                <input type="tel" value="{{ paciente.telefono }}" name="telefono" required id="telefonoInput">
                 <label class="label_input">Teléfono</label>
             </div>
 
@@ -131,7 +131,7 @@
                         <label class="label_fec">Mes</label>
                         <div class="select">
                             {% with paciente.fecha_nacimiento|date:"m" as mes %}
-                            <select id="mes" name="mes" onchange="ocultarHorasAnteriores('lunes_manana1', 'lunes_manana2')">
+                            <select id="mes" name="mes">
                                 <option value="1" {% if mes == "01" %}selected{% endif %}>Enero</option>
                                 <option value="2" {% if mes == "02" %}selected{% endif %}>Febrero</option>
                                 <option value="3" {% if mes == "03" %}selected{% endif %}>Marzo</option>
@@ -151,7 +151,7 @@
                     <div class="dia_fec_nac">
                         <label class="label_fec">Día</label>
                         <div class="select">
-                            <select id="diaSelect" name="dia" onchange="ocultarHorasPoseriores('lunes_manana2', 'lunes_manana1')">
+                            <select id="diaSelect" name="dia">
                                 <!--Verificar que meses que no tengan 31 dias no aparezca esa opcion-->
                                 {% with paciente.fecha_nacimiento|date:"d" as dia %}
                                 <option value="1" {% if dia == "01" %}selected{% endif %}>1</option>
@@ -253,11 +253,14 @@
                   
             </div>
             <div class="user-box select_container zona" id="desaparecer_with_radio2">  
-                <label class="label_select">Zona</label>
+                <label class="label_select">Box</label>
                 <div class="select">
                     <select name="zona paciente">
+                        <option value="">Seleccione una Opción</option>
                         {% for sa in sala %}
-                        <option value="{{ sa.id }}" {% if sa.id == paciente.sala.id %} selected="selected" {% endif %}>{{ sa.nombre }}</option>
+                            {% if sa.tipo_sala == 'box' %}
+                                <option   option value="{{ sa.id }}" {% if sa.id == paciente.sala.id %} selected="selected" {% endif %}>{{ sa.nombre }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>

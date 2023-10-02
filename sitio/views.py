@@ -43,13 +43,14 @@ def agregar_paciente (request):
         mes_fecha_nac= request.POST.get('mes')
         enfermero_asic=request.POST.get('enfermero asignado')
         sala_asic=request.POST.get('zona paciente')
+        internado = request.POST.get('internado-radio')
 
         fecha = año_fecha_nac + "-" + mes_fecha_nac + "-" + dia_fecha_nac
         enfe=Enfermeros.objects.get(id=enfermero_asic)
         sala_pa=Salas.objects.get(id=sala_asic)
 
         email = request.POST.get('email')
-        Paciente.objects.create(DNI=dni, nombre=nombre,apellido=apellido,direccion=direccion,email=email,obra_social=obra_so,fecha_nacimiento=fecha,genero=genero,telefono=telefono,alergia=alergia,enfermedad_cronica=enfermedad_cronica,tratamiento_medico=tratamiento_medico,enfermedades_o_cirugias=enfermedades_o_cirugias,enfermero=enfe,sala=sala_pa)
+        Paciente.objects.create(DNI=dni, nombre=nombre,apellido=apellido,direccion=direccion,email=email,obra_social=obra_so,fecha_nacimiento=fecha,genero=genero,telefono=telefono,alergia=alergia,enfermedad_cronica=enfermedad_cronica,tratamiento_medico=tratamiento_medico,enfermedades_o_cirugias=enfermedades_o_cirugias,enfermero=enfe,sala=sala_pa,internado=internado)
 
         return redirect('paciente')
     
@@ -89,7 +90,8 @@ def editar_paciente (request,paciente_id):
         mes_fecha_nac= request.POST.get('mes')
         enfermero_asic=request.POST.get('enfermero asignado')
         sala_asic=request.POST.get('zona paciente')
-
+        internado = request.POST.get('internado-radio')
+        
         fecha = año_fecha_nac + "-" + mes_fecha_nac + "-" + dia_fecha_nac
         enfe=Enfermeros.objects.get(id=enfermero_asic)
         sala_pa=Salas.objects.get(id=sala_asic)
@@ -109,6 +111,7 @@ def editar_paciente (request,paciente_id):
         paciente.tratamiento_medico = tratamiento_medico
         paciente.enfermedades_o_cirugias = enfermedades_o_cirugias
         paciente.fecha_nacimiento = fecha
+        paciente.internado = internado
         paciente.sala_id=sala_pa
         paciente.enfermero_id=enfe
         paciente.save()
@@ -508,13 +511,6 @@ def eliminar_objeto(request,modelo ,objeto_id):
 
         return redirect('areas')  # Redirige a donde desees después de eliminar el objeto
     
-    elif modelo == "Obra_Social":
-
-        objeto_a_eliminar = get_object_or_404(Obra_Social, id=objeto_id)
-        objeto_a_eliminar.delete()
-
-        return redirect('users')  # Redirige a donde desees después de eliminar el objeto
-    
     elif modelo == "Enfermeros":
 
         objeto_a_eliminar = get_object_or_404(Enfermeros, id=objeto_id)
@@ -528,13 +524,6 @@ def eliminar_objeto(request,modelo ,objeto_id):
         objeto_a_eliminar.delete()
 
         return redirect('paciente')  # Redirige a donde desees después de eliminar el objeto
-    
-    elif modelo == "Zonas":
-
-        objeto_a_eliminar = get_object_or_404(Zonas, id=objeto_id)
-        objeto_a_eliminar.delete()
-
-        return redirect('users')  # Redirige a donde desees después de eliminar el objeto
 
     elif modelo == "Medico":
 

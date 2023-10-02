@@ -40,9 +40,11 @@ urlpatterns = [
     path('historial_clinico/',login_required(views.historial_clinico),name='historial_clinico'),
     path('historial_llamadas/',login_required(views.historial_llamadas),name='historial_llamadas'),
 
+    path('agregar_llamadas/',login_required(views.agregar_llamadas),name='agregar_llamadas'),
     path('calls/', login_required(views.calls),name='calls'),
     path('atender_calls/',login_required(views.atender_calls),name='atender_calls'),
 
     path('eliminar_objeto/<modelo>/<int:objeto_id>/',login_required(views.eliminar_objeto), name='eliminar_objeto'),
-    path('agregar_llamadas/',login_required(views.agregar_llamadas),name='agregar_llamadas'),
+
+
 ]

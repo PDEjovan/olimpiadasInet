@@ -52,15 +52,16 @@
         <div class="item_perfil derecha_perfil derecha5">
             <p>¿Internado en Hospital?: </p><p>{{ paciente.internado }}</p>
         </div>
-        <div class="zona_enfermero">
-            <div class="item_perfil derecha_perfil derecha5">
-                <p>Zona: </p> <p>{{ paciente.sala.nombre }}</p>
+        {% if paciente.internado == 'si' %}
+            <div class="zona_enfermero">
+                <div class="item_perfil derecha_perfil derecha5">
+                    <p>Box: </p> <p>{{ paciente.sala.nombre }}</p>
+                </div>
+                <div class="item_perfil derecha_perfil derecha6">
+                    <p>Enfermero/a asignado: </p> <p>{{ paciente.enfermero.nombre }}</p>
+                </div>
             </div>
-            <div class="item_perfil derecha_perfil derecha6">
-                <p>Enfermero/a asignado: </p> <p>{{ paciente.enfermero.nombre }}</p>
-            </div>
-        </div>
-
+        {% endif %}
     </div>
 </div>
 <script>
