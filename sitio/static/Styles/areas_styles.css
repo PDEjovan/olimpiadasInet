@@ -102,3 +102,7 @@
 .tipo_sala{
     color: #686868;
 }
+
+#eliminar-sala {
+    cursor: pointer;
+}

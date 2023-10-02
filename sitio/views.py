@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Salas,User
+from .models import Salas,User,Obra_Social,Enfermeros,Paciente,Especialidad,Medico,Llamados
 # Create your views here.
 @login_required
 def index (request):
@@ -24,7 +24,9 @@ def pacientes (request):
     return render(request, 'pacientes.html') 
 
 def agregar_paciente (request):
-    return render(request, 'agregar_pacientes.html') 
+    salas = Salas.objects.all()
+    return render(request, 'agregar_pacientes.html', {'salas': salas}) 
+     
 
 
 def perfil_paciente (request):
@@ -35,7 +37,8 @@ def tabla_pacientes (request):
 
 
 def editar_paciente (request):
-    return render(request, 'editar_paciente.html') 
+    salas = Salas.objects.all()
+    return render(request, 'editar_paciente.html', {'salas': salas}) 
 
 def agregar_sala (request):
     return render(request, 'agregar_sala.html') 
@@ -82,7 +85,7 @@ def editar_users (request, user_id):
         users.nombre = nombre
         users.apellido = apellido
         users.telefono = telefono
-        users.telefono = email
+        users.email = email
         users.contraseña = contraseña
         users.save()
 
@@ -146,3 +149,63 @@ def procesar_formulario_users(request):
         return redirect('users') 
 
     return render(request, 'agregar_users.html')
+
+def eliminar_objeto(request,modelo ,objeto_id):
+    if modelo == "User":
+
+        objeto_a_eliminar = get_object_or_404(User, id=objeto_id)
+        objeto_a_eliminar.delete()
+
+        return redirect('users')  # Redirige a donde desees después de eliminar el objeto
+    
+    elif modelo == "Salas":
+
+        objeto_a_eliminar = get_object_or_404(Salas, id=objeto_id)
+        objeto_a_eliminar.delete()
+
+        return redirect('areas')  # Redirige a donde desees después de eliminar el objeto
+    
+    elif modelo == "Obra_Social":
+
+        objeto_a_eliminar = get_object_or_404(Obra_Social, id=objeto_id)
+        objeto_a_eliminar.delete()
+
+        return redirect('users')  # Redirige a donde desees después de eliminar el objeto
+    
+    elif modelo == "Enfermeros":
+
+        objeto_a_eliminar = get_object_or_404(Enfermeros, id=objeto_id)
+        objeto_a_eliminar.delete()
+
+        return redirect('enfermeros')  # Redirige a donde desees después de eliminar el objeto
+    
+    elif modelo == "Paciente":
+
+        objeto_a_eliminar = get_object_or_404(Paciente, id=objeto_id)
+        objeto_a_eliminar.delete()
+
+        return redirect('paciente')  # Redirige a donde desees después de eliminar el objeto
+    
+    elif modelo == "Zonas":
+
+        objeto_a_eliminar = get_object_or_404(Zonas, id=objeto_id)
+        objeto_a_eliminar.delete()
+
+        return redirect('users')  # Redirige a donde desees después de eliminar el objeto
+
+    elif modelo == "Medico":
+
+        objeto_a_eliminar = get_object_or_404(Medico, id=objeto_id)
+        objeto_a_eliminar.delete()
+
+        return redirect('medicos')  # Redirige a donde desees después de eliminar el objeto
+
+    elif modelo == "Llamados":
+
+        objeto_a_eliminar = get_object_or_404(Llamados, id=objeto_id)
+        objeto_a_eliminar.delete()
+
+        return redirect('calls')  # Redirige a donde desees después de eliminar el objeto
+
+
+    

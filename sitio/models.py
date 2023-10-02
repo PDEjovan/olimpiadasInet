@@ -14,10 +14,8 @@ class Enfermeros(models.Model):
     telefono = models.CharField(max_length=12) 
 
     
-
 # Create your models here.
 class Paciente(models.Model):
-    matricula=models.CharField(max_length=10)
     DNI = models.CharField(max_length=8)
     nombre = models.CharField(max_length=255)
     apellido = models.CharField(max_length=255)
@@ -40,10 +38,9 @@ class Paciente(models.Model):
 
     enfermero=models.ForeignKey(Enfermeros,on_delete=models.CASCADE)
 
-
-class Zonas(models.Model):
+class Salas(models.Model):
     nombre=models.CharField(max_length=50)
-    tipo=models.CharField(max_length=50)
+    tipo_sala=models.CharField(max_length=50)
 
 class Especialidad(models.Model):
     nombre=models.CharField(max_length=100)
@@ -59,11 +56,12 @@ class Medico(models.Model):
     estado=models.BooleanField(default=False)
     especialidad=models.ForeignKey(Especialidad,on_delete=models.CASCADE)
 
+
 class Llamados(models.Model):
     tipo_llamado=models.CharField(max_length=20)
     fecha_hora=models.DateTimeField()
     id_paciente=models.ForeignKey(Paciente,on_delete=models.CASCADE)
-    id_zona=models.ForeignKey(Zonas,on_delete=models.CASCADE)
+    id_zona=models.ForeignKey(Salas,on_delete=models.CASCADE)
     id_medico=models.ForeignKey(Medico,on_delete=models.CASCADE)
 
 class User(models.Model):
@@ -74,6 +72,3 @@ class User(models.Model):
     contraseña=models.CharField(max_length=50 )
     tipo_user=models.BooleanField(default=False)
 
-class Salas(models.Model):
-    nombre=models.CharField(max_length=50)
-    tipo_sala=models.CharField(max_length=50)
