@@ -59,18 +59,18 @@
                         <label class="label_fec">Mes</label>
                         <div class="select">
                             <select id="mes" name="mes" onchange="ocultarHorasAnteriores('lunes_manana1', 'lunes_manana2')">
-                                <option value="enero">Enero</option>
-                                <option value="febrero">Febrero</option>
-                                <option value="marzo">Marzo</option>
-                                <option value="abril">Abril</option>
-                                <option value="mayo">Mayo</option>
-                                <option value="junio">Junio</option>
-                                <option value="julio">Julio</option>
-                                <option value="agosto">Agosto</option>
-                                <option value="septiembre">Septiembre</option>
-                                <option value="octubre">Octubre</option>
-                                <option value="noviembre">Noviembre</option>
-                                <option value="diciembre">Diciembre</option>
+                                <option value="1">Enero</option>
+                                <option value="2">Febrero</option>
+                                <option value="3">Marzo</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Mayo</option>
+                                <option value="6">Junio</option>
+                                <option value="7">Julio</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
                             </select>
                         </div>
                     </div>
@@ -159,7 +159,7 @@
                     <div class="user-box select_horas" id="if_checked_lunes">
                         <div class="manana_tarde">
                             <label class="label_hora">M</label>
-                            <select name="" required disabled id="lunes_manana1" class="lunes_manana" onchange="ocultarHorasAnteriores('lunes_manana1', 'lunes_manana2')">
+                            <select name="LMI" required disabled id="lunes_manana1" class="lunes_manana" onchange="ocultarHorasAnteriores('lunes_manana1', 'lunes_manana2')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -211,7 +211,7 @@
                                 <option value="11:45">11:45</option>
                                 <option value="12:00">12:00</option>
                             </select>
-                            <select name="" required disabled id="lunes_manana2" class="lunes_manana" onchange="ocultarHorasPosteriores('lunes_manana2', 'lunes_manana1')">
+                            <select name="LMT" required disabled id="lunes_manana2" class="lunes_manana" onchange="ocultarHorasPosteriores('lunes_manana2', 'lunes_manana1')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -266,7 +266,7 @@
                         </div>
                         <div class="manana_tarde">
                             <label class="label_hora">T</label>
-                            <select name="" required disabled id="lunes_tarde1" class="lunes_tarde" onchange="ocultarHorasAnteriores('lunes_tarde1', 'lunes_tarde2')">
+                            <select name="LTI" required disabled id="lunes_tarde1" class="lunes_tarde" onchange="ocultarHorasAnteriores('lunes_tarde1', 'lunes_tarde2')">
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -317,7 +317,7 @@
                                 <option value="23:45">23:45</option>
                                 <option value="24:00">24:00</option>
                             </select>
-                            <select name="" required disabled id="lunes_tarde2" class="lunes_tarde" onchange="ocultarHorasPosteriores('lunes_tarde2', 'lunes_tarde1')" >
+                            <select name="LTF" required disabled id="lunes_tarde2" class="lunes_tarde" onchange="ocultarHorasPosteriores('lunes_tarde2', 'lunes_tarde1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -385,7 +385,7 @@
                     <div class="user-box select_horas" id="if_checked_martes">
                         <div class="manana_tarde">
                             <label class="label_hora">M</label>
-                            <select name="" required disabled id="martes_manana1" class="martes_manana" onchange="ocultarHorasAnteriores('martes_manana1', 'martes_manana2')">
+                            <select name="MMI" required disabled id="martes_manana1" class="martes_manana" onchange="ocultarHorasAnteriores('martes_manana1', 'martes_manana2')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -437,7 +437,7 @@
                                 <option value="11:45">11:45</option>
                                 <option value="12:00">12:00</option>
                             </select>
-                            <select name="" required disabled id="martes_manana2" class="martes_manana" onchange="ocultarHorasPosteriores('martes_manana2', 'martes_manana1')" >
+                            <select name="MMF" required disabled id="martes_manana2" class="martes_manana" onchange="ocultarHorasPosteriores('martes_manana2', 'martes_manana1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -492,7 +492,7 @@
                         </div>
                         <div class="manana_tarde">
                             <label class="label_hora">T</label>
-                            <select name="" required disabled id="martes_tarde1" class="martes_tarde" onchange="ocultarHorasAnteriores('martes_tarde1', 'martes_tarde2')">
+                            <select name="MTI" required disabled id="martes_tarde1" class="martes_tarde" onchange="ocultarHorasAnteriores('martes_tarde1', 'martes_tarde2')">
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -543,7 +543,7 @@
                                 <option value="23:45">23:45</option>
                                 <option value="24:00">24:00</option>
                             </select>
-                            <select name="" required disabled id="martes_tarde2" class="martes_tarde" onchange="ocultarHorasPosteriores('martes_tarde2', 'martes_tarde1')" >
+                            <select name="MTF" required disabled id="martes_tarde2" class="martes_tarde" onchange="ocultarHorasPosteriores('martes_tarde2', 'martes_tarde1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -611,7 +611,7 @@
                     <div class="user-box select_horas" id="if_checked_miercoles">
                         <div class="manana_tarde">
                             <label class="label_hora">M</label>
-                            <select name="" required disabled id="miercoles_manana1" class="miercoles_manana" onchange="ocultarHorasAnteriores('miercoles_manana1', 'miercoles_manana2')">
+                            <select name="MMMI" required disabled id="miercoles_manana1" class="miercoles_manana" onchange="ocultarHorasAnteriores('miercoles_manana1', 'miercoles_manana2')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -663,7 +663,7 @@
                                 <option value="11:45">11:45</option>
                                 <option value="12:00">12:00</option>
                             </select>
-                            <select name="" required disabled id="miercoles_manana2" class="miercoles_manana" onchange="ocultarHorasPosteriores('miercoles_manana2', 'miercoles_manana1')" >
+                            <select name="MMMT" required disabled id="miercoles_manana2" class="miercoles_manana" onchange="ocultarHorasPosteriores('miercoles_manana2', 'miercoles_manana1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -718,7 +718,7 @@
                         </div>
                         <div class="manana_tarde">
                             <label class="label_hora">T</label>
-                            <select name="" required disabled id="miercoles_tarde1" class="miercoles_tarde" onchange="ocultarHorasAnteriores('miercoles_tarde1', 'miercoles_tarde2')">
+                            <select name="MMTI" required disabled id="miercoles_tarde1" class="miercoles_tarde" onchange="ocultarHorasAnteriores('miercoles_tarde1', 'miercoles_tarde2')">
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -769,7 +769,7 @@
                                 <option value="23:45">23:45</option>
                                 <option value="24:00">24:00</option>
                             </select>
-                            <select name="" required disabled id="miercoles_tarde2" class="miercoles_tarde" onchange="ocultarHorasPosteriores('miercoles_tarde2', 'miercoles_tarde1')" >
+                            <select name="MMTF" required disabled id="miercoles_tarde2" class="miercoles_tarde" onchange="ocultarHorasPosteriores('miercoles_tarde2', 'miercoles_tarde1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -837,7 +837,7 @@
                     <div class="user-box select_horas" id="if_checked_jueves">
                         <div class="manana_tarde">
                             <label class="label_hora">M</label>
-                            <select name="" required disabled id="jueves_manana1" class="jueves_manana" onchange="ocultarHorasAnteriores('jueves_manana1', 'jueves_manana2')">
+                            <select name="JMI" required disabled id="jueves_manana1" class="jueves_manana" onchange="ocultarHorasAnteriores('jueves_manana1', 'jueves_manana2')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -889,7 +889,7 @@
                                 <option value="11:45">11:45</option>
                                 <option value="12:00">12:00</option>
                             </select>
-                            <select name="" required disabled id="jueves_manana2" class="jueves_manana" onchange="ocultarHorasPosteriores('jueves_manana2', 'jueves_manana1')" >
+                            <select name="JMF" required disabled id="jueves_manana2" class="jueves_manana" onchange="ocultarHorasPosteriores('jueves_manana2', 'jueves_manana1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -944,7 +944,7 @@
                         </div>
                         <div class="manana_tarde">
                             <label class="label_hora">T</label>
-                            <select name="" required disabled id="jueves_tarde1" class="jueves_tarde" onchange="ocultarHorasAnteriores('jueves_tarde1', 'jueves_tarde2')">
+                            <select name="JTI" required disabled id="jueves_tarde1" class="jueves_tarde" onchange="ocultarHorasAnteriores('jueves_tarde1', 'jueves_tarde2')">
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -995,7 +995,7 @@
                                 <option value="23:45">23:45</option>
                                 <option value="24:00">24:00</option>
                             </select>
-                            <select name="" required disabled id="jueves_tarde2" class="jueves_tarde" onchange="ocultarHorasPosteriores('jueves_tarde2', 'jueves_tarde1')" >
+                            <select name="JTF" required disabled id="jueves_tarde2" class="jueves_tarde" onchange="ocultarHorasPosteriores('jueves_tarde2', 'jueves_tarde1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -1063,7 +1063,7 @@
                     <div class="user-box select_horas" id="if_checked_viernes">
                         <div class="manana_tarde">
                             <label class="label_hora">M</label>
-                            <select name="" required disabled id="viernes_manana1" class="viernes_manana" onchange="ocultarHorasAnteriores('viernes_manana1', 'viernes_manana2')">
+                            <select name="VMI" required disabled id="viernes_manana1" class="viernes_manana" onchange="ocultarHorasAnteriores('viernes_manana1', 'viernes_manana2')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -1115,7 +1115,7 @@
                                 <option value="11:45">11:45</option>
                                 <option value="12:00">12:00</option>
                             </select>
-                            <select name="" required disabled id="viernes_manana2" class="viernes_manana" onchange="ocultarHorasPosteriores('viernes_manana2', 'viernes_manana1')" >
+                            <select name="VMF" required disabled id="viernes_manana2" class="viernes_manana" onchange="ocultarHorasPosteriores('viernes_manana2', 'viernes_manana1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -1170,7 +1170,7 @@
                         </div>
                         <div class="manana_tarde">
                             <label class="label_hora">T</label>
-                            <select name="" required disabled id="viernes_tarde1" class="viernes_tarde" onchange="ocultarHorasAnteriores('viernes_tarde1', 'viernes_tarde2')">
+                            <select name="VTI" required disabled id="viernes_tarde1" class="viernes_tarde" onchange="ocultarHorasAnteriores('viernes_tarde1', 'viernes_tarde2')">
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -1221,7 +1221,7 @@
                                 <option value="23:45">23:45</option>
                                 <option value="24:00">24:00</option>
                             </select>
-                            <select name="" required disabled id="viernes_tarde2" class="viernes_tarde" onchange="ocultarHorasPosteriores('viernes_tarde2', 'viernes_tarde1')" >
+                            <select name="VTF" required disabled id="viernes_tarde2" class="viernes_tarde" onchange="ocultarHorasPosteriores('viernes_tarde2', 'viernes_tarde1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -1289,7 +1289,7 @@
                     <div class="user-box select_horas" id="if_checked_sabado">
                         <div class="manana_tarde">
                             <label class="label_hora">M</label>
-                            <select name="" required disabled id="sabado_manana1" class="sabado_manana" onchange="ocultarHorasAnteriores('sabado_manana1', 'sabado_manana2')">
+                            <select name="SMI" required disabled id="sabado_manana1" class="sabado_manana" onchange="ocultarHorasAnteriores('sabado_manana1', 'sabado_manana2')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -1341,7 +1341,7 @@
                                 <option value="11:45">11:45</option>
                                 <option value="12:00">12:00</option>
                             </select>
-                            <select name="" required disabled id="sabado_manana2" class="sabado_manana" onchange="ocultarHorasPosteriores('sabado_manana2', 'sabado_manana1')" >
+                            <select name="SMF" required disabled id="sabado_manana2" class="sabado_manana" onchange="ocultarHorasPosteriores('sabado_manana2', 'sabado_manana1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -1396,7 +1396,7 @@
                         </div>
                         <div class="manana_tarde">
                             <label class="label_hora">T</label>
-                            <select name="" required disabled id="sabado_tarde1" class="sabado_tarde" onchange="ocultarHorasAnteriores('sabado_tarde1', 'sabado_tarde2')">
+                            <select name="STI" required disabled id="sabado_tarde1" class="sabado_tarde" onchange="ocultarHorasAnteriores('sabado_tarde1', 'sabado_tarde2')">
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -1447,7 +1447,7 @@
                                 <option value="23:45">23:45</option>
                                 <option value="24:00">24:00</option>
                             </select>
-                            <select name="" required disabled id="sabado_tarde2" class="sabado_tarde" onchange="ocultarHorasPosteriores('sabado_tarde2', 'sabado_tarde1')" >
+                            <select name="STF" required disabled id="sabado_tarde2" class="sabado_tarde" onchange="ocultarHorasPosteriores('sabado_tarde2', 'sabado_tarde1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -1516,7 +1516,7 @@
                     <div class="user-box select_horas" id="if_checked_domingo">
                         <div class="manana_tarde">
                             <label class="label_hora">M</label>
-                            <select name="" required disabled id="domingo_manana1" class="domingo_manana" onchange="ocultarHorasAnteriores('domingo_manana1', 'domingo_manana2')">
+                            <select name="DMI" required disabled id="domingo_manana1" class="domingo_manana" onchange="ocultarHorasAnteriores('domingo_manana1', 'domingo_manana2')">
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -1568,7 +1568,7 @@
                                 <option value="11:45">11:45</option>
                                 <option value="12:00">12:00</option>
                             </select>
-                            <select name="" required disabled id="domingo_manana2" class="domingo_manana" onchange="ocultarHorasPosteriores('domingo_manana2', 'domingo_manana1')" >
+                            <select name="DMF" required disabled id="domingo_manana2" class="domingo_manana" onchange="ocultarHorasPosteriores('domingo_manana2', 'domingo_manana1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="00:00">00:00</option>
                                 <option value="00:15">00:15</option>
@@ -1623,7 +1623,7 @@
                         </div>
                         <div class="manana_tarde">
                             <label class="label_hora">T</label>
-                            <select name="" required disabled id="domingo_tarde1" class="domingo_tarde" onchange="ocultarHorasAnteriores('domingo_tarde1', 'domingo_tarde2')">
+                            <select name="DTI" required disabled id="domingo_tarde1" class="domingo_tarde" onchange="ocultarHorasAnteriores('domingo_tarde1', 'domingo_tarde2')">
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>
@@ -1674,7 +1674,7 @@
                                 <option value="23:45">23:45</option>
                                 <option value="24:00">24:00</option>
                             </select>
-                            <select name="" required disabled id="domingo_tarde2" class="domingo_tarde" onchange="ocultarHorasPosteriores('domingo_tarde2', 'domingo_tarde1')" >
+                            <select name="DTF" required disabled id="domingo_tarde2" class="domingo_tarde" onchange="ocultarHorasPosteriores('domingo_tarde2', 'domingo_tarde1')" >
                                 <option value="--:--">--:--</option>
                                 <option value="12:15">12:15</option>
                                 <option value="12:30">12:30</option>

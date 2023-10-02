@@ -39,7 +39,10 @@ class Enfermeros(models.Model):
     domingoTI = models.TimeField(null=True)
     domingoTF = models.TimeField(null=True)
 
-    
+
+class Salas(models.Model):
+    nombre=models.CharField(max_length=50)
+    tipo_sala=models.CharField(max_length=50)
 # Create your models here.
 class Paciente(models.Model):
     DNI = models.CharField(max_length=8)
@@ -57,11 +60,7 @@ class Paciente(models.Model):
     enfermedades_o_cirugias = models.TextField(blank=True, null=True)
     enfermero=models.ForeignKey(Enfermeros,on_delete=models.CASCADE)
     internado=models.BooleanField(default=False)
-
-class Salas(models.Model):
-    nombre=models.CharField(max_length=50)
-    tipo_sala=models.CharField(max_length=50)
-
+    sala=models.ForeignKey(Salas,on_delete=models.CASCADE)
 
 
 class Medico(models.Model):

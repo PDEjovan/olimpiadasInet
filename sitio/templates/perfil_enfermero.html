@@ -10,10 +10,10 @@
 <div class="container_perfil_medico_enfermero">
     <div class="perfil_medico_enfermero">
         <div class="editar_perfil">
-            <a href="/editar_enfermero">Editar</a>
+            <a href="{% url 'editar_enfermero' enfermeros.id %}">Editar</a>
         </div>
         <div class="nombre_apellido">
-            <h2>Jovan Martinovic</h2>
+            <h2>{{enfermeros.nombre}}</h2>
         </div>
         <a href="javascript:history.back(-1)" class="borrar">Borrar</a>
         <div class="item_perfil izquierda_perfil">
@@ -26,10 +26,10 @@
                 <p>Lunes:</p>
                 <div class="manana_tarde">
                     <div class="item_manana_tarde">
-                        <p>M: </p><p><span>09:00</span>/<span>12:00</span></p>
+                        <p>M: </p><p><span>{{enfermeros.lunesMI}}</span>/<span>{{enfermeros.lunesMF}}</span></p>
                     </div>
                     <div class="item_manana_tarde">
-                        <p>T: </p><p> <span>--:--</span>/<span>--:--</span></p>
+                        <p>T: </p><p> <span>{{enfermeros.lunesTI}}</span>/<span>{{enfermeros.lunesTF}}</span></p>
                     </div>
                 </div>
             </div>
@@ -37,10 +37,10 @@
                 <p>Martes:</p>
                 <div class="manana_tarde">
                     <div class="item_manana_tarde">
-                        <p>M: </p><p><span>09:00</span>/<span>12:00</span></p>
+                        <p>M: </p><p><span>{{enfermeros.martesMI}}</span>/<span>{{enfermeros.martesMF}}/span></p>
                     </div>
                     <div class="item_manana_tarde">
-                        <p>T: </p><p> <span>--:--</span>/<span>--:--</span></p>
+                        <p>T: </p><p> <span>{{enfermeros.martesTI}}</span>/<span>{{enfermeros.martesTF}}</span></p>
                     </div>
                 </div>
             </div>
@@ -48,10 +48,10 @@
                 <p>Miercoles:</p>
                 <div class="manana_tarde">
                     <div class="item_manana_tarde">
-                        <p>M: </p><p><span>09:00</span>/<span>12:00</span></p>
+                        <p>M: </p><p><span>{{enfermeros.miercolesMI}}</span>/<span>{{enfermeros.miercolesMF}}</span></p>
                     </div>
                     <div class="item_manana_tarde">
-                        <p>T: </p><p> <span>--:--</span>/<span>--:--</span></p>
+                        <p>T: </p><p> <span>{{enfermeros.miercolesTI}}</span>/<span>{{enfermeros.miercolesTF}}</span></p>
                     </div>
                 </div>
             </div>
@@ -59,10 +59,10 @@
                 <p>Jueves:</p>
                 <div class="manana_tarde">
                     <div class="item_manana_tarde">
-                        <p>M: </p><p><span>09:00</span>/<span>12:00</span></p>
+                        <p>M: </p><p><span>{{enfermeros.juevesMI}}</span>/<span>{{enfermeros.miercolesMF}}</span></p>
                     </div>
                     <div class="item_manana_tarde">
-                        <p>T: </p><p> <span>--:--</span>/<span>--:--</span></p>
+                        <p>T: </p><p> <span>{{enfermeros.juevesTI}}</span>/<span>{{enfermeros.juevesTF}}</span></p>
                     </div>
                 </div>
             </div>
@@ -70,10 +70,10 @@
                 <p>Viernes:</p>
                 <div class="manana_tarde">
                     <div class="item_manana_tarde">
-                        <p>M: </p><p><span>09:00</span>/<span>12:00</span></p>
+                        <p>M: </p><p><span>{{enfermeros.viernesMI}}</span>/<span>{{enfermeros.viernesMF}}</span></p>
                     </div>
                     <div class="item_manana_tarde">
-                        <p>T: </p><p> <span>--:--</span>/<span>--:--</span></p>
+                        <p>T: </p><p> <span>{{enfermeros.viernesTI}}</span>/<span>{{enfermeros.viernesTF}}</span></p>
                     </div>
                 </div>
             </div>
@@ -81,10 +81,10 @@
                 <p>Sábado:</p>
                 <div class="manana_tarde">
                     <div class="item_manana_tarde">
-                        <p>M: </p><p><span>09:00</span>/<span>12:00</span></p>
+                        <p>M: </p><p><span>{{enfermeros.sabadoMI}}</span>/<span>{{enfermeros.sabadoMF}}</span></p>
                     </div>
                     <div class="item_manana_tarde">
-                        <p>T: </p><p> <span>--:--</span>/<span>--:--</span></p>
+                        <p>T: </p><p> <span>{{enfermeros.sabadoTI}}</span>/<span>{{enfermeros.sabadoTF}}</span></p>
                     </div>
                 </div>
             </div>
@@ -92,10 +92,10 @@
                 <p>Domingo:</p>
                 <div class="manana_tarde">
                     <div class="item_manana_tarde">
-                        <p>M: </p><p><span>09:00</span>/<span>12:00</span></p>
+                        <p>M: </p><p><span>{{enfermeros.domingoMI}}</span>/<span>{{enfermeros.domingoMF}}</span></p>
                     </div>
                     <div class="item_manana_tarde">
-                        <p>T: </p><p> <span>--:--</span>/<span>--:--</span></p>
+                        <p>T: </p><p> <span>{{enfermeros.domingoTI}}</span>/<span>{{enfermeros.domingoTF}}</span></p>
                     </div>
                 </div>
             </div>
@@ -103,23 +103,23 @@
         </div>
 
         <div class="item_perfil izquierda_perfil">
-            <p>DNI:</p> <p>94651007</p>
+            <p>DNI:</p> <p>{{enfermeros.DNI}}</p>
         </div>
 
         <div class="item_perfil izquierda_perfil">
-            <p>Género:</p> <p>Másculino</p>
+            <p>Género:</p> <p>{{enfermeros.genero}}</p>
         </div>
         <div class="item_perfil izquierda_perfil">
-            <p>Fecha Nacimiento: </p><p>19/02/2005</p>
+            <p>Fecha Nacimiento: </p><p>{{enfermeros.fecha_nacimiento}}</p>
         </div>
         <div class="item_perfil izquierda_perfil">
-            <p>Dirección: </p> <p>Argentina, Córdoba, La Cumbre, Pellegrini 11</p>
+            <p>Dirección: </p> <p>{{enfermeros.direccion}}</p>
         </div>
         <div class="item_perfil izquierda_perfil telefono">
-            <p>Teléfono: </p> <p>3548 40-0949</p>
+            <p>Teléfono: </p> <p>{{enfermeros.telefono}}</p>
         </div>
         <div class="item_perfil izquierda_perfil email">
-            <p>Email: </p> <p>jovan4182@gmail.com</p>
+            <p>Email: </p> <p>{{enfermeros.email}}</p>
         </div>
         
 

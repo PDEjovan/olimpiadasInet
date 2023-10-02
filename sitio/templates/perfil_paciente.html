@@ -13,51 +13,47 @@
 <div class="container_perfil_paciente">
     <div class="perfil_paciente">
         <div class="editar_perfil">
-            <a href="/editar_paciente">Editar</a>
+            <a href="{% url 'editar_paciente' paciente.id %}">Editar</a>
         </div>
-        <a href="javascript:history.back(-1)" class="borrar">Borrar</a>
         <div class="nombre_apellido">
-            <h2>Jovan Martinovic</h2>
+            <h2>{{ paciente.nombre }}</h2>
         </div>
         <div class="item_perfil izquierda_perfil">
-            <p>DNI:</p> <p>94651007</p>
+            <p>DNI:</p> <p>{{ paciente.DNI }}</p>
         </div>
         <div class="item_perfil izquierda_perfil">
-            <p>Género:</p> <p>Másculino</p>
+            <p>Género:</p> <p>{{ paciente.genero }}</p>
         </div>
         <div class="item_perfil izquierda_perfil">
-            <p>Fecha Nacimiento: </p><p>19/02/2005</p>
+            <p>Fecha Nacimiento: </p><p>{{ paciente.fecha_nacimiento }}</p>
         </div>
         <div class="item_perfil izquierda_perfil">
-            <p>Dirección: </p> <p>Argentina, Córdoba, La Cumbre, Pellegrini 11</p>
+            <p>Dirección: </p> <p>{{ paciente.direccion }}</p>
         </div>
         <div class="item_perfil izquierda_perfil telefono">
-            <p>Teléfono: </p> <p>3548 40-0949</p>
+            <p>Teléfono: </p> <p>{{ paciente.telefono }}</p>
         </div>
         <div class="item_perfil izquierda_perfil email">
-            <p>Email: </p> <p>jovan4182@gmail.com</p>
+            <p>Email: </p> <p>{{ paciente.email }}</p>
         </div>
         <div class="item_perfil derecha_perfil derecha1">
-            <p>Alergias: </p><p>Ninguna</p>
+            <p>Alergias: </p><p>{{ paciente.alergia }}</p>
         </div>
         <div class="item_perfil derecha_perfil derecha2">
-            <p>Enfermedades crónicas: </p><p>Ninguna</p>
+            <p>Enfermedades crónicas: </p><p>{{ paciente.enfermedad_cronica }}</p>
         </div>
         <div class="item_perfil derecha_perfil derecha3">
-            <p>Bajo algún tratamiento médico: </p><p>Ninguna</p>
+            <p>Bajo algún tratamiento médico: </p><p>{{ paciente.tratamiento_medico }}</p>
         </div>
         <div class="item_perfil derecha_perfil derecha4">
-            <p>Enfermedades o cirugias importantes: </p><p>Ninguna</p>
-        </div>
-        <div class="item_perfil derecha_perfil derecha5">
-            <p>Internado: </p><p>Sí</p>
+            <p>Enfermedades o cirugias importantes: </p><p>{{ paciente.enfermedades_o_cirugias }}</p>
         </div>
         <div class="zona_enfermero">
-            <div class="item_perfil derecha_perfil ">
-                <p>Zona: </p> <p>Sala 54</p>
+            <div class="item_perfil derecha_perfil derecha5">
+                <p>Zona: </p> <p>{{ paciente.sala.nombre }}</p>
             </div>
-            <div class="item_perfil derecha_perfil ">
-                <p>Enfermero/a asignado: </p> <p>Patricia Bullrich</p>
+            <div class="item_perfil derecha_perfil derecha6">
+                <p>Enfermero/a asignado: </p> <p>{{ paciente.enfermero.nombre }}</p>
             </div>
         </div>
 

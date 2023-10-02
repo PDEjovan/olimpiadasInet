@@ -18,14 +18,14 @@ urlpatterns = [
 
     path('pacientes/', login_required(views.pacientes),name ='paciente'),
     path('agregar_paciente/',login_required(views.agregar_paciente),name='agregar_paciente'),
-    path('editar_paciente/',login_required(views.editar_paciente),name='editar_paciente'),
-    path('perfil_paciente/',login_required(views.perfil_paciente),name='perfil_paciente'),
+    path('editar_paciente/<int:paciente_id>/',login_required(views.editar_paciente),name='editar_paciente'),
+    path('perfil_paciente/<int:paciente_id>/',login_required(views.perfil_paciente),name='perfil_paciente'),
     path('tabla_pacientes/',login_required(views.tabla_pacientes),name='tabla_pacientes'),
 
     path('enfermeros/',login_required(views.enfermeros),name='enfermeros'),
-    path('perfil_enfermero/',login_required(views.perfil_enfermero),name='perfil_enfermero'),
+    path('perfil_enfermero/<int:enfermero_id>/',login_required(views.perfil_enfermero),name='perfil_enfermero'),
     path('agregar_enfermero/',login_required(views.agregar_enfermero),name='agregar_enfermero'),
-    path('editar_enfermero/',login_required(views.editar_enfermero),name='editar_enfermero'),
+    path('editar_enfermero/<int:enfermero_id>/',login_required(views.editar_enfermero),name='editar_enfermero'),
 
     path('medicos/',login_required(views.medicos),name='medicos'),
     path('perfil_medico/',login_required(views.perfil_medico),name='perfil_medico'),

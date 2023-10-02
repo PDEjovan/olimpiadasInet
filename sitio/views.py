@@ -21,24 +21,105 @@ def calls (request):
     return render(request, 'calls.html') 
 
 def pacientes (request):
-    return render(request, 'pacientes.html') 
+    pacientess = Paciente.objects.all()
+    return render(request, 'pacientes.html',{'pacientes':pacientess}) 
 
 def agregar_paciente (request):
-    salas = Salas.objects.all()
-    return render(request, 'agregar_pacientes.html', {'salas': salas}) 
+    if request.method == 'POST':
+        dni = request.POST.get('dni')
+        nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
+        direccion = request.POST.get('direccion')
+        email = request.POST.get('email')
+        obra_so = request.POST.get('obra_social')
+        genero = request.POST.get('example-radio')
+        telefono = request.POST.get('telefono')
+        alergia = request.POST.get('alergia')
+        enfermedad_cronica = request.POST.get('enf_cro')
+        tratamiento_medico = request.POST.get('tratamiento')
+        enfermedades_o_cirugias = request.POST.get('enf_cir')
+        año_fecha_nac= request.POST.get('ano')
+        dia_fecha_nac= request.POST.get('dia')
+        mes_fecha_nac= request.POST.get('mes')
+        enfermero_asic=request.POST.get('enfermero asignado')
+        sala_asic=request.POST.get('zona paciente')
+
+        fecha = año_fecha_nac + "-" + mes_fecha_nac + "-" + dia_fecha_nac
+        enfe=Enfermeros.objects.get(id=enfermero_asic)
+        sala_pa=Salas.objects.get(id=sala_asic)
+
+        email = request.POST.get('email')
+        Paciente.objects.create(DNI=dni, nombre=nombre,apellido=apellido,direccion=direccion,email=email,obra_social=obra_so,fecha_nacimiento=fecha,genero=genero,telefono=telefono,alergia=alergia,enfermedad_cronica=enfermedad_cronica,tratamiento_medico=tratamiento_medico,enfermedades_o_cirugias=enfermedades_o_cirugias,enfermero=enfe,sala=sala_pa)
+
+        return redirect('paciente')
+    
+    enferme = Enfermeros.objects.all()
+    sala= Salas.objects.all()
+    context = {'sala': sala, 'enfermeros': enferme}
+    return render(request, 'agregar_pacientes.html', context)
      
 
 
-def perfil_paciente (request):
-    return render(request, 'perfil_paciente.html') 
+def perfil_paciente (request, paciente_id):
+    paciente = get_object_or_404(Paciente, id=paciente_id)
+    return render(request, 'perfil_paciente.html',{'paciente': paciente}) 
+
 
 def tabla_pacientes (request):
     return render(request, 'tabla_pacientes.html') 
 
 
-def editar_paciente (request):
-    salas = Salas.objects.all()
-    return render(request, 'editar_paciente.html', {'salas': salas}) 
+def editar_paciente (request,paciente_id):
+    paciente = get_object_or_404(Paciente, id=paciente_id)
+    if request.method == 'POST':
+        dni = request.POST.get('dni')
+        nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
+        direccion = request.POST.get('direccion')
+        email = request.POST.get('email')
+        obra_so = request.POST.get('obra_social')
+        genero = request.POST.get('example-radio')
+        telefono = request.POST.get('telefono')
+        alergia = request.POST.get('alergia')
+        enfermedad_cronica = request.POST.get('enf_cro')
+        tratamiento_medico = request.POST.get('tratamiento')
+        enfermedades_o_cirugias = request.POST.get('enf_cir')
+        año_fecha_nac= request.POST.get('ano')
+        dia_fecha_nac= request.POST.get('dia')
+        mes_fecha_nac= request.POST.get('mes')
+        enfermero_asic=request.POST.get('enfermero asignado')
+        sala_asic=request.POST.get('zona paciente')
+
+        fecha = año_fecha_nac + "-" + mes_fecha_nac + "-" + dia_fecha_nac
+        enfe=Enfermeros.objects.get(id=enfermero_asic)
+        sala_pa=Salas.objects.get(id=sala_asic)
+
+        email = request.POST.get('email')
+        #actualizar
+        paciente.DNI = dni
+        paciente.nombre = nombre
+        paciente.apellido = apellido
+        paciente.direccion = direccion
+        paciente.email = email
+        paciente.obra_social = obra_so
+        paciente.genero = genero
+        paciente.telefono = telefono
+        paciente.alergia = alergia
+        paciente.enfermedad_cronica = enfermedad_cronica
+        paciente.tratamiento_medico = tratamiento_medico
+        paciente.enfermedades_o_cirugias = enfermedades_o_cirugias
+        paciente.fecha_nacimiento = fecha
+        paciente.sala_id=sala_pa
+        paciente.enfermero_id=enfe
+        paciente.save()
+
+        return redirect('perfil_paciente',paciente_id)
+
+    enferme = Enfermeros.objects.all()
+    sala= Salas.objects.all()    
+    valores = {'sala': sala, 'enfermeros': enferme, 'paciente': paciente}
+    return render(request, 'editar_paciente.html',valores) 
+
 
 def agregar_sala (request):
     return render(request, 'agregar_sala.html') 
@@ -47,22 +128,150 @@ def medicos (request):
     return render(request, 'medicos.html')
 
 def enfermeros (request):
-    return render(request, 'enfermeros.html') 
+    enfermeross=Enfermeros.objects.all()
+    return render(request, 'enfermeros.html',{'enfermeros':enfermeross}) 
 
-def perfil_enfermero (request):
-    return render(request, 'perfil_enfermero.html')
+def perfil_enfermero (request,enfermero_id):
+    enfermeros=get_object_or_404(Enfermeros,id=enfermero_id)
+    return render(request, 'perfil_enfermero.html',{'enfermeros': enfermeros})
 
 def perfil_medico (request):
     return render(request, 'perfil_medico.html')
 
 def agregar_enfermero (request):
+    if request.method == 'POST':
+        dni = request.POST.get('dni')
+        nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
+        direccion = request.POST.get('direccion')
+        email = request.POST.get('email')
+        telefono = request.POST.get('telefono')
+        año_fecha_nac= request.POST.get('ano')
+        dia_fecha_nac= request.POST.get('dia')
+        mes_fecha_nac= request.POST.get('mes')
+        fecha = año_fecha_nac + "-" + mes_fecha_nac + "-" + dia_fecha_nac
+        genero = request.POST.get('example-radio')
+        domingoMF = request.POST.get('DMF')
+        domingoMI = request.POST.get('DMI')
+        domingoTF = request.POST.get('DTF')
+        domingoTI = request.POST.get('DTI')
+        juevesMF = request.POST.get('JMF')
+        juevesMI = request.POST.get('JMI')
+        juevesTF = request.POST.get('JTF')
+        juevesTI = request.POST.get('JTI')
+        lunesMF = request.POST.get('LMI')
+        lunesMI = request.POST.get('LMF')
+        lunesTF = request.POST.get('LTF')
+        lunesTI = request.POST.get('LTI')
+        martesMF = request.POST.get('MMF')
+        martesMI = request.POST.get('MMI')
+        martesTF = request.POST.get('MTF')
+        martesTI = request.POST.get('MTI')
+        miercolesMF = request.POST.get('MMMF')
+        miercolesMI = request.POST.get('MMMI')
+        miercolesTF = request.POST.get('MMTF')
+        miercolesTI = request.POST.get('MMTI')
+        sabadoMF = request.POST.get('SMF')
+        sabadoMI = request.POST.get('SMI')
+        sabadoTF = request.POST.get('STF')
+        sabadoTI = request.POST.get('STI')
+        viernesMF = request.POST.get('VMF')
+        viernesMI = request.POST.get('VMI')
+        viernesTF = request.POST.get('VTF')
+        viernesTI = request.POST.get('VTI')
+
+        Enfermeros.objects.create(DNI=dni,nombre=nombre,apellido=apellido,direccion=direccion,email=email,fecha_nacimiento=fecha,genero=genero,telefono=telefono,domingoMF=domingoMF,domingoMI=domingoMI,domingoTF=domingoTF,domingoTI=domingoTI,juevesMF=juevesMF,juevesMI=juevesMI,juevesTF=juevesTF,juevesTI=juevesTI,lunesMF=lunesMF,lunesMI=lunesMI,lunesTF=lunesTF,lunesTI=lunesTI,martesMF=martesMF,martesMI=martesMI,martesTF=martesTF,martesTI=martesTI,miercolesMF=miercolesMF,miercolesMI=miercolesMI,miercolesTF=miercolesTF,miercolesTI=miercolesTI,sabadoMF=sabadoMF,sabadoMI=sabadoMI,sabadoTF=sabadoTF,sabadoTI=sabadoTI,viernesMF=viernesMF,viernesMI=viernesMI,viernesTF=viernesTF,viernesTI=viernesTI)
+
+
     return render(request, 'agregar_enfermero.html') 
 
 def agregar_medico (request):
     return render(request, 'agregar_medico.html') 
 
-def editar_enfermero (request):
-    return render(request, 'editar_enfermero.html') 
+def editar_enfermero (request,enfermero_id):
+    enfermeros=get_object_or_404(Enfermeros,id=enfermero_id)
+    if request.method == 'POST':
+        dni = request.POST.get('dni')
+        nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
+        direccion = request.POST.get('direccion')
+        email = request.POST.get('email')
+        telefono = request.POST.get('telefono')
+        año_fecha_nac= request.POST.get('ano')
+        dia_fecha_nac= request.POST.get('dia')
+        mes_fecha_nac= request.POST.get('mes')
+        fecha = año_fecha_nac + "-" + mes_fecha_nac + "-" + dia_fecha_nac
+        genero = request.POST.get('example-radio')
+        domingoMF = request.POST.get('DMF')
+        domingoMI = request.POST.get('DMI')
+        domingoTF = request.POST.get('DTF')
+        domingoTI = request.POST.get('DTI')
+        juevesMF = request.POST.get('JMF')
+        juevesMI = request.POST.get('JMI')
+        juevesTF = request.POST.get('JTF')
+        juevesTI = request.POST.get('JTI')
+        lunesMF = request.POST.get('LMF')
+        lunesMI = request.POST.get('LMI')
+        lunesTF = request.POST.get('LTF')
+        lunesTI = request.POST.get('LTI')
+        martesMF = request.POST.get('MMF')
+        martesMI = request.POST.get('MMI')
+        martesTF = request.POST.get('MTF')
+        martesTI = request.POST.get('MTI')
+        miercolesMF = request.POST.get('MMMF')
+        miercolesMI = request.POST.get('MMMI')
+        miercolesTF = request.POST.get('MMTF')
+        miercolesTI = request.POST.get('MMTI')
+        sabadoMF = request.POST.get('SMF')
+        sabadoMI = request.POST.get('SMI')
+        sabadoTF = request.POST.get('STF')
+        sabadoTI = request.POST.get('STI')
+        viernesMF = request.POST.get('VMF')
+        viernesMI = request.POST.get('VMI')
+        viernesTF = request.POST.get('VTF')
+        viernesTI = request.POST.get('VTI')
+
+        enfermeros.DNI=dni
+        enfermeros.nombre=nombre
+        enfermeros.apellido=apellido
+        enfermeros.direccion=direccion
+        enfermeros.email=email
+        enfermeros.fecha_nacimiento=fecha
+        enfermeros.telefono=telefono
+        enfermeros.genero=genero
+        enfermeros.domingoMI=domingoMI
+        enfermeros.domingoMF=domingoMF
+        enfermeros.domingoTF=domingoTF
+        enfermeros.domingoTI=domingoTI
+        enfermeros.lunesMI=lunesMI
+        enfermeros.lunesMF=lunesMF
+        enfermeros.lunesTF=lunesTF
+        enfermeros.lunesTI=lunesTI
+        enfermeros.martesMI=martesMI
+        enfermeros.martesMF=martesMF
+        enfermeros.martesTF=martesTF
+        enfermeros.martesTI=martesTI
+        enfermeros.miercolesMI=miercolesMI
+        enfermeros.miercolesMF=miercolesMF
+        enfermeros.miercolesTF=miercolesTF
+        enfermeros.miercolesTI=miercolesTI
+        enfermeros.juevesMI=juevesMI
+        enfermeros.juevesMF=juevesMF
+        enfermeros.juevesTF=juevesTF
+        enfermeros.juevesTI=juevesTI
+        enfermeros.viernesMI=viernesMI
+        enfermeros.viernesMF=viernesMF
+        enfermeros.viernesTF=viernesTF
+        enfermeros.viernesTI=viernesTI
+        enfermeros.sabadoMI=sabadoMI
+        enfermeros.sabadoMF=sabadoMF
+        enfermeros.sabadoTF=sabadoTF
+        enfermeros.sabadoTI=sabadoTI
+        enfermeros.save()
+
+        return redirect('perfil_enfermero',enfermero_id)
+
+    return render(request, 'editar_enfermero.html',{'enfermeros': enfermeros}) 
 
 def editar_medico (request):
     return render(request, 'editar_medico.html')
