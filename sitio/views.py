@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Salas,User,Obra_Social,Enfermeros,Paciente,Especialidad,Medico,Llamados
+from .models import Salas,User,Enfermeros,Paciente,Medico,Llamados
 # Create your views here.
 @login_required
 def index (request):

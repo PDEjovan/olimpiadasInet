@@ -1,7 +1,5 @@
 from django.db import models
 
-class Obra_Social(models.Model):
-    nombre=models.CharField(max_length=30)
 
 class Enfermeros(models.Model):
     DNI = models.CharField(max_length=8)
@@ -11,7 +9,35 @@ class Enfermeros(models.Model):
     email = models.EmailField()
     fecha_nacimiento=models.DateField()
     genero=models.CharField(max_length=12, default='masculino')
-    telefono = models.CharField(max_length=12) 
+    telefono = models.CharField(max_length=12)
+    lunesMI = models.TimeField(null=True)
+    lunesMF = models.TimeField(null=True)
+    lunesTI = models.TimeField(null=True)
+    lunesTF = models.TimeField(null=True)
+    martesMI = models.TimeField(null=True)
+    martesMF = models.TimeField(null=True)
+    martesTI = models.TimeField(null=True)
+    martesTF = models.TimeField(null=True)
+    miercolesMI = models.TimeField(null=True)
+    miercolesMF = models.TimeField(null=True)
+    miercolesTI = models.TimeField(null=True)
+    miercolesTF = models.TimeField(null=True)
+    juevesMI = models.TimeField(null=True)
+    juevesMF = models.TimeField(null=True)
+    juevesTI = models.TimeField(null=True)
+    juevesTF = models.TimeField(null=True)
+    viernesMI = models.TimeField(null=True)
+    viernesMF = models.TimeField(null=True)
+    viernesTI = models.TimeField(null=True)
+    viernesTF = models.TimeField(null=True)
+    sabadoMI = models.TimeField(null=True)
+    sabadoMF = models.TimeField(null=True)
+    sabadoTI = models.TimeField(null=True)
+    sabadoTF = models.TimeField(null=True)
+    domingoMI = models.TimeField(null=True)
+    domingoMF = models.TimeField(null=True)
+    domingoTI = models.TimeField(null=True)
+    domingoTF = models.TimeField(null=True)
 
     
 # Create your models here.
@@ -21,29 +47,22 @@ class Paciente(models.Model):
     apellido = models.CharField(max_length=255)
     direccion = models.TextField()
     email = models.EmailField()
-    obra_social=models.ForeignKey(Obra_Social, on_delete=models.CASCADE)
+    obra_social=models.CharField(max_length=30)
     fecha_nacimiento=models.DateField(null=True)
-
     genero=models.CharField(max_length=12, default='masculino')
-    
     telefono = models.CharField(max_length=12)  # Puedes ajustar el patrón de validación según tu necesidad
-
     alergia = models.CharField(max_length=255, blank=True, null=True)
-    
     enfermedad_cronica = models.CharField(max_length=255, blank=True, null=True)
-    
     tratamiento_medico = models.CharField(max_length=255, blank=True, null=True)
-    
     enfermedades_o_cirugias = models.TextField(blank=True, null=True)
-
     enfermero=models.ForeignKey(Enfermeros,on_delete=models.CASCADE)
+    internado=models.BooleanField(default=False)
 
 class Salas(models.Model):
     nombre=models.CharField(max_length=50)
     tipo_sala=models.CharField(max_length=50)
 
-class Especialidad(models.Model):
-    nombre=models.CharField(max_length=100)
+
 
 class Medico(models.Model):
     DNI=models.CharField(max_length=8)
@@ -54,7 +73,35 @@ class Medico(models.Model):
     email = models.EmailField()
     telefono = models.CharField(max_length=12) 
     estado=models.BooleanField(default=False)
-    especialidad=models.ForeignKey(Especialidad,on_delete=models.CASCADE)
+    especialidad=models.CharField(max_length=100)
+    lunesMI = models.TimeField(null=True)
+    lunesMF = models.TimeField(null=True)
+    lunesTI = models.TimeField(null=True)
+    lunesTF = models.TimeField(null=True)
+    martesMI = models.TimeField(null=True)
+    martesMF = models.TimeField(null=True)
+    martesTI = models.TimeField(null=True)
+    martesTF = models.TimeField(null=True)
+    miercolesMI = models.TimeField(null=True)
+    miercolesMF = models.TimeField(null=True)
+    miercolesTI = models.TimeField(null=True)
+    miercolesTF = models.TimeField(null=True)
+    juevesMI = models.TimeField(null=True)
+    juevesMF = models.TimeField(null=True)
+    juevesTI = models.TimeField(null=True)
+    juevesTF = models.TimeField(null=True)
+    viernesMI = models.TimeField(null=True)
+    viernesMF = models.TimeField(null=True)
+    viernesTI = models.TimeField(null=True)
+    viernesTF = models.TimeField(null=True)
+    sabadoMI = models.TimeField(null=True)
+    sabadoMF = models.TimeField(null=True)
+    sabadoTI = models.TimeField(null=True)
+    sabadoTF = models.TimeField(null=True)
+    domingoMI = models.TimeField(null=True)
+    domingoMF = models.TimeField(null=True)
+    domingoTI = models.TimeField(null=True)
+    domingoTF = models.TimeField(null=True)
 
 
 class Llamados(models.Model):
