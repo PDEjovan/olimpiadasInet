@@ -198,8 +198,6 @@
 
             </div>
 
-            </div>
-
             <div class="genero user-box">
                 <div>
                     <label class="label_input">Género</label>
@@ -236,12 +234,11 @@
                 <label class="label_select">Zona</label>
                 <div class="select">
                     <select name="zona paciente">
-                        <option value=""></option>
-                        <option value="sala 1">Sala 1</option>
-                        <option value="sala 2">Sala 2</option>
-                        <option value="sala 3">Sala 3</option>
-                        <option value="sala 4">Sala 4</option>
-                        <option value="sala 56">Sala 56</option>
+                        <option value="">Seleccione una Opción</option>
+                        {% for sala in salas %}
+                        
+                        <option value="{{ sala.nombre }}">{{ sala.nombre }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>
@@ -249,7 +246,7 @@
             <div class="button_agregar_paciente">
                 <button><span></span><p data-start="good luck!" data-text="PACIENTE!" data-title="AÑADIR"></p></button>
             </div>
-
+        </div>
         </form>
     </div>
     <script src="{% static '/Scripts/agregar_paciente.js' %}"></script>

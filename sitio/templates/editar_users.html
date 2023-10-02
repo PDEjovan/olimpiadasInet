@@ -14,7 +14,7 @@
         <form class="form_agregar_medico_enfermero" action="" method="post">
             {% csrf_token %}
             <div class="borrar_usuario">
-                <a href="/users">Borrar</a>
+                <a href="{% url 'eliminar_objeto' 'User' users.id   %}">Borrar</a>
             </div>
             <h2 class="tit_form_agregar_medico_enfermero">Editar Usuario</h2>
             
@@ -71,5 +71,31 @@
         </form>
     </div>
     <script src="{% static '/Scripts/agregar_user.js' %}"></script>
+    <script>
+        // Asigna la contraseña actual a una variable de JavaScript
+        var contraseñaActual = "{{ users.contraseña }}";
+        var error_Actual = document.getElementById("contraseña-act-error")
+    
+        function validarContraseñaActual() {
+            var contraseñaIngresada = document.getElementById('password-act').value;
+    
+            if (contraseñaIngresada !== contraseñaActual) {
+                event.preventDefault(); // Evita que el formulario se envíe
+                error_Actual.textContent = "Las contraseña no es correcta";
+                error_Actual.style.color = "#EE5162";
+                error_Actual.style.display = "block";
+                error_Actual.scrollIntoView();
+                return false;
+            }
+    
+            return true;
+        }
+    
+        document.querySelector('.form_agregar_medico_enfermero').addEventListener('submit', function(event) {
+            if (!validarContraseñaActual()) {
+                event.preventDefault();
+            }
+        });
+    </script>
 
 {% endblock %}
