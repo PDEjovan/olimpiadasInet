@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 
 class Enfermeros(models.Model):
     DNI = models.CharField(max_length=8)
@@ -106,7 +106,7 @@ class Medico(models.Model):
 
 class Llamados(models.Model):
     tipo_llamado=models.CharField(max_length=20)
-    fecha_hora=models.DateTimeField()
+    fecha_hora=models.DateTimeField(default=timezone.now)
     id_paciente=models.ForeignKey(Paciente,on_delete=models.CASCADE)
     id_zona=models.ForeignKey(Salas,on_delete=models.CASCADE)
     id_medico=models.ForeignKey(Medico,on_delete=models.CASCADE)
