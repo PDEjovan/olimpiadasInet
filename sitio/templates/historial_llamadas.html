@@ -17,6 +17,7 @@
         </section>
         <section class="table__body">
             <table>
+                
                 <thead>
                     <tr>
                         <th> ID</th>
@@ -26,20 +27,24 @@
                         <th> Diagnóstico</th>
                         <th> Fecha de turno</th>
                         <th> Tipo</th>
+                        <th> Estado</th>
                     </tr>
                 </thead>
+                {% for llamada in llamadas %}
                 <tbody>
                     <img src="" alt="">
                     <tr>
-                        <td> 1 </td>
-                        <td> 94651007</td>
-                        <td> Jovan</td>
-                        <td> Martinovic</td>
-                        <td> Hepatitis</td>
-                        <td> 2022-02-19</td>
-                        <td> Roja</td>
+                        <td> {{ llamada.id }} </td>
+                        <td> {{ llamada.id_paciente.DNI }}</td>
+                        <td> {{ llamada.id_paciente.nombre }}</td>
+                        <td> {{ llamada.id_paciente.apellido }}</td>
+                        <td> {{ llamada.diagnostico }}</td>
+                        <td> {{ llamada.fecha_hora }}</td>
+                        <td> {{ llamada.tipo_llamado }}</td>
+                        <td> {{ llamada.estado }}</td>
                     </tr>
                 </tbody>
+                {% endfor %}
             </table>
         </section>
     </div>

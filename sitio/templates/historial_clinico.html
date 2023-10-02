@@ -30,17 +30,19 @@
                         <th> Fecha de turno</th>
                     </tr>
                 </thead>
+                {% for llamadas in llamadas %}
                 <tbody>
                     <img src="" alt="">
                     <tr>
-                        <td> 1 </td>
-                        <td> 94651007</td>
-                        <td> Jovan</td>
-                        <td> Martinovic</td>
-                        <td> Hepatitis</td>
-                        <td> 2022-02-19</td>
+                        <td> {{ pacientes.id }} </td>
+                        <td> {{ pacientes.DNI }}</td>
+                        <td> {{ pacientes.nombre }}</td>
+                        <td> {{ pacientes.apellido }}</td>
+                        <td> {{ llamadas.diagnostico }}</td>
+                        <td> {{ llamadas.fecha_hora }}</td>
                     </tr>
                 </tbody>
+                {% endfor %}
             </table>
         </section>
     </div>

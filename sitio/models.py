@@ -108,9 +108,11 @@ class Medico(models.Model):
 class Llamados(models.Model):
     tipo_llamado=models.CharField(max_length=20)
     fecha_hora=models.DateTimeField(default=timezone.now)
+    diagnostico=models.CharField(max_length=50,default='nada')
     id_paciente=models.ForeignKey(Paciente,on_delete=models.CASCADE)
     id_zona=models.ForeignKey(Salas,on_delete=models.CASCADE)
     id_medico=models.ForeignKey(Medico,on_delete=models.CASCADE)
+    estado=models.BooleanField(default=False)
 
 class User(models.Model):
     nombre=models.CharField(max_length=50)
