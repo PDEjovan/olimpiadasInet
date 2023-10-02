@@ -59,7 +59,7 @@ class Paciente(models.Model):
     tratamiento_medico = models.CharField(max_length=255, blank=True, null=True)
     enfermedades_o_cirugias = models.TextField(blank=True, null=True)
     enfermero=models.ForeignKey(Enfermeros,on_delete=models.CASCADE)
-    internado=models.BooleanField(default=False)
+    internado=models.CharField(max_length=2, default='No')
     sala=models.ForeignKey(Salas,on_delete=models.CASCADE)
 
 

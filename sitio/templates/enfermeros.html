@@ -38,7 +38,7 @@
     </a>
   {% for enfermero in enfermeros %}
     <a href="{% url 'perfil_enfermero' enfermero.id %}" class="paciente_medico_enfermero">
-        <div class="title_paciente_medico_enfermero">{{ enfermero.nombre }}</div>
+        <div class="title_paciente_medico_enfermero">{{ enfermero.nombre }} {{enfermero.apellido}}</div>
         <div class="extra_info_paciente_medico_enfermero">
           <div class="flex_info">
             <p>Estado: </p>

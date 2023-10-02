@@ -13,7 +13,7 @@
             <a href="{% url 'editar_enfermero' enfermeros.id %}">Editar</a>
         </div>
         <div class="nombre_apellido">
-            <h2>{{enfermeros.nombre}}</h2>
+            <h2>{{enfermeros.nombre}} {{ enfermeros.apellido }}</h2>
         </div>
         <a href="javascript:history.back(-1)" class="borrar">Borrar</a>
         <div class="item_perfil izquierda_perfil">

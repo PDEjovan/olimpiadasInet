@@ -16,7 +16,7 @@
             <a href="{% url 'editar_paciente' paciente.id %}">Editar</a>
         </div>
         <div class="nombre_apellido">
-            <h2>{{ paciente.nombre }}</h2>
+            <h2>{{ paciente.nombre }} {{ paciente.apellido }}</h2>
         </div>
         <div class="item_perfil izquierda_perfil">
             <p>DNI:</p> <p>{{ paciente.DNI }}</p>
@@ -47,6 +47,9 @@
         </div>
         <div class="item_perfil derecha_perfil derecha4">
             <p>Enfermedades o cirugias importantes: </p><p>{{ paciente.enfermedades_o_cirugias }}</p>
+        </div>
+        <div class="item_perfil derecha_perfil derecha5">
+            <p>¿Internado en Hospital?: </p><p>{{ paciente.internado }}</p>
         </div>
         <div class="zona_enfermero">
             <div class="item_perfil derecha_perfil derecha5">

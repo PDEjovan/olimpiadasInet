@@ -16,7 +16,7 @@
     <div class="sala">
         <div class="editar_y_eliminar">
             <a href="{% url 'editar_sala' sala.id %}">Editar</a>
-            <div class="borrar_sala" id="eliminar-sala" data-sala-id="{{ sala.id }}">
+            <div class="borrar_sala" id="eliminar-sala" data-sala-id="{{ sala.id }}" onclick="eliminar_sala('{{ sala.id }}')">
                 <i class="fa-solid fa-xmark"></i>
             </div>
         </div>
@@ -39,11 +39,7 @@
     
 </div>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const eliminarSalaBtn = document.getElementById('eliminar-sala');
-        
-        eliminarSalaBtn.addEventListener('click', function() {
-            const salaId = eliminarSalaBtn.getAttribute('data-sala-id');
+        function eliminar_sala(salaId) {
             const confirmacion = confirm('¿Estás seguro de que deseas borrar esta sala?');
             
             if (confirmacion) {
@@ -53,7 +49,6 @@
                 // El usuario hizo clic en "Cancelar" o cerró el cuadro de diálogo
                 // Puedes realizar alguna acción adicional o simplemente no hacer nada
             }
-        });
-    });
+        };
     </script>
 {% endblock %}
