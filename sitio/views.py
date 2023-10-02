@@ -125,7 +125,8 @@ def agregar_sala (request):
     return render(request, 'agregar_sala.html') 
 
 def medicos (request):
-    return render(request, 'medicos.html')
+    medicoss=Medico.objects.all()
+    return render(request,'medicos.html',{'medicos':medicoss})
 
 def enfermeros (request):
     enfermeross=Enfermeros.objects.all()
@@ -135,8 +136,9 @@ def perfil_enfermero (request,enfermero_id):
     enfermeros=get_object_or_404(Enfermeros,id=enfermero_id)
     return render(request, 'perfil_enfermero.html',{'enfermeros': enfermeros})
 
-def perfil_medico (request):
-    return render(request, 'perfil_medico.html')
+def perfil_medico (request,medico_id):
+    medicos=get_object_or_404(Medico,id=medico_id)
+    return render(request, 'perfil_medico.html',{'medicos':medicos})
 
 def agregar_enfermero (request):
     if request.method == 'POST':
@@ -181,12 +183,58 @@ def agregar_enfermero (request):
         viernesTI = request.POST.get('VTI')
 
         Enfermeros.objects.create(DNI=dni,nombre=nombre,apellido=apellido,direccion=direccion,email=email,fecha_nacimiento=fecha,genero=genero,telefono=telefono,domingoMF=domingoMF,domingoMI=domingoMI,domingoTF=domingoTF,domingoTI=domingoTI,juevesMF=juevesMF,juevesMI=juevesMI,juevesTF=juevesTF,juevesTI=juevesTI,lunesMF=lunesMF,lunesMI=lunesMI,lunesTF=lunesTF,lunesTI=lunesTI,martesMF=martesMF,martesMI=martesMI,martesTF=martesTF,martesTI=martesTI,miercolesMF=miercolesMF,miercolesMI=miercolesMI,miercolesTF=miercolesTF,miercolesTI=miercolesTI,sabadoMF=sabadoMF,sabadoMI=sabadoMI,sabadoTF=sabadoTF,sabadoTI=sabadoTI,viernesMF=viernesMF,viernesMI=viernesMI,viernesTF=viernesTF,viernesTI=viernesTI)
-
+        return redirect ('enfermeros')
 
     return render(request, 'agregar_enfermero.html') 
 
 def agregar_medico (request):
-    return render(request, 'agregar_medico.html') 
+   if request.method == 'POST':
+        dni = request.POST.get('dni')
+        nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
+        direccion = request.POST.get('direccion')
+        email = request.POST.get('email')
+        telefono = request.POST.get('telefono')
+        año_fecha_nac= request.POST.get('ano')
+        dia_fecha_nac= request.POST.get('dia')
+        mes_fecha_nac= request.POST.get('mes')
+        matricula=request.POST.get('matricula')
+        fecha = año_fecha_nac + "-" + mes_fecha_nac + "-" + dia_fecha_nac
+        genero = request.POST.get('example-radio')
+        especialidad=request.POST.get('especialidad')
+        domingoMF = request.POST.get('DMF')
+        domingoMI = request.POST.get('DMI')
+        domingoTF = request.POST.get('DTF')
+        domingoTI = request.POST.get('DTI')
+        juevesMF = request.POST.get('JMF')
+        juevesMI = request.POST.get('JMI')
+        juevesTF = request.POST.get('JTF')
+        juevesTI = request.POST.get('JTI')
+        lunesMF = request.POST.get('LMI')
+        lunesMI = request.POST.get('LMF')
+        lunesTF = request.POST.get('LTF')
+        lunesTI = request.POST.get('LTI')
+        martesMF = request.POST.get('MMF')
+        martesMI = request.POST.get('MMI')
+        martesTF = request.POST.get('MTF')
+        martesTI = request.POST.get('MTI')
+        miercolesMF = request.POST.get('MMMF')
+        miercolesMI = request.POST.get('MMMI')
+        miercolesTF = request.POST.get('MMTF')
+        miercolesTI = request.POST.get('MMTI')
+        sabadoMF = request.POST.get('SMF')
+        sabadoMI = request.POST.get('SMI')
+        sabadoTF = request.POST.get('STF')
+        sabadoTI = request.POST.get('STI')
+        viernesMF = request.POST.get('VMF')
+        viernesMI = request.POST.get('VMI')
+        viernesTF = request.POST.get('VTF')
+        viernesTI = request.POST.get('VTI')
+
+        Medico.objects.create(DNI=dni,nombre=nombre,matricula=matricula,apellido=apellido,direccion=direccion,email=email,especialidad=especialidad,fecha_nacimiento=fecha,genero=genero,telefono=telefono,domingoMF=domingoMF,domingoMI=domingoMI,domingoTF=domingoTF,domingoTI=domingoTI,juevesMF=juevesMF,juevesMI=juevesMI,juevesTF=juevesTF,juevesTI=juevesTI,lunesMF=lunesMF,lunesMI=lunesMI,lunesTF=lunesTF,lunesTI=lunesTI,martesMF=martesMF,martesMI=martesMI,martesTF=martesTF,martesTI=martesTI,miercolesMF=miercolesMF,miercolesMI=miercolesMI,miercolesTF=miercolesTF,miercolesTI=miercolesTI,sabadoMF=sabadoMF,sabadoMI=sabadoMI,sabadoTF=sabadoTF,sabadoTI=sabadoTI,viernesMF=viernesMF,viernesMI=viernesMI,viernesTF=viernesTF,viernesTI=viernesTI)
+        return redirect('medicos')
+   
+   return render(request, 'agregar_medico.html') 
 
 def editar_enfermero (request,enfermero_id):
     enfermeros=get_object_or_404(Enfermeros,id=enfermero_id)
@@ -273,8 +321,94 @@ def editar_enfermero (request,enfermero_id):
 
     return render(request, 'editar_enfermero.html',{'enfermeros': enfermeros}) 
 
-def editar_medico (request):
-    return render(request, 'editar_medico.html')
+def editar_medico (request,medico_id):
+    medicos=get_object_or_404(Medico,id=medico_id)
+    if request.method == 'POST':
+        dni = request.POST.get('dni')
+        nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
+        direccion = request.POST.get('direccion')
+        email = request.POST.get('email')
+        matricula=request.POST.get('matricula')
+        telefono = request.POST.get('telefono')
+        año_fecha_nac= request.POST.get('ano')
+        dia_fecha_nac= request.POST.get('dia')
+        mes_fecha_nac= request.POST.get('mes')
+        fecha = año_fecha_nac + "-" + mes_fecha_nac + "-" + dia_fecha_nac
+        genero = request.POST.get('example-radio')
+        especialidad=request.POST.get('especialidad')
+        domingoMF = request.POST.get('DMF')
+        domingoMI = request.POST.get('DMI')
+        domingoTF = request.POST.get('DTF')
+        domingoTI = request.POST.get('DTI')
+        juevesMF = request.POST.get('JMF')
+        juevesMI = request.POST.get('JMI')
+        juevesTF = request.POST.get('JTF')
+        juevesTI = request.POST.get('JTI')
+        lunesMF = request.POST.get('LMF')
+        lunesMI = request.POST.get('LMI')
+        lunesTF = request.POST.get('LTF')
+        lunesTI = request.POST.get('LTI')
+        martesMF = request.POST.get('MMF')
+        martesMI = request.POST.get('MMI')
+        martesTF = request.POST.get('MTF')
+        martesTI = request.POST.get('MTI')
+        miercolesMF = request.POST.get('MMMF')
+        miercolesMI = request.POST.get('MMMI')
+        miercolesTF = request.POST.get('MMTF')
+        miercolesTI = request.POST.get('MMTI')
+        sabadoMF = request.POST.get('SMF')
+        sabadoMI = request.POST.get('SMI')
+        sabadoTF = request.POST.get('STF')
+        sabadoTI = request.POST.get('STI')
+        viernesMF = request.POST.get('VMF')
+        viernesMI = request.POST.get('VMI')
+        viernesTF = request.POST.get('VTF')
+        viernesTI = request.POST.get('VTI')
+
+        medicos.DNI=dni
+        medicos.nombre=nombre
+        medicos.apellido=apellido
+        medicos.direccion=direccion
+        medicos.email=email
+        medicos.fecha_nacimiento=fecha
+        medicos.telefono=telefono
+        medicos.genero=genero
+        medicos.especialidad=especialidad
+        medicos.matricula=matricula
+        medicos.domingoMI=domingoMI
+        medicos.domingoMF=domingoMF
+        medicos.domingoTF=domingoTF
+        medicos.domingoTI=domingoTI
+        medicos.lunesMI=lunesMI
+        medicos.lunesMF=lunesMF
+        medicos.lunesTF=lunesTF
+        medicos.lunesTI=lunesTI
+        medicos.martesMI=martesMI
+        medicos.martesMF=martesMF
+        medicos.martesTF=martesTF
+        medicos.martesTI=martesTI
+        medicos.miercolesMI=miercolesMI
+        medicos.miercolesMF=miercolesMF
+        medicos.miercolesTF=miercolesTF
+        medicos.miercolesTI=miercolesTI
+        medicos.juevesMI=juevesMI
+        medicos.juevesMF=juevesMF
+        medicos.juevesTF=juevesTF
+        medicos.juevesTI=juevesTI
+        medicos.viernesMI=viernesMI
+        medicos.viernesMF=viernesMF
+        medicos.viernesTF=viernesTF
+        medicos.viernesTI=viernesTI
+        medicos.sabadoMI=sabadoMI
+        medicos.sabadoMF=sabadoMF
+        medicos.sabadoTF=sabadoTF
+        medicos.sabadoTI=sabadoTI
+        medicos.save()
+
+        return redirect('perfil_medico',medico_id)
+
+    return render(request, 'editar_medico.html',{'medicos':medicos})
 
 def users (request):
     users = User.objects.all()

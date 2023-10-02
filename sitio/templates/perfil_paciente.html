@@ -18,6 +18,7 @@
         <div class="nombre_apellido">
             <h2>{{ paciente.nombre }} {{ paciente.apellido }}</h2>
         </div>
+        <a href="" id="eliminar_enfermero" class="borrar" onclick="eliminar_sala('{{ paciente.id }}')" >Borrar</a>
         <div class="item_perfil izquierda_perfil">
             <p>DNI:</p> <p>{{ paciente.DNI }}</p>
         </div>
@@ -62,5 +63,17 @@
 
     </div>
 </div>
-
+<script>
+    function eliminar_sala(salaId) {
+        const confirmacion = confirm('¿Estás seguro de que deseas borrar este paciente?');
+        
+        if (confirmacion) {
+            // El usuario hizo clic en "Aceptar", redirige al usuario
+            window.location.href = `/eliminar_objeto/Paciente/${salaId}/`;
+        } else {
+            // El usuario hizo clic en "Cancelar" o cerró el cuadro de diálogo
+            // Puedes realizar alguna acción adicional o simplemente no hacer nada
+        }
+    };
+</script>
 {% endblock %}

@@ -37,8 +37,9 @@
       <div class="title_paciente_medico_enfermero">Agregar Médico</div>
     </a>
   
-    <a href="/perfil_medico" class="paciente_medico_enfermero">
-        <div class="title_paciente_medico_enfermero">Jovan Martinovic</div>
+    {% for medicos in medicos %}
+    <a href="{% url 'perfil_medico' medicos.id %}" class="paciente_medico_enfermero">
+        <div class="title_paciente_medico_enfermero">{{ medicos.nombre }} {{ medicos.apellido }}</div>
         <div class="extra_info_paciente_medico_enfermero">
           <div class="flex_info">
             <p>Estado: </p>
@@ -50,44 +51,11 @@
           </div>
           <div class="flex_info">
             <p>Especialidad: </p>
-            <p>Otorrinolaringólogo</p>
+            <p>{{ medicos.especialidad }}</p>
           </div>
         </div>
     </a>
-    <a href="/perfil_medico" class="paciente_medico_enfermero">
-      <div class="title_paciente_medico_enfermero">Jovan Martinovic</div>
-      <div class="extra_info_paciente_medico_enfermero">
-        <div class="flex_info">
-          <p>Estado: </p>
-          <p>Ocupado</p>
-        </div>
-        <div class="flex_info">
-          <p>Matricula: </p>
-          <p>12345678</p>
-        </div>
-        <div class="flex_info">
-          <p>Especialidad: </p>
-          <p>Otorrinolaringólogo</p>
-        </div>
-      </div>
-    </a>
-    <a href="/perfil_medico" class="paciente_medico_enfermero">
-      <div class="title_paciente_medico_enfermero">Jovan Martinovic</div>
-      <div class="extra_info_paciente_medico_enfermero">
-        <div class="flex_info">
-          <p>Estado: </p>
-          <p>Ocupado</p>
-        </div>
-        <div class="flex_info">
-          <p>Matricula: </p>
-          <p>12345678</p>
-        </div>
-        <div class="flex_info">
-          <p>Especialidad: </p>
-          <p>Otorrinolaringólogo</p>
-        </div>
-      </div>
-    </a>
+    {% endfor %}
   </div>
   <script>
     let selection = document.querySelector(".selection");

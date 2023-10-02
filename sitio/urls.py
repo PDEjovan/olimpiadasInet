@@ -28,9 +28,9 @@ urlpatterns = [
     path('editar_enfermero/<int:enfermero_id>/',login_required(views.editar_enfermero),name='editar_enfermero'),
 
     path('medicos/',login_required(views.medicos),name='medicos'),
-    path('perfil_medico/',login_required(views.perfil_medico),name='perfil_medico'),
+    path('perfil_medico/<int:medico_id>/',login_required(views.perfil_medico),name='perfil_medico'),
     path('agregar_medico/',login_required(views.agregar_medico),name='agregar_medico'),
-    path('editar_medico/',login_required(views.editar_medico),name='editar_medico'),
+    path('editar_medico/<int:medico_id>/',login_required(views.editar_medico),name='editar_medico'),
 
     path('users/',login_required(views.users),name='users'),
     path('editar_users/<int:user_id>/',login_required(views.editar_users),name='editar_users'),

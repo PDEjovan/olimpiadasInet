@@ -11,15 +11,15 @@
 <div class="container_perfil_medico_enfermero">
     <div class="perfil_medico_enfermero">
         <div class="editar_perfil">
-            <a href="/editar_medico">Editar</a>
+            <a href="{% url 'editar_medico' medicos.id %}">Editar</a>
         </div>
-        <a href="javascript:history.back(-1)" class="borrar">Borrar</a>
+        <a href="" id="eliminar_enfermero" class="borrar" onclick="eliminar_sala('{{ medicos.id }}')" >Borrar</a>
         <div class="nombre_apellido">
-            <h2>Jovan Martinovic</h2>
+            <h2>{{ medicos.nombre }}</h2>
         </div>
 
         <div class="item_perfil izquierda_perfil">
-            <p>Matrícula:</p> <p>12345678</p>
+            <p>Matrícula:</p> <p>{{ medicos.matricula }}</p>
         </div>
 
         <div class="item_perfil horario">
@@ -28,10 +28,10 @@
                 <p>Lunes:</p>
                 <div class="manana_tarde">
                     <div class="item_manana_tarde">
-                        <p>M: </p><p><span>09:00</span>/<span>12:00</span></p>
+                        <p>M: </p><p><span>{{medicos.lunesMI}}</span>/<span>{{medicos.lunesMF}}</span></p>
                     </div>
                     <div class="item_manana_tarde">
-                        <p>T: </p><p> <span>--:--</span>/<span>--:--</span></p>
+                        <p>T: </p><p> <span>{{medicos.lunesTI}}</span>/<span>{{medicos.lunesTF}}</span></p>
                     </div>
                 </div>
             </div>
@@ -39,10 +39,10 @@
                 <p>Martes:</p>
                 <div class="manana_tarde">
                     <div class="item_manana_tarde">
-                        <p>M: </p><p><span>09:00</span>/<span>12:00</span></p>
+                        <p>M: </p><p><span>{{medicos.martesMI}}</span>/<span>{{medicos.martesMF}}</span></p>
                     </div>
                     <div class="item_manana_tarde">
-                        <p>T: </p><p> <span>--:--</span>/<span>--:--</span></p>
+                        <p>T: </p><p> <span>{{medicos.martesTI}}</span>/<span>{{medicos.martesTF}}</span></p>
                     </div>
                 </div>
             </div>
@@ -50,10 +50,10 @@
                 <p>Miercoles:</p>
                 <div class="manana_tarde">
                     <div class="item_manana_tarde">
-                        <p>M: </p><p><span>09:00</span>/<span>12:00</span></p>
+                        <p>M: </p><p><span>{{medicos.miercolesMI}}</span>/<span>{{medicos.miercolesMF}}</span></p>
                     </div>
                     <div class="item_manana_tarde">
-                        <p>T: </p><p> <span>--:--</span>/<span>--:--</span></p>
+                        <p>T: </p><p> <span>{{medicos.miercolesTI}}</span>/<span>{{medicos.miercolesTF}}</span></p>
                     </div>
                 </div>
             </div>
@@ -61,10 +61,10 @@
                 <p>Jueves:</p>
                 <div class="manana_tarde">
                     <div class="item_manana_tarde">
-                        <p>M: </p><p><span>09:00</span>/<span>12:00</span></p>
+                        <p>M: </p><p><span>{{medicos.juevesMI}}</span>/<span>{{medicos.miercolesMF}}</span></p>
                     </div>
                     <div class="item_manana_tarde">
-                        <p>T: </p><p> <span>--:--</span>/<span>--:--</span></p>
+                        <p>T: </p><p> <span>{{medicos.juevesTI}}</span>/<span>{{medicos.juevesTF}}</span></p>
                     </div>
                 </div>
             </div>
@@ -72,10 +72,10 @@
                 <p>Viernes:</p>
                 <div class="manana_tarde">
                     <div class="item_manana_tarde">
-                        <p>M: </p><p><span>09:00</span>/<span>12:00</span></p>
+                        <p>M: </p><p><span>{{medicos.viernesMI}}</span>/<span>{{medicos.viernesMF}}</span></p>
                     </div>
                     <div class="item_manana_tarde">
-                        <p>T: </p><p> <span>--:--</span>/<span>--:--</span></p>
+                        <p>T: </p><p> <span>{{medicos.viernesTI}}</span>/<span>{{medicos.viernesTF}}</span></p>
                     </div>
                 </div>
             </div>
@@ -83,10 +83,10 @@
                 <p>Sábado:</p>
                 <div class="manana_tarde">
                     <div class="item_manana_tarde">
-                        <p>M: </p><p><span>09:00</span>/<span>12:00</span></p>
+                        <p>M: </p><p><span>{{medicos.sabadoMI}}</span>/<span>{{medicos.sabadoMF}}</span></p>
                     </div>
                     <div class="item_manana_tarde">
-                        <p>T: </p><p> <span>--:--</span>/<span>--:--</span></p>
+                        <p>T: </p><p> <span>{{medicos.sabadoTI}}</span>/<span>{{medicos.sabadoTF}}</span></p>
                     </div>
                 </div>
             </div>
@@ -94,10 +94,10 @@
                 <p>Domingo:</p>
                 <div class="manana_tarde">
                     <div class="item_manana_tarde">
-                        <p>M: </p><p><span>09:00</span>/<span>12:00</span></p>
+                        <p>M: </p><p><span>{{medicos.domingoMI}}</span>/<span>{{medicos.domingoMF}}</span></p>
                     </div>
                     <div class="item_manana_tarde">
-                        <p>T: </p><p> <span>--:--</span>/<span>--:--</span></p>
+                        <p>T: </p><p> <span>{{medicos.domingoTI}}</span>/<span>{{medicos.domingoTF}}</span></p>
                     </div>
                 </div>
             </div>
@@ -105,30 +105,44 @@
         </div>
 
         <div class="item_perfil izquierda_perfil">
-            <p>DNI:</p> <p>94651007</p>
+            <p>DNI:</p> <p>{{ medicos.DNI }}</p>
         </div>
 
         <div class="item_perfil izquierda_perfil">
-            <p>Género:</p> <p>Másculino</p>
+            <p>Género:</p> <p>{{ medicos.genero }}</p>
         </div>
         <div class="item_perfil izquierda_perfil">
-            <p>Fecha Nacimiento: </p><p>19/02/2005</p>
+            <p>Fecha Nacimiento: </p><p>{{ medicos.fecha_nacimiento }}</p>
         </div>
         <div class="item_perfil izquierda_perfil">
-            <p>Dirección: </p> <p>Argentina, Córdoba, La Cumbre, Pellegrini 11</p>
+            <p>Dirección: </p> <p>{{ medicos.direccion }}</p>
         </div>
         <div class="item_perfil izquierda_perfil telefono">
-            <p>Teléfono: </p> <p>3548 40-0949</p>
+            <p>Teléfono: </p> <p>{{ medicos.telefono }}</p>
         </div>
         <div class="item_perfil izquierda_perfil email">
-            <p>Email: </p> <p>jovan4182@gmail.com</p>
+            <p>Email: </p> <p>{{ medicos.email }}</p>
         </div>
         <div class="item_perfil izquierda_perfil especialidad">
-            <p>Especialidad:</p> <p>Ginecólogo</p>
+            <p>Especialidad:</p> <p>{{ medicos.especialidad }}</p>
         </div>
         
 
     </div>
 </div>
+
+<script>
+    function eliminar_sala(salaId) {
+        const confirmacion = confirm('¿Estás seguro de que deseas borrar este medico?');
+        
+        if (confirmacion) {
+            // El usuario hizo clic en "Aceptar", redirige al usuario
+            window.location.href = `/eliminar_objeto/Medico/${salaId}/`;
+        } else {
+            // El usuario hizo clic en "Cancelar" o cerró el cuadro de diálogo
+            // Puedes realizar alguna acción adicional o simplemente no hacer nada
+        }
+    };
+</script>
 
 {% endblock %}

@@ -73,6 +73,8 @@ class Medico(models.Model):
     telefono = models.CharField(max_length=12) 
     estado=models.BooleanField(default=False)
     especialidad=models.CharField(max_length=100)
+    genero=models.CharField(max_length=12, default='Masculino')
+    fecha_nacimiento=models.DateField()
     lunesMI = models.TimeField(null=True)
     lunesMF = models.TimeField(null=True)
     lunesTI = models.TimeField(null=True)
