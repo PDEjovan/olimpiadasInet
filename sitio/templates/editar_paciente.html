@@ -11,32 +11,35 @@
         <a href="javascript:history.back(-1)"><i class="fa-solid fa-arrow-left"></i></a>
     </div>
     <div class="container_agregar_paciente">
-        <form class="form_agregar_paciente" action="" method="post">
-            <h2 class="tit_form_agregar_paciente">Editar Paciente</h2>
+        <form class="form_agregar_paciente" action="{% url 'agregar_paciente' %}" method="post">
+            {% csrf_token %}
+            <h2 class="tit_form_agregar_paciente">Modificar Paciente</h2>
             
             <div class="user-box">
-                <input type="text" value="12345678" maxlength="8" name="" required="">
+                <input type="text"  maxlength="8" name="dni" required id="dni">
                 <label class="label_input">DNI</label>
+                <p id="dni-error" class="error-message"></p>
             </div>
 
             <div class="checkbox_dropdowns">
                 <div class="txt_chk_dropdown">
                     <label class="label_fijo">¿Contiene alguna alergía?</label>
                     <label class="checkbox_dropdown_container">
-                        <input type="checkbox" id="chk_input_alergias">
+                        <input type="checkbox" id="chk_input_alergias" name="">
                         <div class="chk_dropdown"></div>
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_alergia">
-                    <input type="text" name="" required="">
+                    <input type="text" id="alergiaInput" maxlength="200" name="alergia" required disabled>
                     <label class="label_input">Alergía</label>
                 </div>
                 
             </div>
 
             <div class="user-box">
-                <input type="text" value="Jovan" name="" required="">
+                <input type="text" name="nombre" id="nombreInput" maxlength="50" required>
                 <label class="label_input">Nombre</label>
+                <p id="nombre-error" class="error-message"></p>
             </div>
 
             <div class="checkbox_dropdowns">
@@ -48,15 +51,16 @@
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_enfermedad">
-                    <input type="text" name="" required="">
+                    <input type="text" id="enfermedadInput" maxlength="200" name="enfermedad" disabled required>
                     <label class="label_input">Enfermedad</label>
                 </div>
                 
             </div>
 
             <div class="user-box">
-                <input type="text" value="Martinovic" name="" required="">
+                <input type="text" name="apellido" id="apellidoInput" maxlength="50" required>
                 <label class="label_input">Apellido</label>
+                <p id="apellido-error" class="error-message"></p>
             </div>
 
             <div class="checkbox_dropdowns">
@@ -68,7 +72,7 @@
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_tratamiento">
-                    <input type="text" name="" required="">
+                    <input type="text" id="tratamientoInput" maxlength="200" name="tratamiento" disabled required="">
                     <label class="label_input">Tratamiento</label>
                 </div>
                 
@@ -76,8 +80,9 @@
 
 
             <div class="user-box">
-                <input type="textarea" name="" value="La cola de tu vieja siempre ando ahi" required="">
-                <label class="label_input">Dirección</label>
+                <input type="textarea" id="direccionInput" name="direccion" maxlength="200" required>
+                <label class="label_input" >Dirección</label>
+                <p id="direccion-error" class="error-message"></p>
             </div>
 
 
@@ -90,21 +95,21 @@
                     </label>
                 </div>
                 <div class="user-box" id="if_checked_enf_o_cir">
-                    <input type="textarea" name="" required="">
+                    <input type="textarea" id="enfCirInput" maxlength="200" name="enfermedades_cirugias" disabled required>
                     <label class="label_input">Enfermedades o cirugias</label>
                 </div>
                 
             </div>
 
             <div class="user-box email">
-                <input type="email" value="asd@gmail.com" name="" required="">
+                <input type="email" name="email" required="">
                 <label class="label_input">Email</label>
             </div>
 
             <div class="user-box select_container obra_social">  
                 <label class="label_select">Obra Social</label>
                 <div class="select">
-                    <select name="obra social">
+                    <select name="obra_social">
                         <option value="osecac">Osecac</option>
                         <option value="osde">Osde</option>
                         <option value="Apross">Apross</option>
@@ -115,7 +120,7 @@
             </div>
 
             <div class="user-box telefono">
-                <input type="tel" value="3548400949" name="" required="">
+                <input type="tel" id="telefonoInput" name="telefono" required>
                 <label class="label_input">Teléfono</label>
             </div>
 
@@ -125,7 +130,7 @@
                     <div class="mes_fec_nac">
                         <label class="label_fec">Mes</label>
                         <div class="select">
-                            <select name="mes">
+                            <select id="mes" name="mes" onchange="ocultarHorasAnteriores('lunes_manana1', 'lunes_manana2')">
                                 <option value="enero">Enero</option>
                                 <option value="febrero">Febrero</option>
                                 <option value="marzo">Marzo</option>
@@ -144,7 +149,7 @@
                     <div class="dia_fec_nac">
                         <label class="label_fec">Día</label>
                         <div class="select">
-                            <select name="dia">
+                            <select id="diaSelect" name="dia" onchange="ocultarHorasPoseriores('lunes_manana2', 'lunes_manana1')">
                                 <!--Verificar que meses que no tengan 31 dias no aparezca esa opcion-->
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -181,16 +186,13 @@
                         </div>
                     </div>
                 
-                    <div class="">
+                    <div class="ano_fec_nac">
                         <label class="label_fec">Año</label>
-                        <!--Opcion 1--><input type="text" maxlength="4" minlength="4" value="2004" class="input_año_fec" name="" id="">
-                        <!--Opcion 2: Consiste en poner un ciclo for que traiga de la base de datos los años desde el 1930 PE hasta el año actual, para que se haga en un select-->
-                        <!--<div class="select">
-                            <select name="dia">
-                                <option value="1"></option>
+                        <div class="select">
+                            <select id="ano" name="ano">
+                                <!-- Opciones de años -->
                             </select>
                         </div>
-                        -->
                     </div>
                 </div>
 
@@ -202,7 +204,7 @@
                 </div>
                 <div class="radios">
                     <label class="radio-button">
-                        <input type="radio" name="example-radio" value="option1">
+                        <input type="radio" checked name="example-radio" value="option1">
                         <span class="radio"></span>
                         Masculino
                     </label>
@@ -215,7 +217,7 @@
                 </div>
                   
             </div>
-            <div class="user-box select_container enfermero">  
+            <div class="user-box select_container enfermero" id="desaparecer_with_radio1">  
                 <label class="label_select">Enfermero</label>
                 <div class="select">
                     <select name="enfermero asignado">
@@ -228,26 +230,44 @@
                     </select>
                 </div>
             </div>
-            <div class="user-box select_container zona">  
+            <div class="internado user-box">
+                <div>
+                    <label class="label_input">¿Internado en el hospital?</label>
+                </div>
+                <div class="radios">
+                    <label class="radio-button">
+                        <input type="radio" id="option_si" name="internado-radio" value="si">
+                        <span class="radio"></span>
+                        Sí
+                    </label>
+                    <label class="radio-button">
+                        <input type="radio" checked id="option_no" name="internado-radio" value="no">
+                        <span class="radio"></span>
+                        No
+                    </label>
+                </div>
+                  
+            </div>
+            <div class="user-box select_container zona" id="desaparecer_with_radio2">  
                 <label class="label_select">Zona</label>
                 <div class="select">
                     <select name="zona paciente">
-                        <option value=""></option>
-                        <option value="sala 1">Sala 1</option>
-                        <option value="sala 2">Sala 2</option>
-                        <option value="sala 3">Sala 3</option>
-                        <option value="sala 4">Sala 4</option>
-                        <option value="sala 56">Sala 56</option>
+                        <option value="">Seleccione una Opción</option>
+                        {% for sala in salas %}
+                        
+                        <option value="{{ sala.nombre }}">{{ sala.nombre }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>
+            
 
             <div class="button_agregar_paciente">
-                <button><span></span><p data-start="good luck!" data-text="PACIENTE!" data-title="MODIFICAR"></p></button>
+                <button><span></span><p data-start="good luck!" data-text="PACIENTE!" data-title="EDITAR"></p></button>
             </div>
-
         </form>
     </div>
+    <script src="{% static '/Scripts/agregar_paciente.js' %}"></script>
     <script>
         var chk_input_alergia = document.getElementById('chk_input_alergias');
         var label_desaparecer_alergia = document.getElementById('if_checked_alergia');
@@ -257,6 +277,10 @@
         var label_desaparecer_enf_o_cir = document.getElementById('if_checked_enf_o_cir');
         var chk_input_tratamiento = document.getElementById('chk_input_tratamiento');
         var label_desaparecer_tratamiento = document.getElementById('if_checked_tratamiento');
+        var chk_input_internado = document.getElementById('option_si');
+        var chk_input_internado2 = document.getElementById('option_no');
+        var desaparecer_radio1 = document.getElementById('desaparecer_with_radio1');
+        var desaparecer_radio2 = document.getElementById('desaparecer_with_radio2');
 
         chk_input_alergia.addEventListener('change', function() {
         if (chk_input_alergia.checked) {
@@ -287,6 +311,21 @@
                 label_desaparecer_tratamiento.style.opacity = '0';
             }
             });
+
+        chk_input_internado.addEventListener('change', function() {
+            if (chk_input_internado.checked) {
+                desaparecer_radio1.style.opacity = '1';
+                desaparecer_radio2.style.opacity = '1';
+            } 
+            });
+
+        chk_input_internado2.addEventListener('change', function() {
+            if (chk_input_internado2.checked) {
+                desaparecer_radio1.style.opacity = '0';
+                desaparecer_radio2.style.opacity = '0';
+            } 
+            });
+
 
     </script>
 

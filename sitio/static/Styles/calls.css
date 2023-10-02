@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 
+.agregar_llamada{
+  padding: 1em;
+  position: fixed;
+  bottom: 20px;
+  right: 35px;
+  background-color: white;
+  text-decoration: none;
+  border-radius: .5em;
+  color: black;
+}
+
 
 
 .filtros_busqueda{

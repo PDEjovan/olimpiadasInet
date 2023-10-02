@@ -217,7 +217,7 @@
                 </div>
                   
             </div>
-            <div class="user-box select_container enfermero">  
+            <div class="user-box select_container enfermero" id="desaparecer_with_radio1">  
                 <label class="label_select">Enfermero</label>
                 <div class="select">
                     <select name="enfermero asignado">
@@ -230,7 +230,25 @@
                     </select>
                 </div>
             </div>
-            <div class="user-box select_container zona">  
+            <div class="internado user-box">
+                <div>
+                    <label class="label_input">¿Internado en el hospital?</label>
+                </div>
+                <div class="radios">
+                    <label class="radio-button">
+                        <input type="radio" id="option_si" name="internado-radio" value="si">
+                        <span class="radio"></span>
+                        Sí
+                    </label>
+                    <label class="radio-button">
+                        <input type="radio" checked id="option_no" name="internado-radio" value="no">
+                        <span class="radio"></span>
+                        No
+                    </label>
+                </div>
+                  
+            </div>
+            <div class="user-box select_container zona" id="desaparecer_with_radio2">  
                 <label class="label_select">Zona</label>
                 <div class="select">
                     <select name="zona paciente">
@@ -242,11 +260,12 @@
                     </select>
                 </div>
             </div>
+            
 
             <div class="button_agregar_paciente">
                 <button><span></span><p data-start="good luck!" data-text="PACIENTE!" data-title="AÑADIR"></p></button>
             </div>
-        </div>
+
         </form>
     </div>
     <script src="{% static '/Scripts/agregar_paciente.js' %}"></script>
@@ -273,6 +292,10 @@
         var label_desaparecer_enf_o_cir = document.getElementById('if_checked_enf_o_cir');
         var chk_input_tratamiento = document.getElementById('chk_input_tratamiento');
         var label_desaparecer_tratamiento = document.getElementById('if_checked_tratamiento');
+        var chk_input_internado = document.getElementById('option_si');
+        var chk_input_internado2 = document.getElementById('option_no');
+        var desaparecer_radio1 = document.getElementById('desaparecer_with_radio1');
+        var desaparecer_radio2 = document.getElementById('desaparecer_with_radio2');
 
         chk_input_alergia.addEventListener('change', function() {
         if (chk_input_alergia.checked) {
@@ -303,6 +326,21 @@
                 label_desaparecer_tratamiento.style.opacity = '0';
             }
             });
+
+        chk_input_internado.addEventListener('change', function() {
+            if (chk_input_internado.checked) {
+                desaparecer_radio1.style.opacity = '1';
+                desaparecer_radio2.style.opacity = '1';
+            } 
+            });
+
+        chk_input_internado2.addEventListener('change', function() {
+            if (chk_input_internado2.checked) {
+                desaparecer_radio1.style.opacity = '0';
+                desaparecer_radio2.style.opacity = '0';
+            } 
+            });
+
 
     </script>
 
