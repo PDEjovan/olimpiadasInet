@@ -227,7 +227,7 @@
             <div class="user-box select_container enfermero" id="desaparecer_with_radio1">  
                 <label class="label_select">Enfermero</label>
                 <div class="select">
-                    <select name="enfermero asignado">
+                    <select name="enfermero asignado" id="enfermero_asig" >
                         {% for en in enfermeros %}
                         <option value="{{ en.id }}" {% if en.id == paciente.enfermero.id %} selected="selected" {% endif %}>{{ en.nombre }}</option>
                         {% endfor %}
@@ -240,12 +240,12 @@
                 </div>
                 <div class="radios">
                     <label class="radio-button">
-                        <input type="radio" id="option_si" name="internado-radio" value="si">
+                        <input type="radio" id="option_si" name="internado-radio" value="si" {% if paciente.internado == "si" %}checked{% endif %}>
                         <span class="radio"></span>
                         Sí
                     </label>
                     <label class="radio-button">
-                        <input type="radio" checked id="option_no" name="internado-radio" value="no">
+                        <input type="radio" id="option_no" name="internado-radio" value="no" {% if paciente.internado == "no" %}checked{% endif %}>
                         <span class="radio"></span>
                         No
                     </label>
@@ -255,7 +255,7 @@
             <div class="user-box select_container zona" id="desaparecer_with_radio2">  
                 <label class="label_select">Box</label>
                 <div class="select">
-                    <select name="zona paciente">
+                    <select name="zona paciente" id="zona_paciente" >
                         <option value="">Seleccione una Opción</option>
                         {% for sa in sala %}
                             {% if sa.tipo_sala == 'box' %}
@@ -307,6 +307,8 @@
         var chk_input_internado2 = document.getElementById('option_no');
         var desaparecer_radio1 = document.getElementById('desaparecer_with_radio1');
         var desaparecer_radio2 = document.getElementById('desaparecer_with_radio2');
+        var zona_p = document.getElementById('zona_paciente')
+        var enfermero_asig = document.getElementById('enfermero_asig')
 
         chk_input_alergia.addEventListener('change', function() {
         if (chk_input_alergia.checked) {
@@ -342,6 +344,8 @@
             if (chk_input_internado.checked) {
                 desaparecer_radio1.style.opacity = '1';
                 desaparecer_radio2.style.opacity = '1';
+                zona_p.disabled = false;
+                enfermero_asig.disabled = false;
             } 
             });
 
@@ -349,10 +353,24 @@
             if (chk_input_internado2.checked) {
                 desaparecer_radio1.style.opacity = '0';
                 desaparecer_radio2.style.opacity = '0';
+                zona_p.disabled = true;
+                enfermero_asig.disabled = true;
             } 
             });
 
+            if (chk_input_internado.checked) {
+                desaparecer_radio1.style.opacity = '1';
+                desaparecer_radio2.style.opacity = '1';
+                zona_p.disabled = false;
+                enfermero_asig.disabled = false;
+            } 
 
+            if (chk_input_internado2.checked) {
+                desaparecer_radio1.style.opacity = '0';
+                desaparecer_radio2.style.opacity = '0';
+                zona_p.disabled = true;
+                enfermero_asig.disabled = true;
+            } 
     </script>
 
 
