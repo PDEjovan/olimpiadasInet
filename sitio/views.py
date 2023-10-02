@@ -105,6 +105,9 @@ def historial_llamadas (request):
 def atender_calls (request):
     return render(request, 'atender_calls.html')  
 
+def agregar_llamadas (request):
+    return render(request, 'agregar_llamadas.html')  
+
 
 def editar_sala (request, sala_id):
     sala = get_object_or_404(Salas, id=sala_id)
