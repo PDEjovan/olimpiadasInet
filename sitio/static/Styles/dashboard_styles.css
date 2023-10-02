@@ -2,14 +2,13 @@
 
 .graphics_container{
     display: grid;
-    grid-template-columns: 21% 21% 21% 26%;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
     grid-template-rows: auto 220px auto ;
     padding: 2em;
     gap: 1.3em;
 }
 
 .extra_info_dashboard {
-    grid-column: 4/5;
     grid-row: 1/3;
 }
 
