@@ -60,7 +60,8 @@ def areas (request):
 
 @user_passes_test(is_medico_recepcionista_o_enfermero)
 def calls (request):
-    return render(request, 'calls.html') 
+    llamadas=Llamados.objects.all()
+    return render(request, 'calls.html',{'llamadas':llamadas}) 
 
 @user_passes_test(is_medico_admin_o_enfermero)
 def pacientes (request):
