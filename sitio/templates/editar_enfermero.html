@@ -69,8 +69,9 @@
                     <div class="mes_fec_nac">
                         <label class="label_fec">Mes</label>
                         <div class="select">
-                            {% with enfermeros.fecha_nacimiento|date:"m" as mes %}
                             <select id="mes" name="mes" onchange="ocultarHorasAnteriores('lunes_manana1', 'lunes_manana2')">
+                                {% with enfermeros.fecha_nacimiento|date:"m" as mes %}
+                            
                                 <option value="1" {% if mes == "01" %}selected{% endif %}>Enero</option>
                                 <option value="2" {% if mes == "02" %}selected{% endif %}>Febrero</option>
                                 <option value="3" {% if mes == "03" %}selected{% endif %}>Marzo</option>
@@ -86,6 +87,9 @@
                             </select>
                             {% endwith %}
                         </div>
+
+                        
+                        
                     </div>
                     <div class="dia_fec_nac">
                         <label class="label_fec">Día</label>

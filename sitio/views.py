@@ -473,6 +473,12 @@ def editar_medico (request,medico_id):
 
     return render(request, 'editar_medico.html',{'medicos':medicos})
 
+
+def contar_llamados(request):
+    cantidad_de_registros = Llamados.objects.all().count()
+    return render(request, 'dashboard.html', {'cantidad_de_registros': cantidad_de_registros})
+
+
 @user_passes_test(is_admin)
 def users (request):
     users = User.objects.all()
