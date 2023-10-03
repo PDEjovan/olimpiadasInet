@@ -66,7 +66,7 @@
                         <option value="medicina interna">Medicina Interna</option>
                         <option value="pediatría">Pediatría</option>
                         <option value="ginecología">Ginecología</option>
-                        <option selected value="otorrinolaringología">Otorrinolaringología</option>
+                        <option value="otorrinolaringología">Otorrinolaringología</option>
                         <option value="cardiología">Cardiología</option>
                         <option value="traumatología">Traumatología</option>
                         <option value="urología">Urología</option>
@@ -93,7 +93,7 @@
                 </div>
             </div>
 
-            <div class="user-box select_container ubicacion">
+            <div class="user-box select_container ubicacion" id= "ubicacion_div">
                 <label class="label_select">Ubicación</label>
                 <div class="select">
                     <select name="ubicacion" id="ubicacion">
@@ -115,8 +115,25 @@
         const triagevalor = triage.value;
         const ubicacion = document.getElementById('ubicacion');
         const sala = document.getElementById('Sala');
-
         
+
+        // Agregar un controlador de eventos al elemento 'triage' para detectar cambios.
+        triage.addEventListener('change', function() {
+            // Obtener el valor seleccionado en 'triage'.
+            const triageValor = triage.value;
+
+            // Verificar el valor seleccionado y mostrar/ocultar elementos en consecuencia.
+            if (triageValor === 'blanco') {
+                // Si 'blanco' está seleccionado, mostrar 'ubicacion' y ocultar 'sala'.
+                ubicacion.style.display = 'block';
+                sala.style.display = 'none';
+            } else {
+                // En caso contrario, mostrar 'sala' y ocultar 'ubicacion'.
+                ubicacion.style.display = 'none';
+                sala.style.display = 'block';
+            }
+        });
+
     </script>
 
 
