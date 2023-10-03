@@ -33,122 +33,51 @@
         </form>
     </div>
   </div>
+
   <div class="container_llamadas">
+    {% for llamada in llamadas %}
     <div class="card_llamadas">
       <div class="card_top_info">
         <div class="txt_tipo_llamada">
-          <p>Asistencia</p>
+          {% if llamada.tipo_llamado != 'rojo' and  llamada.tipo_llamado != 'naranaja' %}
+          <p> Asistencia </p>
+          {% else %}
+          <p> Emergencia </p>
+          {% endif %}
         </div>
         <div class="img_tipo_llamada">
+          {% if llamada.tipo_llamado == 'blanco' %}
+          <img src="../static/images/sirens.png" alt="" />
+          {% elif llamada.tipo_llamado == 'azul' %}
           <img src="../static/images/alarma_azul.png" alt="" />
+          {% elif llamada.tipo_llamado == 'verde' %}
+          <img src="../static/images/alarma_verde.png" alt="" />
+          {% elif llamada.tipo_llamado == 'amarillo' %}
+          <img src="../static/images/alarma_amarillo.png" alt="" />
+          {% elif llamada.tipo_llamado == 'naranja' %}
+          <img src="../static/images/alarma_naranaja.png" alt="" />
+          {% elif llamada.tipo_llamado == 'rojo' %}
+          <img src="../static/images/siren.png" alt="" />
+          {% endif %}
         </div>
       </div>
       <div class="card_bottom_info">
         <div class="paciente_y_sala">
-          <p>Nombre Apellido</p>
+          <p>{{ llamada.id_paciente.nombre }} {{ llamada.id_paciente.apellido }}</p>
+          {% if llamada.tipo_llamado == 'blanco'%}
           <p>
-            Sala 1
+            ubicacion {% if llamada.ubicacion == 'cama' %} {{ llamada.id_paciente.sala.nombre }} {% else %} {{ llamada.ubicacion }}{% endif %}
           </p>
+          {% else %}
+          <p>
+            Sala{{ llamada.id_zona.nombre }}
+          </p>
+          {% endif %}
         </div>
         <a href="/atender_calls" class="btn_atender">Atender</a>
       </div>
     </div>
-    <div class="card_llamadas">
-      <div class="card_top_info">
-        <div class="txt_tipo_llamada">
-          <p>Asistencia</p>
-        </div>
-        <div class="img_tipo_llamada">
-          <img src="../static/images/alarma_verde.png" alt="" />
-        </div>
-      </div>
-      <div class="card_bottom_info">
-        <div class="paciente_y_sala">
-          <p>Nombre Apellido</p>
-          <p>
-            Sala 1
-          </p>
-        </div>
-        <a href="#" class="btn_atender">Atender</a>
-      </div>
-    </div>
-    <div class="card_llamadas">
-      <div class="card_top_info">
-        <div class="txt_tipo_llamada">
-          <p>Asistencia</p>
-        </div>
-        <div class="img_tipo_llamada">
-          <img src="../static/images/alarma_amarilla.png" alt="" />
-        </div>
-      </div>
-      <div class="card_bottom_info">
-        <div class="paciente_y_sala">
-          <p>Nombre Apellido</p>
-          <p>
-            Sala 1
-          </p>
-        </div>
-        <a href="#" class="btn_atender">Atender</a>
-      </div>
-    </div>
-    <div class="card_llamadas">
-      <div class="card_top_info">
-        <div class="txt_tipo_llamada">
-          <p>Emergencia</p>
-        </div>
-        <div class="img_tipo_llamada">
-          <img src="../static/images/alarma_naranja.png" alt="" />
-        </div>
-      </div>
-      <div class="card_bottom_info">
-        <div class="paciente_y_sala">
-          <p>Nombre Apellido</p>
-          <p>
-            Sala 1
-          </p>
-        </div>
-        <a href="#" class="btn_atender">Atender</a>
-      </div>
-    </div>
-    <div class="card_llamadas">
-      <div class="card_top_info">
-        <div class="txt_tipo_llamada">
-          <p>Emergencia</p>
-        </div>
-        <div class="img_tipo_llamada">
-          <img src="../static/images/siren.png" alt="" />
-        </div>
-      </div>
-      <div class="card_bottom_info">
-        <div class="paciente_y_sala">
-          <p>Nombre Apellido</p>
-          <p>
-            Sala 1
-          </p>
-        </div>
-        <a href="#" class="btn_atender">Atender</a>
-      </div>
-    </div>
-    <div class="card_llamadas">
-      <div class="card_top_info">
-        <div class="txt_tipo_llamada">
-          <p>Asistencia</p>
-        </div>
-        <div class="img_tipo_llamada">
-          <img src="../static/images/sirens.png" alt="" />
-        </div>
-      </div>
-      <div class="card_bottom_info">
-        <div class="paciente_y_sala">
-          <p>Nombre Apellido</p>
-          <p>
-            Sala 1&nbsp;<i class="fa-solid fa-toilet fa-beat-fade"></i
-            >&nbsp;(Baño)
-          </p>
-        </div>
-        <a href="#" class="btn_atender">Atender</a>
-      </div>
-    </div>
+    {% endfor %}
   </div>
   <script>
     let selection = document.querySelector(".selection");
