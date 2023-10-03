@@ -20,19 +20,22 @@
                 <a href="/agregar_paciente">Registrar Paciente</a>
             </div>
             <div class="user-box">
-                <input type="text"  maxlength="8" name="dni" required id="dni">
-                <label class="label_input">DNI</label>
-                <p id="dni-error-true" class="error-message"></p>
+                <select required name="paciente">
+                    <option value="">Seleccione un paciente</option>
+                    {% for paciente in pacientes %}
+                        <option value="{{ paciente }}">DNI: {{ paciente.DNI }}, NOMBRE: {{ paciente.nombre}} {{ pacinte.apellido }} </option>
+                    {% endfor %}
+                </select>
             </div>
             <div class="user-box">
-                <input type="text"  maxlength="8" name="dni" required id="dni">
-                <label class="label_input">Patología</label>
-                <p id="dni-error" class="error-message"></p>
+                <input type="text"  maxlength="500" name="diagnostico" required id="diagnostico">
+                <label class="label_input">Diagnostico</label>
             </div>
             <div class="user-box select_container calificacion_triage">  
                 <label class="label_select">Calificación Triage</label>
                 <div class="select">
-                    <select name="calificacion_triage">
+                    <select name="calificacion_triage" id="triage" required>
+                        <option value="">Seleccione una opción</option>
                         <option value="blanco">Blanco</option>
                         <option value="azul">Azul</option>
                         <option value="verde">Verde</option>
@@ -43,22 +46,49 @@
                 </div>
             </div>
             <div class="user-box select_container zona">  
-                <label class="label_select">Zona</label>
+                <label class="label_select">Sala</label>
                 <div class="select">
-                    <select name="zona">
-                        <option value="sala 1">Sala 1</option>
-                        <option value="sala 2">Sala 2</option>
-                        <option value="sala 3">Sala 3</option>
+                    <select name="Sala" id="Sala" required>
+                        <option value="">Seleccione una Sala</option>
+                        {% for sala in salas %}
+                            {% if sala.id != 0 %}
+                            <option value="{{ sala.id }}">{{ sala.nombre }} </option>
+                            {% endif %}
+                        {% endfor %}
                     </select>
                 </div>
             </div>
             <div class="user-box select_container especialidad">
                 <label class="label_select">Especialidad Requerida</label>
-                <div class="select">
-                    <select name="especialidad">
-                        <option value="sala 1">Urologo</option>
-                        <option value="sala 2">Ginecologo</option>
-                        <option value="sala 3">Otorrinolaringologo</option>
+                <div class="select" required>
+                    <select name="especialidad" required>
+                        <option value="">Seleccione una Especialidad</option>
+                        <option value="medicina interna">Medicina Interna</option>
+                        <option value="pediatría">Pediatría</option>
+                        <option value="ginecología">Ginecología</option>
+                        <option selected value="otorrinolaringología">Otorrinolaringología</option>
+                        <option value="cardiología">Cardiología</option>
+                        <option value="traumatología">Traumatología</option>
+                        <option value="urología">Urología</option>
+                        <option value="radiología">Radiología</option>
+                        <option value="psiquiatría">Psiquiatría</option>
+                        <option value="anestesiología">Anestesiología</option>
+                        <option value="oftalmología">Oftalmología</option>
+                        <option value="neurología">Neurología</option>
+                        <option value="dermatología">Dermatología</option>
+                        <option value="cirugía general">Cirugía General</option>
+                        <option value="anestesiología">Anestesiología</option>
+                        <option value="ortopedia">Ortopedia</option>
+                        <option value="infectología">Infectología</option>
+                        <option value="endocrinología">Endocrinología </option>
+                        <option value="traumatología">Ortopedia</option>
+                        <option value="infectología">Infectología</option>
+                        <option value="gastroenterología">Gastroenterología</option>
+                        <option value="hematología">Hematología</option>
+                        <option value="oncología">Oncología</option>
+                        <option value="reumatología">Reumatología</option>
+                        <option value="endoscopia">Endoscopia</option>
+                        <option value="nefrología">Nefrología</option>
                     </select>
                 </div>
             </div>
@@ -66,7 +96,7 @@
             <div class="user-box select_container ubicacion">
                 <label class="label_select">Ubicación</label>
                 <div class="select">
-                    <select name="ubicacion">
+                    <select name="ubicacion" id="ubicacion">
                         <option value="cama">Cama</option>
                         <option value="baño">Baño</option>
                     </select>
@@ -80,7 +110,14 @@
         </form>
     </div>
     <script src="{% static '/Scripts/agregar_paciente.js' %}"></script>
-    
+    <script>
+        const triage = document.getElementById('triage');
+        const triagevalor = triage.value;
+        const ubicacion = document.getElementById('ubicacion');
+        const sala = document.getElementById('Sala');
+
+        
+    </script>
 
 
 {% endblock %}
