@@ -5,10 +5,10 @@
 </head>
 <div class="text">Perfíl Paciente</div>
 <div class="historial_clinico">
-    <a href="/historial_clinico">Historial Clínico</a>
+    <a href="{% url 'historial_clinico' paciente.id %}">Historial Clínico</a>
 </div>
 <div class="btn_volver">
-    <a href="javascript:history.back(-1)"><i class="fa-solid fa-arrow-left"></i></a>
+    <a href="/pacientes"><i class="fa-solid fa-arrow-left"></i></a>
 </div>
 <div class="container_perfil_paciente">
     <div class="perfil_paciente">

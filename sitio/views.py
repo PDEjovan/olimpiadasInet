@@ -442,11 +442,21 @@ def editar_users (request, user_id):
 def agregar_users (request):
     return render(request, 'agregar_users.html')  
 
-def historial_clinico (request):
-    return render(request, 'historial_clinico.html')  
+def historial_clinico (request,paciente_id):
+    try:
+        pacientes=get_object_or_404(Paciente,id=paciente_id)
+
+        llamadas = Llamados.objects.filter(id_paciente=pacientes)
+
+        return render(request, 'historial_clinico.html',{'pacientes':pacientes , 'llamadas':llamadas})  
+
+    except Paciente.DoesNotExist:
+        # Manejar el caso en el que el paciente no existe
+        return redirect('pacientes')
 
 def historial_llamadas (request):
-    return render(request, 'historial_llamadas.html')  
+    llamadas=Llamados.objects.all()
+    return render(request, 'historial_llamadas.html',{'llamadas':llamadas})  
 
 def atender_calls (request):
     return render(request, 'atender_calls.html')  
