@@ -1,29 +1,73 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Salas,User,Enfermeros,Paciente,Medico,Llamados
+from .forms import RegistrationForm
+from django.contrib.auth.models import User, Group
+from django.contrib import messages
+from .models import *
+from django.contrib.auth import login
 # Create your views here.
+
+def is_medico_recepcionista_o_enfermero(user):
+    # Verifica si el usuario es médico, recepcionista o enfermero
+    return (
+        user.groups.filter(name='Médico').exists() or
+        user.groups.filter(name='Recepcionista').exists() or
+        user.groups.filter(name='Enfermero').exists() or
+        user.groups.filter(name='ADMIN').exists()
+    )
+
+def is_medico_admin_o_enfermero(user):
+    # Verifica si el usuario es médico, recepcionista o enfermero
+    return (
+        user.groups.filter(name='Médico').exists() or
+        user.groups.filter(name='Enfermero').exists() or
+        user.groups.filter(name='ADMIN').exists()
+    )
+
+def is_medico_admin(user):
+    # Verifica si el usuario es médico, recepcionista o enfermero
+    return (
+        user.groups.filter(name='Médico').exists() or
+        user.groups.filter(name='ADMIN').exists()
+    )
+
+def is_admin(user):
+    # Verifica si el usuario es médico, recepcionista o enfermero
+    return (
+        user.groups.filter(name='ADMIN').exists()
+    )
+
+
 @login_required
+@user_passes_test(is_medico_recepcionista_o_enfermero)
 def index (request):
     return render (request, 'index.html')
 
 def login (request):
     
-    return render(request, 'login.html') 
+    return render(request, 'login.html')
 
+@user_passes_test(is_medico_recepcionista_o_enfermero)
 def dashboard (request):
     return render(request, 'dashboard.html') 
 
+@user_passes_test(is_medico_admin_o_enfermero)
 def areas (request):
     salas = Salas.objects.all()
     return render(request, 'areas.html',{'salas': salas}) 
 
+
+@user_passes_test(is_medico_recepcionista_o_enfermero)
 def calls (request):
     return render(request, 'calls.html') 
 
+@user_passes_test(is_medico_admin_o_enfermero)
 def pacientes (request):
     pacientess = Paciente.objects.all()
     return render(request, 'pacientes.html',{'pacientes':pacientess}) 
 
+@user_passes_test(is_medico_admin_o_enfermero)
 def agregar_paciente (request):
     if request.method == 'POST':
         dni = request.POST.get('dni')
@@ -59,17 +103,16 @@ def agregar_paciente (request):
     context = {'sala': sala, 'enfermeros': enferme}
     return render(request, 'agregar_pacientes.html', context)
      
-
-
+@user_passes_test(is_medico_recepcionista_o_enfermero)
 def perfil_paciente (request, paciente_id):
     paciente = get_object_or_404(Paciente, id=paciente_id)
     return render(request, 'perfil_paciente.html',{'paciente': paciente}) 
 
-
+@user_passes_test(is_medico_recepcionista_o_enfermero)
 def tabla_pacientes (request):
     return render(request, 'tabla_pacientes.html') 
 
-
+@user_passes_test(is_medico_admin_o_enfermero)
 def editar_paciente (request,paciente_id):
     paciente = get_object_or_404(Paciente, id=paciente_id)
     if request.method == 'POST':
@@ -123,26 +166,31 @@ def editar_paciente (request,paciente_id):
     valores = {'sala': sala, 'enfermeros': enferme, 'paciente': paciente}
     return render(request, 'editar_paciente.html',valores) 
 
-
+@user_passes_test(is_medico_admin)
 def agregar_sala (request):
     return render(request, 'agregar_sala.html') 
 
+@user_passes_test(is_admin)
 def medicos (request):
     medicoss=Medico.objects.all()
     return render(request,'medicos.html',{'medicos':medicoss})
 
+@user_passes_test(is_medico_admin)
 def enfermeros (request):
     enfermeross=Enfermeros.objects.all()
     return render(request, 'enfermeros.html',{'enfermeros':enfermeross}) 
 
+@user_passes_test(is_medico_admin)
 def perfil_enfermero (request,enfermero_id):
     enfermeros=get_object_or_404(Enfermeros,id=enfermero_id)
     return render(request, 'perfil_enfermero.html',{'enfermeros': enfermeros})
 
+@user_passes_test(is_admin)
 def perfil_medico (request,medico_id):
     medicos=get_object_or_404(Medico,id=medico_id)
     return render(request, 'perfil_medico.html',{'medicos':medicos})
 
+@user_passes_test(is_medico_admin)
 def agregar_enfermero (request):
     if request.method == 'POST':
         dni = request.POST.get('dni')
@@ -190,6 +238,7 @@ def agregar_enfermero (request):
 
     return render(request, 'agregar_enfermero.html') 
 
+@user_passes_test(is_admin)
 def agregar_medico (request):
    if request.method == 'POST':
         dni = request.POST.get('dni')
@@ -239,6 +288,7 @@ def agregar_medico (request):
    
    return render(request, 'agregar_medico.html') 
 
+@user_passes_test(is_medico_admin)
 def editar_enfermero (request,enfermero_id):
     enfermeros=get_object_or_404(Enfermeros,id=enfermero_id)
     if request.method == 'POST':
@@ -324,6 +374,7 @@ def editar_enfermero (request,enfermero_id):
 
     return render(request, 'editar_enfermero.html',{'enfermeros': enfermeros}) 
 
+@user_passes_test(is_admin)
 def editar_medico (request,medico_id):
     medicos=get_object_or_404(Medico,id=medico_id)
     if request.method == 'POST':
@@ -413,10 +464,12 @@ def editar_medico (request,medico_id):
 
     return render(request, 'editar_medico.html',{'medicos':medicos})
 
+@user_passes_test(is_admin)
 def users (request):
     users = User.objects.all()
     return render(request, 'users.html',{'users': users})
 
+@user_passes_test(is_admin)
 def editar_users (request, user_id):
     users = get_object_or_404(User, id=user_id)
     if request.method == 'POST':
@@ -439,9 +492,7 @@ def editar_users (request, user_id):
 
     return render(request, 'editar_users.html', {'users':users})  
 
-def agregar_users (request):
-    return render(request, 'agregar_users.html')  
-
+@user_passes_test(is_medico_recepcionista_o_enfermero)
 def historial_clinico (request,paciente_id):
     try:
         pacientes=get_object_or_404(Paciente,id=paciente_id)
@@ -454,18 +505,21 @@ def historial_clinico (request,paciente_id):
         # Manejar el caso en el que el paciente no existe
         return redirect('pacientes')
 
+@user_passes_test(is_medico_recepcionista_o_enfermero)
 def historial_llamadas (request):
     llamadas=Llamados.objects.all()
     return render(request, 'historial_llamadas.html',{'llamadas':llamadas})  
 
+@user_passes_test(is_medico_recepcionista_o_enfermero)
 def atender_calls (request):
     return render(request, 'atender_calls.html')  
 
+@user_passes_test(is_medico_recepcionista_o_enfermero)
 def agregar_llamadas (request):
     pacientes=Paciente.objects.all()
     return render(request, 'agregar_llamadas.html',{'pacientes':pacientes})  
 
-
+@user_passes_test(is_medico_admin)
 def editar_sala (request, sala_id):
     sala = get_object_or_404(Salas, id=sala_id)
     if request.method == 'POST':
@@ -482,6 +536,7 @@ def editar_sala (request, sala_id):
 
     return render(request, 'editar_sala.html', {'sala': sala})
 
+@user_passes_test(is_medico_admin)
 def procesar_formulario(request):
     if request.method == 'POST':
         nombre = request.POST.get('nombre')
@@ -493,6 +548,7 @@ def procesar_formulario(request):
 
     return render(request, 'agregar_sala.html')
 
+@user_passes_test(is_admin)
 def procesar_formulario_users(request):
     if request.method == 'POST':
         nombre = request.POST.get('nombre')
@@ -507,6 +563,7 @@ def procesar_formulario_users(request):
 
     return render(request, 'agregar_users.html')
 
+@user_passes_test(is_admin)
 def eliminar_objeto(request,modelo ,objeto_id):
     if modelo == "User":
 
@@ -549,6 +606,24 @@ def eliminar_objeto(request,modelo ,objeto_id):
         objeto_a_eliminar.delete()
 
         return redirect('calls')  # Redirige a donde desees después de eliminar el objeto
+
+
+@user_passes_test(is_admin)
+def agregar_users(request):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            role = form.cleaned_data['role']
+            grupo = Group.objects.get(name=role)
+            user.groups.add(grupo)
+            login(request, user)
+            return redirect('user')  # Redirige al inicio después del registro
+    else:
+        form = RegistrationForm()
+    return render(request, 'agregar_users.html', {'form': form})
+
+
 
 
     
