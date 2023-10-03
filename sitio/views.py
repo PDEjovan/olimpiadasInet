@@ -82,9 +82,9 @@ def editar_paciente (request,paciente_id):
         genero = request.POST.get('example-radio')
         telefono = request.POST.get('telefono')
         alergia = request.POST.get('alergia')
-        enfermedad_cronica = request.POST.get('enf_cro')
+        enfermedad_cronica = request.POST.get('enfermedad')
         tratamiento_medico = request.POST.get('tratamiento')
-        enfermedades_o_cirugias = request.POST.get('enf_cir')
+        enfermedades_o_cirugias = request.POST.get('enfermedades_cirugias')
         año_fecha_nac= request.POST.get('ano')
         dia_fecha_nac= request.POST.get('dia')
         mes_fecha_nac= request.POST.get('mes')
@@ -452,7 +452,9 @@ def atender_calls (request):
     return render(request, 'atender_calls.html')  
 
 def agregar_llamadas (request):
-    return render(request, 'agregar_llamadas.html')  
+    pacientes = Paciente.objects.all()
+    salas = Salas.objects.all()
+    return render(request, 'agregar_llamadas.html',{'pacientes' : pacientes,'salas' : salas})  
 
 
 def editar_sala (request, sala_id):

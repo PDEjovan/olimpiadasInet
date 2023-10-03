@@ -13,7 +13,7 @@
         <div class="editar_perfil">
             <a href="{% url 'editar_medico' medicos.id %}">Editar</a>
         </div>
-        <a href="" id="eliminar_enfermero" class="borrar" onclick="eliminar_sala('{{ medicos.id }}')" >Borrar</a>
+        <a id="eliminar_enfermero" class="borrar" onclick="eliminar_sala('{{ medicos.id }}')" >Borrar</a>
         <div class="nombre_apellido">
             <h2>{{ medicos.nombre }}</h2>
         </div>
