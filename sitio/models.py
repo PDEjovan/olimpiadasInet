@@ -1,5 +1,8 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 
 class Enfermeros(models.Model):
     DNI = models.CharField(max_length=8)
@@ -114,11 +117,18 @@ class Llamados(models.Model):
     id_medico=models.ForeignKey(Medico,on_delete=models.CASCADE)
     estado=models.BooleanField(default=False)
 
-class User(models.Model):
-    nombre=models.CharField(max_length=50)
-    apellido=models.CharField(max_length=100)
-    telefono=models.CharField(max_length=15)
-    email=models.EmailField()
-    contraseña=models.CharField(max_length=50 )
-    tipo_user=models.BooleanField(default=False)
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    role_choices = [
+        ('Medico', 'Médico'),
+        ('Enfermero', 'Enfermero'),
+        ('Recepcionista', 'Recepcionista'),
+    ]
+    role = models.CharField(max_length=20, choices=role_choices)
+
+    # Agrega otros campos personalizados según sea necesario
+
+    def __str__(self):
+        return self.user.username
+    

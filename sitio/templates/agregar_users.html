@@ -11,49 +11,9 @@
         <a href="/users"><i class="fa-solid fa-arrow-left"></i></a>
     </div>
     <div class="container_agregar_medico_enfermero">
-        <form class="form_agregar_medico_enfermero" action="{% url 'procesar_formulario_users' %}" method="post">
+        <form class="form_agregar_medico_enfermero"  method="post">
             {% csrf_token %}
-            <h2 class="tit_form_agregar_medico_enfermero">Añadir Usuario</h2>
-            
-            <div class="user-box">
-                <input type="text" name="nombre" id="nombreInput" maxlength="50" required>
-                <label class="label_input">Nombre</label>
-                <p id="nombre-error" class="error-message"></p>
-            </div>
-
-
-            <div class="user-box">
-                <input type="text" name="apellido" id="apellidoInput" maxlength="50" required>
-                <label class="label_input">Apellido</label>
-                <p id="apellido-error" class="error-message"></p>
-            </div>
-
-            <div class="user-box email">
-                <input type="email" name="email" required="">
-                <label class="label_input">Email</label>
-            </div>
-
-            <div class="user-box telefono">
-                <input type="tel" id="telefonoInput" name="telefono" required>
-                <label class="label_input">Teléfono</label>
-            </div>
-
-            <div class="user-box email">
-                <input type="password" name="password" required id="password">
-                <label class="label_input">Contraseña</label>
-                <p id="contraseña-error" class="error-message"></p>
-            </div>
-
-            <div class="user-box email">
-                <input type="password" required  id="confirm_password">
-                <label class="label_input">Verifique la contraseña</label>
-                <p id="contraseña-conf-error" class="error-message"></p>
-            </div>
-
-            </div>
-
-        
-
+            {{ form.as_p  }}
             <div class="button_agregar_medico_enfermero">
                 <button><span></span><p data-start="good luck!" data-text="USUARIO!" data-title="AGREGAR"></p></button>
             </div>

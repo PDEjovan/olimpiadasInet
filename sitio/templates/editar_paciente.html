@@ -110,11 +110,12 @@
                 <label class="label_select">Obra Social</label>
                 <div class="select">
                     <select name="obra_social">
-                        <option value="osecac" {% if paciente.obra_social_id == 1 %}selected{% endif %}>Osecac</option>
-                        <option value="osde" {% if paciente.obra_social_id == 2 %}selected{% endif %}>Osde</option>
-                        <option value="apross" {% if paciente.obra_social_id == 3 %}selected{% endif %}>Apross</option>
-                        <option value="pami" {% if paciente.obra_social_id == 4 %}selected{% endif %}>Pami</option>
-                        <option value="quirófano" {% if paciente.obra_social_id == 5 %}selected{% endif %}>Swiss Medical</option>
+                        <option value="ninguna" {% if paciente.obra_social == "ninguna" %}selected{% endif %}>Ninguna</option>
+                        <option value="osecac" {% if paciente.obra_social == "osecac" %}selected{% endif %}>Osecac</option>
+                        <option value="osde" {% if paciente.obra_social == "osde" %}selected{% endif %}>Osde</option>
+                        <option value="apross" {% if paciente.obra_social == "apross" %}selected{% endif %}>Apross</option>
+                        <option value="pami" {% if paciente.obra_social == "pami" %}selected{% endif %}>Pami</option>
+                        <option value="quirófano" {% if paciente.obra_social == "quirófano" %}selected{% endif %}>Swiss Medical</option>
                     </select>
                 </div>
             </div>
@@ -379,7 +380,32 @@
                 desaparecer_radio2.style.opacity = '0';
                 zona_p.disabled = true;
                 enfermero_asig.disabled = true;
-            } 
+            }
+
+                if (chk_input_alergia.checked) {
+                    label_desaparecer_alergia.style.opacity = '1';
+                } else {
+                    label_desaparecer_alergia.style.opacity = '0';
+                }
+
+                if (chk_input_enfermedad.checked) {
+                    label_desaparecer_enfermedad.style.opacity = '1';
+                } else {
+                    label_desaparecer_enfermedad.style.opacity = '0';
+                }
+
+                if (chk_input_enf_o_cir.checked) {
+                    label_desaparecer_enf_o_cir.style.opacity = '1';
+                } else {
+                    label_desaparecer_enf_o_cir.style.opacity = '0';
+                }
+
+                if (chk_input_tratamiento.checked) {
+                    label_desaparecer_tratamiento.style.opacity = '1';
+                } else {
+                    label_desaparecer_tratamiento.style.opacity = '0';
+                }
+
     </script>
 
 
