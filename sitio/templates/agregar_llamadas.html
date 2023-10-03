@@ -20,16 +20,15 @@
                 <a href="/agregar_paciente">Registrar Paciente</a>
             </div>
             <div class="user-box">
-                <select required name="paciente">
-                    <option value="">Seleccione un paciente</option>
-                    {% for paciente in pacientes %}
-                        <option value="{{ paciente }}">DNI: {{ paciente.DNI }}, NOMBRE: {{ paciente.nombre}} {{ pacinte.apellido }} </option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="user-box">
-                <input type="text"  maxlength="500" name="diagnostico" required id="diagnostico">
-                <label class="label_input">Diagnostico</label>
+                <label class="label_select">Paciente</label>
+                <div class="select">
+                    <select required name="paciente">
+                        <option value="">Seleccione un paciente</option>
+                        {% for paciente in pacientes %}
+                            <option value="{{ paciente }}">DNI: {{ paciente.DNI }}, NOMBRE: {{ paciente.nombre}} {{ pacinte.apellido }} </option>
+                        {% endfor %}
+                    </select>
+                </div>
             </div>
             <div class="user-box select_container calificacion_triage">  
                 <label class="label_select">Calificación Triage</label>
@@ -45,7 +44,11 @@
                     </select>
                 </div>
             </div>
-            <div class="user-box select_container zona">  
+            <div class="user-box" id="diag_div">
+                <input type="text"  maxlength="500" name="diagnostico" required id="diagnostico">
+                <label class="label_input">Diagnostico</label>
+            </div>
+            <div class="user-box select_container zona" id="sala_div">  
                 <label class="label_select">Sala</label>
                 <div class="select">
                     <select name="Sala" id="Sala" required>
@@ -58,7 +61,7 @@
                     </select>
                 </div>
             </div>
-            <div class="user-box select_container especialidad">
+            <div class="user-box select_container especialidad" id="esp_div">
                 <label class="label_select">Especialidad Requerida</label>
                 <div class="select" required>
                     <select name="especialidad" required>
@@ -115,6 +118,10 @@
         const triagevalor = triage.value;
         const ubicacion = document.getElementById('ubicacion');
         const sala = document.getElementById('Sala');
+        const divubi = document.getElementById('ubicacion_div');
+        const divsala = document.getElementById('sala_div');
+        const divesp = document.getElementById('esp_div');
+        const divdiag = document.getElementById('diag_div');
         
 
         // Agregar un controlador de eventos al elemento 'triage' para detectar cambios.
@@ -125,12 +132,16 @@
             // Verificar el valor seleccionado y mostrar/ocultar elementos en consecuencia.
             if (triageValor === 'blanco') {
                 // Si 'blanco' está seleccionado, mostrar 'ubicacion' y ocultar 'sala'.
-                ubicacion.style.display = 'block';
-                sala.style.display = 'none';
+                divubi.style.display = 'block';
+                divsala.style.display = 'none';
+                divesp.style.display= 'none';
+                divdiag.style.display= 'none';
             } else {
                 // En caso contrario, mostrar 'sala' y ocultar 'ubicacion'.
-                ubicacion.style.display = 'none';
-                sala.style.display = 'block';
+                divubi.style.display = 'none';
+                divesp.style.display= 'block';
+                divsala.style.display = 'block';
+                divdiag.style.display= 'block';
             }
         });
 

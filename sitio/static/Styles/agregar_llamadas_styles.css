@@ -387,3 +387,7 @@
 
 }
 
+#ubicacion_div, #sala_div, #esp_div, #diag_div{
+  display: none;
+}
+
