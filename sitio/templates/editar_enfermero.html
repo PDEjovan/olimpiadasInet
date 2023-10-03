@@ -57,6 +57,17 @@
                 <div class="container_fec_nac">
                     <div class="mes_fec_nac">
                         <label class="label_fec">Mes</label>
+                        <div class="ano_fec_nac">
+                            <label class="label_fec">Año</label>
+                            <div class="select">
+                                {% with enfermeros.fecha_nacimiento|date:"Y" as año %}
+                                <input value="{{ año }}" id="añova" hidden>
+                                <select id="ano" name="ano">
+                                    <!-- Opciones de años -->
+                                </select>
+                                {% endwith %}
+                            </div>
+                        </div>
                         <div class="select">
                             {% with enfermeros.fecha_nacimiento|date:"m" as mes %}
                             <select id="mes" name="mes" onchange="ocultarHorasAnteriores('lunes_manana1', 'lunes_manana2')">
@@ -118,17 +129,7 @@
                         </div>
                     </div>
                 
-                    <div class="ano_fec_nac">
-                        <label class="label_fec">Año</label>
-                        <div class="select">
-                            {% with enfermeros.fecha_nacimiento|date:"Y" as año %}
-                            <input value="{{ año }}" id="añova" hidden>
-                            <select id="ano" name="ano">
-                                <!-- Opciones de años -->
-                            </select>
-                            {% endwith %}
-                        </div>
-                    </div>
+                    
                 </div>
 
             </div>

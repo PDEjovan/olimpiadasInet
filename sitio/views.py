@@ -90,9 +90,18 @@ def agregar_paciente (request):
         internado = request.POST.get('internado-radio')
 
         fecha = año_fecha_nac + "-" + mes_fecha_nac + "-" + dia_fecha_nac
-        enfe=Enfermeros.objects.get(id=enfermero_asic)
-        sala_pa=Salas.objects.get(id=sala_asic)
+        
+        if enfermero_asic is None: 
+            enfe=Enfermeros.objects.get(id=0 )
+        else:
+            enfe=Enfermeros.objects.get(id=enfermero_asic)
 
+        if sala_asic != None: 
+            sala_pa=Salas.objects.get(id=sala_asic)
+
+        if sala_asic is  None: 
+            sala_pa=Salas.objects.get(id=0)
+        
         email = request.POST.get('email')
         Paciente.objects.create(DNI=dni, nombre=nombre,apellido=apellido,direccion=direccion,email=email,obra_social=obra_so,fecha_nacimiento=fecha,genero=genero,telefono=telefono,alergia=alergia,enfermedad_cronica=enfermedad_cronica,tratamiento_medico=tratamiento_medico,enfermedades_o_cirugias=enfermedades_o_cirugias,enfermero=enfe,sala=sala_pa,internado=internado)
 

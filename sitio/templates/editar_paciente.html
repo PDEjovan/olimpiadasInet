@@ -128,6 +128,17 @@
             <div class="fec_nac">
                 <label class="label_fec">Fecha Nacimiento</label>
                 <div class="container_fec_nac">
+                    <div class="ano_fec_nac">
+                        <label class="label_fec">Año</label>
+                        <div class="select">
+                            {% with paciente.fecha_nacimiento|date:"Y" as año %}
+                            <input value="{{ año }}" id="añova" hidden>
+                            <select id="ano" name="ano">
+                                <!-- Opciones de años -->
+                            </select>
+                            {% endwith %}
+                        </div>
+                    </div>
                     <div class="mes_fec_nac">
                         <label class="label_fec">Mes</label>
                         <div class="select">
@@ -191,17 +202,7 @@
                         </div>
                     </div>
                 
-                    <div class="ano_fec_nac">
-                        <label class="label_fec">Año</label>
-                        <div class="select">
-                            {% with paciente.fecha_nacimiento|date:"Y" as año %}
-                            <input value="{{ año }}" id="añova" hidden>
-                            <select id="ano" name="ano">
-                                <!-- Opciones de años -->
-                            </select>
-                            {% endwith %}
-                        </div>
-                    </div>
+                    
                 </div>
 
             </div>
@@ -230,7 +231,12 @@
                 <div class="select">
                     <select name="enfermero asignado" id="enfermero_asig" >
                         {% for en in enfermeros %}
-                        <option value="{{ en.id }}" {% if en.id == paciente.enfermero.id %} selected="selected" {% endif %}>{{ en.nombre }}</option>
+                        {% if en.id == 0 %}
+                            <option hidden value="{{ en.id }}" {% if en.id == paciente.enfermero.id %} selected="selected" {% endif %}>{{ en.nombre }}</option>
+                        {% endif %}
+                        {% if en.id != 0 %}
+                            <option value="{{ en.id }}" {% if en.id == paciente.enfermero.id %} selected="selected" {% endif %}>{{ en.nombre }}</option>
+                        {% endif %}
                         {% endfor %}
                     </select>
                 </div>
@@ -259,6 +265,9 @@
                     <select name="zona paciente" id="zona_paciente" >
                         <option value="">Seleccione una Opción</option>
                         {% for sa in sala %}
+                            {% if sa.tipo_sala == null %}
+                                <option  hidden option value="{{ sa.id }}" {% if sa.id == paciente.sala.id %} selected="selected" {% endif %}>{{ sa.nombre }}</option>
+                            {% endif %}
                             {% if sa.tipo_sala == 'box' %}
                                 <option   option value="{{ sa.id }}" {% if sa.id == paciente.sala.id %} selected="selected" {% endif %}>{{ sa.nombre }}</option>
                             {% endif %}

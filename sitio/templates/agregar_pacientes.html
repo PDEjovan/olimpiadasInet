@@ -128,6 +128,14 @@
             <div class="fec_nac">
                 <label class="label_fec">Fecha Nacimiento</label>
                 <div class="container_fec_nac">
+                    <div class="ano_fec_nac">
+                        <label class="label_fec">Año</label>
+                        <div class="select">
+                            <select id="ano" name="ano">
+                                <!-- Opciones de años -->
+                            </select>
+                        </div>
+                    </div>
                     <div class="mes_fec_nac">
                         <label class="label_fec">Mes</label>
                         <div class="select">
@@ -187,14 +195,7 @@
                         </div>
                     </div>
                 
-                    <div class="ano_fec_nac">
-                        <label class="label_fec">Año</label>
-                        <div class="select">
-                            <select id="ano" name="ano">
-                                <!-- Opciones de años -->
-                            </select>
-                        </div>
-                    </div>
+                    
                 </div>
 
             </div>
@@ -221,10 +222,14 @@
             <div class="user-box select_container enfermero" id="desaparecer_with_radio1">  
                 <label class="label_select">Enfermero</label>
                 <div class="select">
-                    <select name="enfermero asignado">
-                        <option value=""></option>
+                    <select name="enfermero asignado" id="enfermero_asig">
                         {% for en in enfermeros %}
-                        <option value="{{ en.id }}">{{ en.nombre }}</option>
+                            {% if en.id == 0 %}
+                                <option hidden value="{{ en.id }}">{{ en.nombre }}</option>
+                            {% endif %}
+                            {% if en.id != 0 %}
+                                <option value="{{ en.id }}">{{ en.nombre }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>
@@ -250,9 +255,11 @@
             <div class="user-box select_container zona" id="desaparecer_with_radio2">  
                 <label class="label_select">Box</label>
                 <div class="select">
-                    <select name="zona paciente">
-                        <option value="">Seleccione una Opción</option>
+                    <select name="zona paciente" id="zona_paciente">
                         {% for sala in sala %}
+                            {% if sala.tipo_sala == null %}
+                                <option hidden value="{{ sala.id }}">{{ sala.nombre }}</option>
+                            {% endif %}
                             {% if sala.tipo_sala == 'box' %}
                                 <option value="{{ sala.id }}">{{ sala.nombre }}</option>
                             {% endif %}
@@ -296,6 +303,8 @@
         var chk_input_internado2 = document.getElementById('option_no');
         var desaparecer_radio1 = document.getElementById('desaparecer_with_radio1');
         var desaparecer_radio2 = document.getElementById('desaparecer_with_radio2');
+        var zona_p = document.getElementById('zona_paciente')
+        var enfermero_asig = document.getElementById('enfermero_asig')
 
         chk_input_alergia.addEventListener('change', function() {
         if (chk_input_alergia.checked) {
@@ -331,6 +340,8 @@
             if (chk_input_internado.checked) {
                 desaparecer_radio1.style.opacity = '1';
                 desaparecer_radio2.style.opacity = '1';
+                zona_p.disabled = false;
+                enfermero_asig.disabled = false;
             } 
             });
 
@@ -338,10 +349,24 @@
             if (chk_input_internado2.checked) {
                 desaparecer_radio1.style.opacity = '0';
                 desaparecer_radio2.style.opacity = '0';
+                zona_p.disabled = true;
+                enfermero_asig.disabled = true;
             } 
             });
 
+            if (chk_input_internado.checked) {
+                desaparecer_radio1.style.opacity = '1';
+                desaparecer_radio2.style.opacity = '1';
+                zona_p.disabled = false;
+                enfermero_asig.disabled = false;
+            } 
 
+            if (chk_input_internado2.checked) {
+                desaparecer_radio1.style.opacity = '0';
+                desaparecer_radio2.style.opacity = '0';
+                zona_p.disabled = true;
+                enfermero_asig.disabled = true;
+            } 
     </script>
 
 
