@@ -104,6 +104,28 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+
+    alergiaInput.disabled = !chkAlergia.checked;
+    if (!chkAlergia.checked) {
+        alergiaInput.value = ""; // Borra el texto si se desactiva la checkbox
+    }
+
+    enfermedadInput.disabled = !chkEnfermedad.checked;
+    if (!chkEnfermedad.checked) {
+        enfermedadInput.value = ""; // Borra el texto si se desactiva la checkbox
+    }
+
+    tratamientoInput.disabled = !chkTratamiento.checked;
+    if (!chkTratamiento.checked) {
+        tratamientoInput.value = ""; // Borra el texto si se desactiva la checkbox
+    }
+
+    enfCirInput.disabled = !chkEnfCir.checked;
+    if (!chkEnfCir.checked) {
+        enfCirInput.value = ""; // Borra el texto si se desactiva la checkbox
+    }
+
+
     const direccionInput = document.getElementById("direccionInput"); // Agregar ID al campo de dirección
     const direccionError = document.getElementById("direccion-error"); // Agregar un elemento para mostrar el error
 

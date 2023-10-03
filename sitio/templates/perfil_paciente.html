@@ -8,7 +8,7 @@
     <a href="{% url 'historial_clinico' paciente.id %}">Historial Clínico</a>
 </div>
 <div class="btn_volver">
-    <a href="javascript:history.back(-1)"><i class="fa-solid fa-arrow-left"></i></a>
+    <a href="/pacientes"><i class="fa-solid fa-arrow-left"></i></a>
 </div>
 <div class="container_perfil_paciente">
     <div class="perfil_paciente">
@@ -18,7 +18,7 @@
         <div class="nombre_apellido">
             <h2>{{ paciente.nombre }} {{ paciente.apellido }}</h2>
         </div>
-        <a href="" id="eliminar_enfermero" class="borrar" onclick="eliminar_sala('{{ paciente.id }}')" >Borrar</a>
+        <a id="eliminar_enfermero" class="borrar" onclick="eliminar_sala('{{ paciente.id }}')" >Borrar</a>
         <div class="item_perfil izquierda_perfil">
             <p>DNI:</p> <p>{{ paciente.DNI }}</p>
         </div>
@@ -38,16 +38,16 @@
             <p>Email: </p> <p>{{ paciente.email }}</p>
         </div>
         <div class="item_perfil derecha_perfil derecha1">
-            <p>Alergias: </p><p>{{ paciente.alergia }}</p>
+            <p>Alergias: </p><p>{% if paciente.alergia == None %}No{% else %} {{ paciente.alergia }} {% endif %}</p>
         </div>
         <div class="item_perfil derecha_perfil derecha2">
-            <p>Enfermedades crónicas: </p><p>{{ paciente.enfermedad_cronica }}</p>
+            <p>Enfermedades crónicas: </p><p>{% if paciente.enfermedad_cronica == None %}No{% else %} {{ paciente.enfermedad_cronica }} {% endif %}</p>
         </div>
         <div class="item_perfil derecha_perfil derecha3">
-            <p>Bajo algún tratamiento médico: </p><p>{{ paciente.tratamiento_medico }}</p>
+            <p>Bajo algún tratamiento médico: </p><p>{% if paciente.tratamiento_medico  == None %}No{% else %} {{ paciente.tratamiento_medico }} {% endif %}</p>
         </div>
         <div class="item_perfil derecha_perfil derecha4">
-            <p>Enfermedades o cirugias importantes: </p><p>{{ paciente.enfermedades_o_cirugias }}</p>
+            <p>Enfermedades o cirugias importantes: </p><p>{% if paciente.enfermedades_o_cirugias  == None %}No{% else %} {{ paciente.enfermedades_o_cirugias }} {% endif %}</p>
         </div>
         <div class="item_perfil derecha_perfil derecha5">
             <p>¿Internado en Hospital?: </p><p>{{ paciente.internado }}</p>
