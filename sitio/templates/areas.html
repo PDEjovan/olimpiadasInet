@@ -13,28 +13,30 @@
         </div>
     </a>
     {% for sala in salas %}
-    <div class="sala">
-        <div class="editar_y_eliminar">
-            <a href="{% url 'editar_sala' sala.id %}">Editar</a>
-            <div class="borrar_sala" id="eliminar-sala" data-sala-id="{{ sala.id }}" onclick="eliminar_sala('{{ sala.id }}')">
-                <i class="fa-solid fa-xmark"></i>
-            </div>
-        </div>
-        
-        <div class="container_sala">
-            <div class="desc_sala">
-                <div class="nombre_sala">
-                    <p>{{  sala.nombre }}</p>
+        {% if sala.id != 0 %}
+            <div class="sala">
+                <div class="editar_y_eliminar">
+                    <a href="{% url 'editar_sala' sala.id %}">Editar</a>
+                    <div class="borrar_sala" id="eliminar-sala" data-sala-id="{{ sala.id }}" onclick="eliminar_sala('{{ sala.id }}')">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
                 </div>
-                <p class="tipo_sala">
-                    {{  sala.tipo_sala }}
-                </p>
+                
+                <div class="container_sala">
+                    <div class="desc_sala">
+                        <div class="nombre_sala">
+                            <p>{{  sala.nombre }}</p>
+                        </div>
+                        <p class="tipo_sala">
+                            {{  sala.tipo_sala }}
+                        </p>
+                    </div>
+                    <div class="icon_sala">
+                        <i class="fa-solid fa-house"></i>
+                    </div>
+                </div>
             </div>
-            <div class="icon_sala">
-                <i class="fa-solid fa-house"></i>
-            </div>
-        </div>
-    </div>
+        {% endif %}
     {% endfor %}
     
 </div>

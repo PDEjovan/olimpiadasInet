@@ -61,6 +61,17 @@
             <div class="fec_nac">
                 <label class="label_fec">Fecha Nacimiento</label>
                 <div class="container_fec_nac">
+                    <div class="ano_fec_nac">
+                        <label class="label_fec">Año</label>
+                        <div class="select">
+                            {% with medicos.fecha_nacimiento|date:"Y" as año %}
+                            <input value="{{ año }}" id="añova" hidden>
+                            <select id="ano" name="ano">
+                                <!-- Opciones de años -->
+                            </select>
+                        </div>
+                        {% endwith %}
+                    </div>
                     <div class="mes_fec_nac">
                         <label class="label_fec">Mes</label>
                         <div class="select">
@@ -124,17 +135,7 @@
                         </div>
                     </div>
                 
-                    <div class="ano_fec_nac">
-                        <label class="label_fec">Año</label>
-                        <div class="select">
-                            {% with medicos.fecha_nacimiento|date:"Y" as año %}
-                            <input value="{{ año }}" id="añova" hidden>
-                            <select id="ano" name="ano">
-                                <!-- Opciones de años -->
-                            </select>
-                        </div>
-                        {% endwith %}
-                    </div>
+                    
                 </div>
 
             </div>

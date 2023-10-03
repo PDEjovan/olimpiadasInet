@@ -58,9 +58,9 @@ class Paciente(models.Model):
     enfermedad_cronica = models.CharField(max_length=255, blank=True, default='No',null=True)
     tratamiento_medico = models.CharField(max_length=255, blank=True, default='No',null=True)
     enfermedades_o_cirugias = models.TextField(max_length=255, blank=True, default='No',null=True)
-    enfermero=models.ForeignKey(Enfermeros,on_delete=models.CASCADE)
+    enfermero=models.ForeignKey(Enfermeros,on_delete=models.SET_NULL, null=True, blank=True)
     internado=models.CharField(max_length=2, default='No')
-    sala=models.ForeignKey(Salas,on_delete=models.CASCADE)
+    sala=models.ForeignKey(Salas,on_delete=models.SET_NULL, null=True, blank=True)
 
 
 class Medico(models.Model):

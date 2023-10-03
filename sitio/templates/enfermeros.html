@@ -36,24 +36,27 @@
       <div class="icon_agregar_paciente_medico_enfermero"><i class="fa-solid fa-plus"></i></div>
       <div class="title_paciente_medico_enfermero">Agregar Enfermero</div>
     </a>
-  {% for enfermero in enfermeros %}
-    <a href="{% url 'perfil_enfermero' enfermero.id %}" class="paciente_medico_enfermero">
-        <div class="title_paciente_medico_enfermero">{{ enfermero.nombre }} {{enfermero.apellido}}</div>
-        <div class="extra_info_paciente_medico_enfermero">
-          <div class="flex_info">
-            <p>Estado: </p>
-            <p>No disponible</p>
-          </div>
-          <div class="flex_info">
-            <p>DNI: </p>
-            <p>{{ enfermero.DNI }}</p>
-          </div>
-          <div class="flex_info">
-            <p>Género: </p>
-            <p>{{ enfermero.genero }}</p>
-          </div>
-        </div>
-    </a>
+    {% for enfermero in enfermeros %}
+      {% if enfermero.id != 0 %}
+        <a href="{% url 'perfil_enfermero' enfermero.id %}" class="paciente_medico_enfermero">
+            <div class="title_paciente_medico_enfermero">{{ enfermero.nombre }} {{enfermero.apellido}}</div>
+            <div class="extra_info_paciente_medico_enfermero">
+              <div class="flex_info">
+                <p>Estado: </p>
+                <p>No disponible</p>
+              </div>
+              <div class="flex_info">
+                <p>DNI: </p>
+                <p>{{ enfermero.DNI }}</p>
+              </div>
+              <div class="flex_info">
+                <p>Género: </p>
+                <p>{{ enfermero.genero }}</p>
+              </div>
+            </div>
+        </a>
+
+      {% endif %}
     {% endfor %}
     
   </div>
