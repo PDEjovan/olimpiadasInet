@@ -92,7 +92,7 @@ def agregar_paciente (request):
         fecha = año_fecha_nac + "-" + mes_fecha_nac + "-" + dia_fecha_nac
         
         if enfermero_asic is None: 
-            enfe=Enfermeros.objects.get(id=0 )
+            enfe=None
         else:
             enfe=Enfermeros.objects.get(id=enfermero_asic)
 
@@ -100,7 +100,7 @@ def agregar_paciente (request):
             sala_pa=Salas.objects.get(id=sala_asic)
 
         if sala_asic is  None: 
-            sala_pa=Salas.objects.get(id=0)
+            sala_pa=None
         
         email = request.POST.get('email')
         Paciente.objects.create(DNI=dni, nombre=nombre,apellido=apellido,direccion=direccion,email=email,obra_social=obra_so,fecha_nacimiento=fecha,genero=genero,telefono=telefono,alergia=alergia,enfermedad_cronica=enfermedad_cronica,tratamiento_medico=tratamiento_medico,enfermedades_o_cirugias=enfermedades_o_cirugias,enfermero=enfe,sala=sala_pa,internado=internado)
@@ -144,9 +144,18 @@ def editar_paciente (request,paciente_id):
         sala_asic=request.POST.get('zona paciente')
         internado = request.POST.get('internado-radio')
         
+        if enfermero_asic is None: 
+            enfe=None
+        else:
+            enfe=Enfermeros.objects.get(id=enfermero_asic)
+
+        if sala_asic != None: 
+            sala_pa=Salas.objects.get(id=sala_asic)
+
+        if sala_asic is  None: 
+            sala_pa=None
+        
         fecha = año_fecha_nac + "-" + mes_fecha_nac + "-" + dia_fecha_nac
-        enfe=Enfermeros.objects.get(id=enfermero_asic)
-        sala_pa=Salas.objects.get(id=sala_asic)
 
         email = request.POST.get('email')
         #actualizar
@@ -531,6 +540,30 @@ def atender_calls (request):
 
 @user_passes_test(is_medico_recepcionista_o_enfermero)
 def agregar_llamadas (request):
+    if request.method == 'POST':
+        tipo_llamado= request.POST.get('triage')
+        id_paciente = request.POST.get('dni')
+        ubicacion=request.POST.get('ubicacion')
+        id_zona=request.POST.get('Sala')
+        id_medico=None
+        estado=False
+        
+        if ubicacion is None:
+            ubi=None
+        else:
+            ubi=request.POST.get('ubicacion')
+        
+        if id_zona != None: 
+            zona=Salas.objects.get(id=id_zona)
+
+        if id_zona is  None: 
+            zona=None
+        
+        
+        Llamados.objects.create(tipo_llamado=tipo_llamado, ubicacion=ubi, id_paciente=id_paciente, id_zona=zona,id_medico=id_medico,estado=estado )
+        
+        return redirect('calls')
+    
     pacientes = Paciente.objects.all()
     salas = Salas.objects.all()
     return render(request, 'agregar_llamadas.html',{'pacientes' : pacientes,'salas' : salas})  
@@ -633,7 +666,7 @@ def agregar_users(request):
             role = form.cleaned_data['role']
             grupo = Group.objects.get(name=role)
             user.groups.add(grupo)
-            login(request, user)
+            login(request, user, role)
             return redirect('user')  # Redirige al inicio después del registro
     else:
         form = RegistrationForm()

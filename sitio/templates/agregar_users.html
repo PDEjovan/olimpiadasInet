@@ -11,9 +11,11 @@
         <a href="/users"><i class="fa-solid fa-arrow-left"></i></a>
     </div>
     <div class="container_agregar_medico_enfermero">
-        <form class="form_agregar_medico_enfermero"  method="post">
+        <form class="form_agregar_usuario"  method="post">
             {% csrf_token %}
-            {{ form.as_p  }}
+            <div class="user-box color_blanco text-muted">
+                {{ form.as_table }}
+            </div>
             <div class="button_agregar_medico_enfermero">
                 <button><span></span><p data-start="good luck!" data-text="USUARIO!" data-title="AGREGAR"></p></button>
             </div>

@@ -229,7 +229,8 @@
             <div class="user-box select_container enfermero" id="desaparecer_with_radio1">  
                 <label class="label_select">Enfermero</label>
                 <div class="select">
-                    <select name="enfermero asignado" id="enfermero_asig" >
+                    <select required name="enfermero asignado" id="enfermero_asig" >
+                        <option value=''>Seleccione un Enfermero</option>
                         {% for en in enfermeros %}
                         {% if en.id == 0 %}
                             <option hidden value="{{ en.id }}" {% if en.id == paciente.enfermero.id %} selected="selected" {% endif %}>{{ en.nombre }}</option>
@@ -262,7 +263,7 @@
             <div class="user-box select_container zona" id="desaparecer_with_radio2">  
                 <label class="label_select">Box</label>
                 <div class="select">
-                    <select name="zona paciente" id="zona_paciente" >
+                    <select required name="zona paciente" id="zona_paciente" >
                         <option value="">Seleccione una Opción</option>
                         {% for sa in sala %}
                             {% if sa.tipo_sala == null %}

@@ -24,11 +24,7 @@
                     <tr>
                         <th> Editar</th>
                         <th> ID</th>
-                        <th> Nombre</th>
-                        <th> Apellido</th>
-                        <th> Teléfono</th>
-                        <th> Email</th>
-                        <th> Tipo Usuario</th>
+                        <th> Rol</th>
                         
 
                     </tr>
@@ -39,15 +35,7 @@
                     <tr>
                         <td> <a href="{% url 'editar_users' user.id %}""> editar</a></td>
                         <td> {{  user.id  }} </td>
-                        <td> {{  user.nombre }}</td>
-                        <td> {{  user.apellido }}</td>
-                        <td> {{  user.telefono }} </td>
-                        <td> {{  user.email }}</td>
-                        {% if tipo_user %}
-                        <td> Admin </td>
-                        {% else %}
-                        <td> Normal </td>
-                        {% endif %}
+                        <td> {{  user.role }}</td>
                     </tr>
                     
                 </tbody>

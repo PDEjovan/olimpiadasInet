@@ -61,9 +61,9 @@ class Paciente(models.Model):
     enfermedad_cronica = models.CharField(max_length=255, blank=True, default='No',null=True)
     tratamiento_medico = models.CharField(max_length=255, blank=True, default='No',null=True)
     enfermedades_o_cirugias = models.TextField(max_length=255, blank=True, default='No',null=True)
-    enfermero=models.ForeignKey(Enfermeros,on_delete=models.SET_NULL, null=True, blank=True)
+    enfermero=models.ForeignKey(Enfermeros,on_delete=models.SET_DEFAULT,null=True , default=None, blank=True)
     internado=models.CharField(max_length=2, default='No')
-    sala=models.ForeignKey(Salas,on_delete=models.SET_NULL, null=True, blank=True)
+    sala=models.ForeignKey(Salas,on_delete=models.SET_DEFAULT,null=True , default=None, blank=True)
 
 
 class Medico(models.Model):
@@ -112,10 +112,12 @@ class Llamados(models.Model):
     tipo_llamado=models.CharField(max_length=20)
     fecha_hora=models.DateTimeField(default=timezone.now)
     diagnostico=models.CharField(max_length=50,default='nada')
-    id_paciente=models.ForeignKey(Paciente,on_delete=models.CASCADE)
-    id_zona=models.ForeignKey(Salas,on_delete=models.CASCADE)
-    id_medico=models.ForeignKey(Medico,on_delete=models.CASCADE)
+    ubicacion=models.CharField(max_length=20,null=True,default=None)
+    id_paciente=models.ForeignKey(Paciente,on_delete=models.SET_DEFAULT, null=True,default=None)
+    id_zona=models.ForeignKey(Salas,on_delete=models.SET_DEFAULT, null=True,default=None )
+    id_medico=models.ForeignKey(Medico,on_delete=models.SET_DEFAULT, null=True,default=None)
     estado=models.BooleanField(default=False)
+
 
 
 class UserProfile(models.Model):
