@@ -389,6 +389,9 @@
 
 }
 
+.select select{
+  width: 100%;
+}
 
 .desaparecer_with_radio{
   opacity: 0;
