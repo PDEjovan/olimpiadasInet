@@ -19,13 +19,21 @@
                 <h2>Añadir Llamada</h2>
                 <a href="/agregar_paciente">Registrar Paciente</a>
             </div>
+<<<<<<< HEAD
             <div class="user-box select_container">
+=======
+            <div class="user-box">
+>>>>>>> dfc8af6bf12cf866fe7b4f6a3c21d6d69f3c1b95
                 <label class="label_select">Paciente</label>
                 <div class="select">
                     <select required name="paciente">
                         <option value="">Seleccione un paciente</option>
                         {% for paciente in pacientes %}
+<<<<<<< HEAD
                             <option value="{{ paciente }}">DNI: {{ paciente.DNI }}, NOMBRE: {{ paciente.nombre}} {{ paciente.apellido }} </option>
+=======
+                            <option value="{{ paciente }}">DNI: {{ paciente.DNI }}, NOMBRE: {{ paciente.nombre}} {{ pacinte.apellido }} </option>
+>>>>>>> dfc8af6bf12cf866fe7b4f6a3c21d6d69f3c1b95
                         {% endfor %}
                     </select>
                 </div>
@@ -118,8 +126,11 @@
         const triagevalor = triage.value;
         const ubicacion = document.getElementById('ubicacion');
         const sala = document.getElementById('Sala');
+<<<<<<< HEAD
         const esp = document.getElementById('especialidad');
         const diag = document.getElementById('diagnostico')
+=======
+>>>>>>> dfc8af6bf12cf866fe7b4f6a3c21d6d69f3c1b95
         const divubi = document.getElementById('ubicacion_div');
         const divsala = document.getElementById('sala_div');
         const divesp = document.getElementById('esp_div');
